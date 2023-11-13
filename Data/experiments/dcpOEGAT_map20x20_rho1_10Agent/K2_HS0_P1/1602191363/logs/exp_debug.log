@@ -1,0 +1,39 @@
+[INFO] - 2023-10-16 14:46:08,380 - root - : Hi, This is root. in /Users/peterwang/Desktop/github/magat_pathplanning/utils/config.py:321
+[INFO] - 2023-10-16 14:46:08,380 - root - : After the configurations are successfully processed and dirs are created. in /Users/peterwang/Desktop/github/magat_pathplanning/utils/config.py:322
+[INFO] - 2023-10-16 14:46:08,380 - root - : The pipeline of the project will begin now. in /Users/peterwang/Desktop/github/magat_pathplanning/utils/config.py:323
+[INFO] - 2023-10-16 14:46:08,391 - Agent - : Model: None
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:97
+[INFO] - 2023-10-16 14:46:08,391 - DecentralPlannerDataLoader Online Expert - : Loading #10 Agent DATA from Path without OnlineTF ..... in /Users/peterwang/Desktop/github/magat_pathplanning/dataloader/Dataloader_dcplocal_notTF_onlineExpert.py:24
+[INFO] - 2023-10-16 14:46:08,411 - Agent - : Program will run on *****CPU*****
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:149
+[INFO] - 2023-10-16 14:46:08,411 - Agent - : Loading checkpoint './Data/experiments/dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191363/checkpoints/model_best.pth.tar' in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:224
+[INFO] - 2023-10-29 00:58:58,580 - root - : Hi, This is root. in /Users/peterwang/Desktop/github/magat_pathplanning/utils/config.py:321
+[INFO] - 2023-10-29 00:58:58,580 - root - : After the configurations are successfully processed and dirs are created. in /Users/peterwang/Desktop/github/magat_pathplanning/utils/config.py:322
+[INFO] - 2023-10-29 00:58:58,581 - root - : The pipeline of the project will begin now. in /Users/peterwang/Desktop/github/magat_pathplanning/utils/config.py:323
+[INFO] - 2023-10-29 00:58:58,597 - Agent - : Model: None
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:97
+[INFO] - 2023-10-29 00:58:58,597 - DecentralPlannerDataLoader Online Expert - : Loading #10 Agent DATA from Path without OnlineTF ..... in /Users/peterwang/Desktop/github/magat_pathplanning/dataloader/Dataloader_dcplocal_notTF_onlineExpert.py:24
+[INFO] - 2023-10-29 00:58:58,610 - Agent - : Program will run on *****CPU*****
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:149
+[INFO] - 2023-10-29 00:58:58,610 - Agent - : Loading checkpoint './Data/experiments/dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191363/checkpoints/model_best.pth.tar' in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:224
+[INFO] - 2023-10-29 00:58:58,623 - Agent - : Checkpoint loaded successfully from './Data/experiments/dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191363/checkpoints/' at (epoch 141) at (iteration 1316952)
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:238
+[INFO] - 2023-10-29 00:58:58,638 - Agent - : 
+test set on dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191363 in 4500 testing set 
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:705
+[INFO] - 2023-10-29 01:00:46,231 - Agent - : You have entered CTRL+C.. Wait to finalize in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:313
+[INFO] - 2023-11-07 21:16:03,626 - root - : Hi, This is root. in /Users/peterwang/Desktop/github/magat_pathplanning/utils/config.py:321
+[INFO] - 2023-11-07 21:16:03,626 - root - : After the configurations are successfully processed and dirs are created. in /Users/peterwang/Desktop/github/magat_pathplanning/utils/config.py:322
+[INFO] - 2023-11-07 21:16:03,626 - root - : The pipeline of the project will begin now. in /Users/peterwang/Desktop/github/magat_pathplanning/utils/config.py:323
+[INFO] - 2023-11-07 21:16:03,639 - Agent - : Model: None
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:97
+[INFO] - 2023-11-07 21:16:03,639 - DecentralPlannerDataLoader Online Expert - : Loading #10 Agent DATA from Path without OnlineTF ..... in /Users/peterwang/Desktop/github/magat_pathplanning/dataloader/Dataloader_dcplocal_notTF_onlineExpert.py:24
+[INFO] - 2023-11-07 21:16:03,670 - Agent - : Program will run on *****CPU*****
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:149
+[INFO] - 2023-11-07 21:16:03,670 - Agent - : Loading checkpoint './Data/experiments/dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191363/checkpoints/model_best.pth.tar' in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:224
+[INFO] - 2023-11-07 21:16:03,685 - Agent - : Checkpoint loaded successfully from './Data/experiments/dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191363/checkpoints/' at (epoch 141) at (iteration 1316952)
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:238
+[INFO] - 2023-11-07 21:16:03,695 - Agent - : 
+test set on dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191363 in 4500 testing set 
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:705
+[INFO] - 2023-11-07 21:16:51,830 - Agent - : You have entered CTRL+C.. Wait to finalize in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:313

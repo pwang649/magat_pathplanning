@@ -1,0 +1,6 @@
+[INFO] - 2023-11-13 00:25:54,034 - root - : Hi, This is root. in /Users/peterwang/Desktop/github/magat_pathplanning/utils/config.py:321
+[INFO] - 2023-11-13 00:25:54,034 - root - : After the configurations are successfully processed and dirs are created. in /Users/peterwang/Desktop/github/magat_pathplanning/utils/config.py:322
+[INFO] - 2023-11-13 00:25:54,034 - root - : The pipeline of the project will begin now. in /Users/peterwang/Desktop/github/magat_pathplanning/utils/config.py:323
+[INFO] - 2023-11-13 00:25:54,057 - Agent - : Model: None
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:97
+[INFO] - 2023-11-13 00:25:54,057 - DecentralPlannerDataLoader Online Expert - : Loading #10 Agent DATA from Path without OnlineTF ..... in /Users/peterwang/Desktop/github/magat_pathplanning/dataloader/Dataloader_dcplocal_notTF_onlineExpert.py:24

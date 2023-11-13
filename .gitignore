@@ -3,7 +3,7 @@ scripts_IROS/.nfs*
 .idea/
 *.pyc
 .DS_Store
-data/
+#data/
 utils/magent/build/
 utils/magent/data/
 Jupyter/

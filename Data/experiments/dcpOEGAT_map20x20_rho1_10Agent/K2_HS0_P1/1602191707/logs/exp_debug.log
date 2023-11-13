@@ -1,0 +1,954 @@
+[INFO] - 2023-10-16 14:46:39,280 - root - : Hi, This is root. in /Users/peterwang/Desktop/github/magat_pathplanning/utils/config.py:321
+[INFO] - 2023-10-16 14:46:39,280 - root - : After the configurations are successfully processed and dirs are created. in /Users/peterwang/Desktop/github/magat_pathplanning/utils/config.py:322
+[INFO] - 2023-10-16 14:46:39,280 - root - : The pipeline of the project will begin now. in /Users/peterwang/Desktop/github/magat_pathplanning/utils/config.py:323
+[INFO] - 2023-10-16 14:46:39,291 - Agent - : Model: None
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:97
+[INFO] - 2023-10-16 14:46:39,291 - DecentralPlannerDataLoader Online Expert - : Loading #10 Agent DATA from Path without OnlineTF ..... in /Users/peterwang/Desktop/github/magat_pathplanning/dataloader/Dataloader_dcplocal_notTF_onlineExpert.py:24
+[INFO] - 2023-10-16 14:46:39,301 - Agent - : Program will run on *****CPU*****
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:149
+[INFO] - 2023-10-16 14:46:39,301 - Agent - : Loading checkpoint './Data/experiments/dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707/checkpoints/checkpoint_272.pth.tar' in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:224
+[INFO] - 2023-10-16 14:48:04,913 - root - : Hi, This is root. in /Users/peterwang/Desktop/github/magat_pathplanning/utils/config.py:321
+[INFO] - 2023-10-16 14:48:04,914 - root - : After the configurations are successfully processed and dirs are created. in /Users/peterwang/Desktop/github/magat_pathplanning/utils/config.py:322
+[INFO] - 2023-10-16 14:48:04,914 - root - : The pipeline of the project will begin now. in /Users/peterwang/Desktop/github/magat_pathplanning/utils/config.py:323
+[INFO] - 2023-10-16 14:48:04,925 - Agent - : Model: None
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:97
+[INFO] - 2023-10-16 14:48:04,925 - DecentralPlannerDataLoader Online Expert - : Loading #10 Agent DATA from Path without OnlineTF ..... in /Users/peterwang/Desktop/github/magat_pathplanning/dataloader/Dataloader_dcplocal_notTF_onlineExpert.py:24
+[INFO] - 2023-10-16 14:48:04,935 - Agent - : Program will run on *****CPU*****
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:149
+[INFO] - 2023-10-16 14:48:04,935 - Agent - : Loading checkpoint './Data/experiments/dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707/checkpoints/checkpoint_272.pth.tar' in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:224
+[INFO] - 2023-10-16 14:49:39,392 - root - : Hi, This is root. in /Users/peterwang/Desktop/github/magat_pathplanning/utils/config.py:321
+[INFO] - 2023-10-16 14:49:39,392 - root - : After the configurations are successfully processed and dirs are created. in /Users/peterwang/Desktop/github/magat_pathplanning/utils/config.py:322
+[INFO] - 2023-10-16 14:49:39,392 - root - : The pipeline of the project will begin now. in /Users/peterwang/Desktop/github/magat_pathplanning/utils/config.py:323
+[INFO] - 2023-10-16 14:49:39,404 - Agent - : Model: None
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:97
+[INFO] - 2023-10-16 14:49:39,404 - DecentralPlannerDataLoader Online Expert - : Loading #10 Agent DATA from Path without OnlineTF ..... in /Users/peterwang/Desktop/github/magat_pathplanning/dataloader/Dataloader_dcplocal_notTF_onlineExpert.py:24
+[INFO] - 2023-10-16 14:49:39,413 - Agent - : Program will run on *****CPU*****
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:149
+[INFO] - 2023-10-16 14:49:39,414 - Agent - : Loading checkpoint './Data/experiments/dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707/checkpoints/checkpoint_272.pth.tar' in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:224
+[INFO] - 2023-10-16 14:53:21,711 - root - : Hi, This is root. in /Users/peterwang/Desktop/github/magat_pathplanning/utils/config.py:321
+[INFO] - 2023-10-16 14:53:21,711 - root - : After the configurations are successfully processed and dirs are created. in /Users/peterwang/Desktop/github/magat_pathplanning/utils/config.py:322
+[INFO] - 2023-10-16 14:53:21,711 - root - : The pipeline of the project will begin now. in /Users/peterwang/Desktop/github/magat_pathplanning/utils/config.py:323
+[INFO] - 2023-10-16 14:53:21,722 - Agent - : Model: None
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:97
+[INFO] - 2023-10-16 14:53:21,722 - DecentralPlannerDataLoader Online Expert - : Loading #10 Agent DATA from Path without OnlineTF ..... in /Users/peterwang/Desktop/github/magat_pathplanning/dataloader/Dataloader_dcplocal_notTF_onlineExpert.py:24
+[INFO] - 2023-10-16 14:53:21,733 - Agent - : Program will run on *****CPU*****
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:149
+[INFO] - 2023-10-16 14:53:21,733 - Agent - : Loading checkpoint './Data/experiments/dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707/checkpoints/checkpoint_272.pth.tar' in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:224
+[INFO] - 2023-10-16 14:54:12,664 - root - : Hi, This is root. in /Users/peterwang/Desktop/github/magat_pathplanning/utils/config.py:321
+[INFO] - 2023-10-16 14:54:12,664 - root - : After the configurations are successfully processed and dirs are created. in /Users/peterwang/Desktop/github/magat_pathplanning/utils/config.py:322
+[INFO] - 2023-10-16 14:54:12,664 - root - : The pipeline of the project will begin now. in /Users/peterwang/Desktop/github/magat_pathplanning/utils/config.py:323
+[INFO] - 2023-10-16 14:54:12,686 - Agent - : Model: None
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:97
+[INFO] - 2023-10-16 14:54:12,686 - DecentralPlannerDataLoader Online Expert - : Loading #10 Agent DATA from Path without OnlineTF ..... in /Users/peterwang/Desktop/github/magat_pathplanning/dataloader/Dataloader_dcplocal_notTF_onlineExpert.py:24
+[INFO] - 2023-10-16 14:54:12,706 - Agent - : Program will run on *****CPU*****
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:149
+[INFO] - 2023-10-16 14:54:12,706 - Agent - : Loading checkpoint './Data/experiments/dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707/checkpoints/checkpoint_272.pth.tar' in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:224
+[INFO] - 2023-10-16 14:54:12,722 - Agent - : Checkpoint loaded successfully from './Data/experiments/dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707/checkpoints/' at (epoch 273) at (iteration 2678212)
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:238
+[INFO] - 2023-10-16 14:54:12,731 - Agent - : 
+test set on dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 in 4500 testing set 
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:705
+[INFO] - 2023-10-16 14:55:42,061 - Agent - : You have entered CTRL+C.. Wait to finalize in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:313
+[INFO] - 2023-10-16 14:56:03,215 - root - : Hi, This is root. in /Users/peterwang/Desktop/github/magat_pathplanning/utils/config.py:321
+[INFO] - 2023-10-16 14:56:03,215 - root - : After the configurations are successfully processed and dirs are created. in /Users/peterwang/Desktop/github/magat_pathplanning/utils/config.py:322
+[INFO] - 2023-10-16 14:56:03,215 - root - : The pipeline of the project will begin now. in /Users/peterwang/Desktop/github/magat_pathplanning/utils/config.py:323
+[INFO] - 2023-10-16 14:56:03,226 - Agent - : Model: None
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:97
+[INFO] - 2023-10-16 14:56:03,226 - DecentralPlannerDataLoader Online Expert - : Loading #10 Agent DATA from Path without OnlineTF ..... in /Users/peterwang/Desktop/github/magat_pathplanning/dataloader/Dataloader_dcplocal_notTF_onlineExpert.py:24
+[INFO] - 2023-10-16 14:56:03,246 - Agent - : Program will run on *****CPU*****
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:149
+[INFO] - 2023-10-16 14:56:03,246 - Agent - : Loading checkpoint './Data/experiments/dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707/checkpoints/checkpoint_272.pth.tar' in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:224
+[INFO] - 2023-10-16 14:56:03,259 - Agent - : Checkpoint loaded successfully from './Data/experiments/dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707/checkpoints/' at (epoch 273) at (iteration 2678212)
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:238
+[INFO] - 2023-10-16 14:56:03,267 - Agent - : 
+test set on dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 in 4500 testing set 
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:705
+[INFO] - 2023-10-16 15:03:20,115 - Agent - : You have entered CTRL+C.. Wait to finalize in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:313
+[INFO] - 2023-11-06 14:25:46,964 - root - : Hi, This is root. in /Users/peterwang/Desktop/github/magat_pathplanning/utils/config.py:321
+[INFO] - 2023-11-06 14:25:46,964 - root - : After the configurations are successfully processed and dirs are created. in /Users/peterwang/Desktop/github/magat_pathplanning/utils/config.py:322
+[INFO] - 2023-11-06 14:25:46,964 - root - : The pipeline of the project will begin now. in /Users/peterwang/Desktop/github/magat_pathplanning/utils/config.py:323
+[INFO] - 2023-11-06 14:25:46,985 - Agent - : Model: None
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:97
+[INFO] - 2023-11-06 14:25:46,985 - DecentralPlannerDataLoader Online Expert - : Loading #10 Agent DATA from Path without OnlineTF ..... in /Users/peterwang/Desktop/github/magat_pathplanning/dataloader/Dataloader_dcplocal_notTF_onlineExpert.py:24
+[INFO] - 2023-11-06 14:25:46,996 - Agent - : Program will run on *****CPU*****
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:149
+[INFO] - 2023-11-06 14:25:46,996 - Agent - : Loading checkpoint './Data/experiments/dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707/checkpoints/checkpoint_272.pth.tar' in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:224
+[INFO] - 2023-11-06 14:25:47,013 - Agent - : Checkpoint loaded successfully from './Data/experiments/dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707/checkpoints/' at (epoch 273) at (iteration 2678212)
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:238
+[INFO] - 2023-11-06 14:25:47,021 - Agent - : 
+test set on dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 in 40 testing set 
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:705
+[INFO] - 2023-11-06 14:53:07,994 - root - : Hi, This is root. in /Users/peterwang/Desktop/github/magat_pathplanning/utils/config.py:321
+[INFO] - 2023-11-06 14:53:07,994 - root - : After the configurations are successfully processed and dirs are created. in /Users/peterwang/Desktop/github/magat_pathplanning/utils/config.py:322
+[INFO] - 2023-11-06 14:53:07,994 - root - : The pipeline of the project will begin now. in /Users/peterwang/Desktop/github/magat_pathplanning/utils/config.py:323
+[INFO] - 2023-11-06 14:53:08,005 - Agent - : Model: None
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:97
+[INFO] - 2023-11-06 14:53:08,005 - DecentralPlannerDataLoader Online Expert - : Loading #10 Agent DATA from Path without OnlineTF ..... in /Users/peterwang/Desktop/github/magat_pathplanning/dataloader/Dataloader_dcplocal_notTF_onlineExpert.py:24
+[INFO] - 2023-11-06 14:53:08,016 - Agent - : Program will run on *****CPU*****
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:149
+[INFO] - 2023-11-06 14:53:08,016 - Agent - : Loading checkpoint './Data/experiments/dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707/checkpoints/checkpoint_272.pth.tar' in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:224
+[INFO] - 2023-11-06 14:53:08,030 - Agent - : Checkpoint loaded successfully from './Data/experiments/dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707/checkpoints/' at (epoch 273) at (iteration 2678212)
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:238
+[INFO] - 2023-11-06 14:53:08,037 - Agent - : 
+test set on dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 in 400 testing set 
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:705
+[INFO] - 2023-11-06 14:54:47,439 - root - : Hi, This is root. in /Users/peterwang/Desktop/github/magat_pathplanning/utils/config.py:321
+[INFO] - 2023-11-06 14:54:47,439 - root - : After the configurations are successfully processed and dirs are created. in /Users/peterwang/Desktop/github/magat_pathplanning/utils/config.py:322
+[INFO] - 2023-11-06 14:54:47,439 - root - : The pipeline of the project will begin now. in /Users/peterwang/Desktop/github/magat_pathplanning/utils/config.py:323
+[INFO] - 2023-11-06 14:54:47,450 - Agent - : Model: None
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:97
+[INFO] - 2023-11-06 14:54:47,450 - DecentralPlannerDataLoader Online Expert - : Loading #10 Agent DATA from Path without OnlineTF ..... in /Users/peterwang/Desktop/github/magat_pathplanning/dataloader/Dataloader_dcplocal_notTF_onlineExpert.py:24
+[INFO] - 2023-11-06 14:54:47,461 - Agent - : Program will run on *****CPU*****
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:149
+[INFO] - 2023-11-06 14:54:47,461 - Agent - : Loading checkpoint './Data/experiments/dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707/checkpoints/checkpoint_272.pth.tar' in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:224
+[INFO] - 2023-11-06 14:54:47,475 - Agent - : Checkpoint loaded successfully from './Data/experiments/dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707/checkpoints/' at (epoch 273) at (iteration 2678212)
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:238
+[INFO] - 2023-11-06 14:54:47,483 - Agent - : 
+test set on dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 in 400 testing set 
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:705
+[INFO] - 2023-11-06 14:58:04,416 - root - : Hi, This is root. in /Users/peterwang/Desktop/github/magat_pathplanning/utils/config.py:321
+[INFO] - 2023-11-06 14:58:04,416 - root - : After the configurations are successfully processed and dirs are created. in /Users/peterwang/Desktop/github/magat_pathplanning/utils/config.py:322
+[INFO] - 2023-11-06 14:58:04,416 - root - : The pipeline of the project will begin now. in /Users/peterwang/Desktop/github/magat_pathplanning/utils/config.py:323
+[INFO] - 2023-11-06 14:58:04,427 - Agent - : Model: None
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:97
+[INFO] - 2023-11-06 14:58:04,427 - DecentralPlannerDataLoader Online Expert - : Loading #10 Agent DATA from Path without OnlineTF ..... in /Users/peterwang/Desktop/github/magat_pathplanning/dataloader/Dataloader_dcplocal_notTF_onlineExpert.py:24
+[INFO] - 2023-11-06 14:58:04,438 - Agent - : Program will run on *****CPU*****
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:149
+[INFO] - 2023-11-06 14:58:04,438 - Agent - : Loading checkpoint './Data/experiments/dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707/checkpoints/checkpoint_272.pth.tar' in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:224
+[INFO] - 2023-11-06 14:58:04,452 - Agent - : Checkpoint loaded successfully from './Data/experiments/dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707/checkpoints/' at (epoch 273) at (iteration 2678212)
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:238
+[INFO] - 2023-11-06 14:58:04,459 - Agent - : 
+test set on dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 in 4500 testing set 
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:705
+[INFO] - 2023-11-06 14:59:11,169 - Agent - : You have entered CTRL+C.. Wait to finalize in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:313
+[INFO] - 2023-11-06 14:59:28,820 - root - : Hi, This is root. in /Users/peterwang/Desktop/github/magat_pathplanning/utils/config.py:321
+[INFO] - 2023-11-06 14:59:28,820 - root - : After the configurations are successfully processed and dirs are created. in /Users/peterwang/Desktop/github/magat_pathplanning/utils/config.py:322
+[INFO] - 2023-11-06 14:59:28,820 - root - : The pipeline of the project will begin now. in /Users/peterwang/Desktop/github/magat_pathplanning/utils/config.py:323
+[INFO] - 2023-11-06 14:59:28,832 - Agent - : Model: None
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:97
+[INFO] - 2023-11-06 14:59:28,832 - DecentralPlannerDataLoader Online Expert - : Loading #10 Agent DATA from Path without OnlineTF ..... in /Users/peterwang/Desktop/github/magat_pathplanning/dataloader/Dataloader_dcplocal_notTF_onlineExpert.py:24
+[INFO] - 2023-11-06 14:59:28,842 - Agent - : Program will run on *****CPU*****
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:149
+[INFO] - 2023-11-06 14:59:28,842 - Agent - : Loading checkpoint './Data/experiments/dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707/checkpoints/checkpoint_272.pth.tar' in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:224
+[INFO] - 2023-11-06 14:59:28,848 - Agent - : Checkpoint loaded successfully from './Data/experiments/dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707/checkpoints/' at (epoch 273) at (iteration 2678212)
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:238
+[INFO] - 2023-11-06 14:59:28,856 - Agent - : 
+test set on dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 in 4000 testing set 
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:705
+[INFO] - 2023-11-06 14:59:51,262 - Agent - : You have entered CTRL+C.. Wait to finalize in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:313
+[INFO] - 2023-11-06 14:59:59,562 - root - : Hi, This is root. in /Users/peterwang/Desktop/github/magat_pathplanning/utils/config.py:321
+[INFO] - 2023-11-06 14:59:59,562 - root - : After the configurations are successfully processed and dirs are created. in /Users/peterwang/Desktop/github/magat_pathplanning/utils/config.py:322
+[INFO] - 2023-11-06 14:59:59,562 - root - : The pipeline of the project will begin now. in /Users/peterwang/Desktop/github/magat_pathplanning/utils/config.py:323
+[INFO] - 2023-11-06 14:59:59,573 - Agent - : Model: None
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:97
+[INFO] - 2023-11-06 14:59:59,574 - DecentralPlannerDataLoader Online Expert - : Loading #10 Agent DATA from Path without OnlineTF ..... in /Users/peterwang/Desktop/github/magat_pathplanning/dataloader/Dataloader_dcplocal_notTF_onlineExpert.py:24
+[INFO] - 2023-11-06 14:59:59,583 - Agent - : Program will run on *****CPU*****
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:149
+[INFO] - 2023-11-06 14:59:59,583 - Agent - : Loading checkpoint './Data/experiments/dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707/checkpoints/checkpoint_272.pth.tar' in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:224
+[INFO] - 2023-11-06 14:59:59,590 - Agent - : Checkpoint loaded successfully from './Data/experiments/dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707/checkpoints/' at (epoch 273) at (iteration 2678212)
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:238
+[INFO] - 2023-11-06 14:59:59,598 - Agent - : 
+test set on dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 in 4500 testing set 
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:705
+[INFO] - 2023-11-07 21:09:06,551 - Agent - : You have entered CTRL+C.. Wait to finalize in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:313
+[INFO] - 2023-11-07 21:46:17,687 - root - : Hi, This is root. in /Users/peterwang/Desktop/github/magat_pathplanning/utils/config.py:321
+[INFO] - 2023-11-07 21:46:17,687 - root - : After the configurations are successfully processed and dirs are created. in /Users/peterwang/Desktop/github/magat_pathplanning/utils/config.py:322
+[INFO] - 2023-11-07 21:46:17,688 - root - : The pipeline of the project will begin now. in /Users/peterwang/Desktop/github/magat_pathplanning/utils/config.py:323
+[INFO] - 2023-11-07 21:46:17,700 - Agent - : Model: None
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:97
+[INFO] - 2023-11-07 21:46:17,700 - DecentralPlannerDataLoader Online Expert - : Loading #10 Agent DATA from Path without OnlineTF ..... in /Users/peterwang/Desktop/github/magat_pathplanning/dataloader/Dataloader_dcplocal_notTF_onlineExpert.py:24
+[INFO] - 2023-11-07 21:46:17,729 - Agent - : Program will run on *****CPU*****
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:149
+[INFO] - 2023-11-07 21:46:17,729 - Agent - : Loading checkpoint './Data/experiments/dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707/checkpoints/checkpoint_272.pth.tar' in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:224
+[INFO] - 2023-11-07 21:46:17,745 - Agent - : Checkpoint loaded successfully from './Data/experiments/dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707/checkpoints/' at (epoch 273) at (iteration 2678212)
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:238
+[INFO] - 2023-11-07 21:46:17,755 - Agent - : 
+test set on dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 in 400 testing set 
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:705
+[INFO] - 2023-11-07 21:57:51,416 - root - : Hi, This is root. in /Users/peterwang/Desktop/github/magat_pathplanning/utils/config.py:321
+[INFO] - 2023-11-07 21:57:51,417 - root - : After the configurations are successfully processed and dirs are created. in /Users/peterwang/Desktop/github/magat_pathplanning/utils/config.py:322
+[INFO] - 2023-11-07 21:57:51,417 - root - : The pipeline of the project will begin now. in /Users/peterwang/Desktop/github/magat_pathplanning/utils/config.py:323
+[INFO] - 2023-11-07 21:57:51,441 - Agent - : Model: None
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:97
+[INFO] - 2023-11-07 21:57:51,441 - DecentralPlannerDataLoader Online Expert - : Loading #10 Agent DATA from Path without OnlineTF ..... in /Users/peterwang/Desktop/github/magat_pathplanning/dataloader/Dataloader_dcplocal_notTF_onlineExpert.py:24
+[INFO] - 2023-11-07 21:57:51,745 - Agent - : Program will run on *****CPU*****
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:149
+[INFO] - 2023-11-07 21:57:51,745 - Agent - : Loading checkpoint './Data/experiments/dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707/checkpoints/checkpoint_272.pth.tar' in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:224
+[INFO] - 2023-11-07 21:57:51,766 - Agent - : Checkpoint loaded successfully from './Data/experiments/dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707/checkpoints/' at (epoch 273) at (iteration 2678212)
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:238
+[INFO] - 2023-11-07 21:57:51,779 - Agent - : 
+test set on dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 in 40 testing set 
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:705
+[INFO] - 2023-11-07 21:58:25,666 - Agent - : Accurracy(reachGoalnoCollision): 0.95 
+  DeteriorationRate(MakeSpan): 0.1425 
+  DeteriorationRate(FlowTime): 0.0787 
+  Rate(collisionPredictedinLoop): 0.725 
+  Rate(FailedReachGoalbyCollisionShielding): 0.05 
+  in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:774
+[INFO] - 2023-11-07 22:05:55,849 - root - : Hi, This is root. in /Users/peterwang/Desktop/github/magat_pathplanning/utils/config.py:321
+[INFO] - 2023-11-07 22:05:55,850 - root - : After the configurations are successfully processed and dirs are created. in /Users/peterwang/Desktop/github/magat_pathplanning/utils/config.py:322
+[INFO] - 2023-11-07 22:05:55,850 - root - : The pipeline of the project will begin now. in /Users/peterwang/Desktop/github/magat_pathplanning/utils/config.py:323
+[INFO] - 2023-11-07 22:05:55,877 - Agent - : Model: None
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:97
+[INFO] - 2023-11-07 22:05:55,877 - DecentralPlannerDataLoader Online Expert - : Loading #10 Agent DATA from Path without OnlineTF ..... in /Users/peterwang/Desktop/github/magat_pathplanning/dataloader/Dataloader_dcplocal_notTF_onlineExpert.py:24
+[INFO] - 2023-11-07 22:05:56,442 - Agent - : Program will run on *****CPU*****
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:149
+[INFO] - 2023-11-07 22:05:56,443 - Agent - : Loading checkpoint './Data/experiments/dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707/checkpoints/checkpoint_272.pth.tar' in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:224
+[INFO] - 2023-11-07 22:05:56,463 - Agent - : Checkpoint loaded successfully from './Data/experiments/dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707/checkpoints/' at (epoch 273) at (iteration 2678212)
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:238
+[INFO] - 2023-11-07 22:05:56,476 - Agent - : 
+test set on dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 in 40 testing set 
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:705
+[INFO] - 2023-11-07 22:14:21,635 - Agent - : You have entered CTRL+C.. Wait to finalize in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:305
+[INFO] - 2023-11-07 22:14:30,655 - root - : Hi, This is root. in /Users/peterwang/Desktop/github/magat_pathplanning/utils/config.py:321
+[INFO] - 2023-11-07 22:14:30,655 - root - : After the configurations are successfully processed and dirs are created. in /Users/peterwang/Desktop/github/magat_pathplanning/utils/config.py:322
+[INFO] - 2023-11-07 22:14:30,655 - root - : The pipeline of the project will begin now. in /Users/peterwang/Desktop/github/magat_pathplanning/utils/config.py:323
+[INFO] - 2023-11-07 22:14:30,675 - Agent - : Model: None
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:97
+[INFO] - 2023-11-07 22:14:30,675 - DecentralPlannerDataLoader Online Expert - : Loading #10 Agent DATA from Path without OnlineTF ..... in /Users/peterwang/Desktop/github/magat_pathplanning/dataloader/Dataloader_dcplocal_notTF_onlineExpert.py:24
+[INFO] - 2023-11-07 22:14:30,918 - Agent - : Program will run on *****CPU*****
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:149
+[INFO] - 2023-11-07 22:14:30,918 - Agent - : Loading checkpoint './Data/experiments/dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707/checkpoints/checkpoint_272.pth.tar' in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:224
+[INFO] - 2023-11-07 22:14:30,935 - Agent - : Checkpoint loaded successfully from './Data/experiments/dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707/checkpoints/' at (epoch 273) at (iteration 2678212)
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:238
+[INFO] - 2023-11-07 22:14:30,945 - Agent - : 
+test set on dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 in 40 testing set 
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:705
+[INFO] - 2023-11-07 22:15:08,826 - Agent - : Accurracy(reachGoalnoCollision): 0.95 
+  DeteriorationRate(MakeSpan): 0.1489 
+  DeteriorationRate(FlowTime): 0.0728 
+  Rate(collisionPredictedinLoop): 0.8 
+  Rate(FailedReachGoalbyCollisionShielding): 0.05 
+  in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:774
+[INFO] - 2023-11-07 23:02:05,890 - root - : Hi, This is root. in /Users/peterwang/Desktop/github/magat_pathplanning/utils/config.py:321
+[INFO] - 2023-11-07 23:02:05,890 - root - : After the configurations are successfully processed and dirs are created. in /Users/peterwang/Desktop/github/magat_pathplanning/utils/config.py:322
+[INFO] - 2023-11-07 23:02:05,890 - root - : The pipeline of the project will begin now. in /Users/peterwang/Desktop/github/magat_pathplanning/utils/config.py:323
+[INFO] - 2023-11-07 23:02:05,908 - Agent - : Model: None
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:97
+[INFO] - 2023-11-07 23:02:05,908 - DecentralPlannerDataLoader Online Expert - : Loading #10 Agent DATA from Path without OnlineTF ..... in /Users/peterwang/Desktop/github/magat_pathplanning/dataloader/Dataloader_dcplocal_notTF_onlineExpert.py:24
+[INFO] - 2023-11-07 23:02:06,114 - Agent - : Program will run on *****CPU*****
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:149
+[INFO] - 2023-11-07 23:02:06,114 - Agent - : Loading checkpoint './Data/experiments/dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707/checkpoints/checkpoint_272.pth.tar' in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:224
+[INFO] - 2023-11-07 23:02:06,129 - Agent - : Checkpoint loaded successfully from './Data/experiments/dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707/checkpoints/' at (epoch 273) at (iteration 2678212)
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:238
+[INFO] - 2023-11-07 23:02:06,137 - Agent - : 
+test set on dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 in 40 testing set 
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:705
+[INFO] - 2023-11-07 23:02:41,319 - Agent - : Accurracy(reachGoalnoCollision): 0.95 
+  DeteriorationRate(MakeSpan): 0.1336 
+  DeteriorationRate(FlowTime): 0.0769 
+  Rate(collisionPredictedinLoop): 0.825 
+  Rate(FailedReachGoalbyCollisionShielding): 0.05 
+  in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:774
+[INFO] - 2023-11-07 23:02:48,088 - root - : Hi, This is root. in /Users/peterwang/Desktop/github/magat_pathplanning/utils/config.py:321
+[INFO] - 2023-11-07 23:02:48,088 - root - : After the configurations are successfully processed and dirs are created. in /Users/peterwang/Desktop/github/magat_pathplanning/utils/config.py:322
+[INFO] - 2023-11-07 23:02:48,088 - root - : The pipeline of the project will begin now. in /Users/peterwang/Desktop/github/magat_pathplanning/utils/config.py:323
+[INFO] - 2023-11-07 23:02:48,100 - Agent - : Model: None
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:97
+[INFO] - 2023-11-07 23:02:48,100 - DecentralPlannerDataLoader Online Expert - : Loading #10 Agent DATA from Path without OnlineTF ..... in /Users/peterwang/Desktop/github/magat_pathplanning/dataloader/Dataloader_dcplocal_notTF_onlineExpert.py:24
+[INFO] - 2023-11-07 23:02:48,283 - Agent - : Program will run on *****CPU*****
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:149
+[INFO] - 2023-11-07 23:02:48,283 - Agent - : Loading checkpoint './Data/experiments/dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707/checkpoints/checkpoint_272.pth.tar' in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:224
+[INFO] - 2023-11-07 23:02:48,296 - Agent - : Checkpoint loaded successfully from './Data/experiments/dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707/checkpoints/' at (epoch 273) at (iteration 2678212)
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:238
+[INFO] - 2023-11-07 23:02:48,304 - Agent - : 
+test set on dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 in 100 testing set 
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:705
+[INFO] - 2023-11-07 23:03:36,095 - Agent - : Accurracy(reachGoalnoCollision): 0.98 
+  DeteriorationRate(MakeSpan): 0.1164 
+  DeteriorationRate(FlowTime): 0.0704 
+  Rate(collisionPredictedinLoop): 0.72 
+  Rate(FailedReachGoalbyCollisionShielding): 0.02 
+  in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:774
+[INFO] - 2023-11-09 00:47:00,282 - root - : Hi, This is root. in /Users/peterwang/Desktop/github/magat_pathplanning/utils/config.py:321
+[INFO] - 2023-11-09 00:47:00,282 - root - : After the configurations are successfully processed and dirs are created. in /Users/peterwang/Desktop/github/magat_pathplanning/utils/config.py:322
+[INFO] - 2023-11-09 00:47:00,282 - root - : The pipeline of the project will begin now. in /Users/peterwang/Desktop/github/magat_pathplanning/utils/config.py:323
+[INFO] - 2023-11-09 00:47:00,305 - Agent - : Model: None
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:97
+[INFO] - 2023-11-09 00:47:00,305 - DecentralPlannerDataLoader Online Expert - : Loading #10 Agent DATA from Path without OnlineTF ..... in /Users/peterwang/Desktop/github/magat_pathplanning/dataloader/Dataloader_dcplocal_notTF_onlineExpert.py:24
+[INFO] - 2023-11-09 00:48:19,700 - root - : Hi, This is root. in /Users/peterwang/Desktop/github/magat_pathplanning/utils/config.py:321
+[INFO] - 2023-11-09 00:48:19,700 - root - : After the configurations are successfully processed and dirs are created. in /Users/peterwang/Desktop/github/magat_pathplanning/utils/config.py:322
+[INFO] - 2023-11-09 00:48:19,700 - root - : The pipeline of the project will begin now. in /Users/peterwang/Desktop/github/magat_pathplanning/utils/config.py:323
+[INFO] - 2023-11-09 00:48:19,712 - Agent - : Model: None
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:97
+[INFO] - 2023-11-09 00:48:19,712 - DecentralPlannerDataLoader Online Expert - : Loading #10 Agent DATA from Path without OnlineTF ..... in /Users/peterwang/Desktop/github/magat_pathplanning/dataloader/Dataloader_dcplocal_notTF_onlineExpert.py:24
+[INFO] - 2023-11-09 00:48:47,014 - root - : Hi, This is root. in /Users/peterwang/Desktop/github/magat_pathplanning/utils/config.py:321
+[INFO] - 2023-11-09 00:48:47,014 - root - : After the configurations are successfully processed and dirs are created. in /Users/peterwang/Desktop/github/magat_pathplanning/utils/config.py:322
+[INFO] - 2023-11-09 00:48:47,014 - root - : The pipeline of the project will begin now. in /Users/peterwang/Desktop/github/magat_pathplanning/utils/config.py:323
+[INFO] - 2023-11-09 00:48:47,025 - Agent - : Model: None
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:97
+[INFO] - 2023-11-09 00:48:47,025 - DecentralPlannerDataLoader Online Expert - : Loading #10 Agent DATA from Path without OnlineTF ..... in /Users/peterwang/Desktop/github/magat_pathplanning/dataloader/Dataloader_dcplocal_notTF_onlineExpert.py:24
+[INFO] - 2023-11-09 00:49:18,199 - root - : Hi, This is root. in /Users/peterwang/Desktop/github/magat_pathplanning/utils/config.py:321
+[INFO] - 2023-11-09 00:49:18,199 - root - : After the configurations are successfully processed and dirs are created. in /Users/peterwang/Desktop/github/magat_pathplanning/utils/config.py:322
+[INFO] - 2023-11-09 00:49:18,199 - root - : The pipeline of the project will begin now. in /Users/peterwang/Desktop/github/magat_pathplanning/utils/config.py:323
+[INFO] - 2023-11-09 00:49:18,211 - Agent - : Model: None
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:97
+[INFO] - 2023-11-09 00:49:18,211 - DecentralPlannerDataLoader Online Expert - : Loading #10 Agent DATA from Path without OnlineTF ..... in /Users/peterwang/Desktop/github/magat_pathplanning/dataloader/Dataloader_dcplocal_notTF_onlineExpert.py:24
+[INFO] - 2023-11-11 17:10:57,220 - root - : Hi, This is root. in /Users/peterwang/Desktop/github/magat_pathplanning/utils/config.py:321
+[INFO] - 2023-11-11 17:10:57,221 - root - : After the configurations are successfully processed and dirs are created. in /Users/peterwang/Desktop/github/magat_pathplanning/utils/config.py:322
+[INFO] - 2023-11-11 17:10:57,221 - root - : The pipeline of the project will begin now. in /Users/peterwang/Desktop/github/magat_pathplanning/utils/config.py:323
+[INFO] - 2023-11-11 17:10:57,233 - Agent - : Model: None
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:97
+[INFO] - 2023-11-11 17:10:57,233 - DecentralPlannerDataLoader Online Expert - : Loading #10 Agent DATA from Path without OnlineTF ..... in /Users/peterwang/Desktop/github/magat_pathplanning/dataloader/Dataloader_dcplocal_notTF_onlineExpert.py:24
+[INFO] - 2023-11-11 17:10:57,418 - Agent - : Program will run on *****CPU*****
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:149
+[INFO] - 2023-11-11 17:10:57,418 - Agent - : Loading checkpoint './Data/experiments/dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707/checkpoints/checkpoint_272.pth.tar' in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:224
+[INFO] - 2023-11-11 17:10:57,424 - Agent - : Checkpoint loaded successfully from './Data/experiments/dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707/checkpoints/' at (epoch 273) at (iteration 2678212)
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:238
+[INFO] - 2023-11-11 17:10:57,433 - Agent - : 
+test set on dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 in 5 testing set 
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:705
+[INFO] - 2023-11-11 17:11:24,799 - Agent - : Accurracy(reachGoalnoCollision): 0.8 
+  DeteriorationRate(MakeSpan): 0.2524 
+  DeteriorationRate(FlowTime): 0.1443 
+  Rate(collisionPredictedinLoop): 1.0 
+  Rate(FailedReachGoalbyCollisionShielding): 0.2 
+  in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:774
+[INFO] - 2023-11-11 17:31:15,691 - root - : Hi, This is root. in /Users/peterwang/Desktop/github/magat_pathplanning/utils/config.py:321
+[INFO] - 2023-11-11 17:31:15,692 - root - : After the configurations are successfully processed and dirs are created. in /Users/peterwang/Desktop/github/magat_pathplanning/utils/config.py:322
+[INFO] - 2023-11-11 17:31:15,692 - root - : The pipeline of the project will begin now. in /Users/peterwang/Desktop/github/magat_pathplanning/utils/config.py:323
+[INFO] - 2023-11-11 17:31:15,706 - Agent - : Model: None
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:97
+[INFO] - 2023-11-11 17:31:15,706 - DecentralPlannerDataLoader Online Expert - : Loading #10 Agent DATA from Path without OnlineTF ..... in /Users/peterwang/Desktop/github/magat_pathplanning/dataloader/Dataloader_dcplocal_notTF_onlineExpert.py:24
+[INFO] - 2023-11-11 17:31:16,196 - Agent - : Program will run on *****CPU*****
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:149
+[INFO] - 2023-11-11 17:31:16,196 - Agent - : Loading checkpoint './Data/experiments/dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707/checkpoints/checkpoint_272.pth.tar' in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:224
+[INFO] - 2023-11-11 17:31:16,211 - Agent - : Checkpoint loaded successfully from './Data/experiments/dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707/checkpoints/' at (epoch 273) at (iteration 2678212)
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:238
+[INFO] - 2023-11-11 17:31:16,222 - Agent - : 
+test set on dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:652
+[INFO] - 2023-11-11 17:35:58,994 - root - : Hi, This is root. in /Users/peterwang/Desktop/github/magat_pathplanning/utils/config.py:321
+[INFO] - 2023-11-11 17:35:58,994 - root - : After the configurations are successfully processed and dirs are created. in /Users/peterwang/Desktop/github/magat_pathplanning/utils/config.py:322
+[INFO] - 2023-11-11 17:35:58,994 - root - : The pipeline of the project will begin now. in /Users/peterwang/Desktop/github/magat_pathplanning/utils/config.py:323
+[INFO] - 2023-11-11 17:35:59,007 - Agent - : Model: None
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:97
+[INFO] - 2023-11-11 17:35:59,008 - DecentralPlannerDataLoader Online Expert - : Loading #10 Agent DATA from Path without OnlineTF ..... in /Users/peterwang/Desktop/github/magat_pathplanning/dataloader/Dataloader_dcplocal_notTF_onlineExpert.py:24
+[INFO] - 2023-11-11 17:35:59,497 - Agent - : Program will run on *****CPU*****
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:149
+[INFO] - 2023-11-11 17:35:59,497 - Agent - : Loading checkpoint './Data/experiments/dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707/checkpoints/checkpoint_272.pth.tar' in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:224
+[INFO] - 2023-11-11 17:35:59,512 - Agent - : Checkpoint loaded successfully from './Data/experiments/dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707/checkpoints/' at (epoch 273) at (iteration 2678212)
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:238
+[INFO] - 2023-11-11 17:35:59,523 - Agent - : 
+test set on dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:652
+[INFO] - 2023-11-11 17:39:07,938 - Agent - : You have entered CTRL+C.. Wait to finalize in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:313
+[INFO] - 2023-11-11 17:46:39,565 - root - : Hi, This is root. in /Users/peterwang/Desktop/github/magat_pathplanning/utils/config.py:321
+[INFO] - 2023-11-11 17:46:39,565 - root - : After the configurations are successfully processed and dirs are created. in /Users/peterwang/Desktop/github/magat_pathplanning/utils/config.py:322
+[INFO] - 2023-11-11 17:46:39,565 - root - : The pipeline of the project will begin now. in /Users/peterwang/Desktop/github/magat_pathplanning/utils/config.py:323
+[INFO] - 2023-11-11 17:46:39,584 - Agent - : Model: None
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:97
+[INFO] - 2023-11-11 17:46:39,584 - DecentralPlannerDataLoader Online Expert - : Loading #10 Agent DATA from Path without OnlineTF ..... in /Users/peterwang/Desktop/github/magat_pathplanning/dataloader/Dataloader_dcplocal_notTF_onlineExpert.py:24
+[INFO] - 2023-11-11 17:46:39,799 - Agent - : Program will run on *****CPU*****
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:149
+[INFO] - 2023-11-11 17:46:39,799 - Agent - : Loading checkpoint './Data/experiments/dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707/checkpoints/checkpoint_272.pth.tar' in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:224
+[INFO] - 2023-11-11 17:46:39,815 - Agent - : Checkpoint loaded successfully from './Data/experiments/dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707/checkpoints/' at (epoch 273) at (iteration 2678212)
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:238
+[INFO] - 2023-11-11 17:46:39,824 - Agent - : 
+test set on dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:652
+[INFO] - 2023-11-11 17:46:42,475 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case0 	 Computation time:0.2369399070739746 	 Step27/54	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 17:46:42,637 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case1 	 Computation time:0.1606452465057373 	 Step23/46	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 17:46:42,848 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case2 	 Computation time:0.20991206169128418 	 Step30/46	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 17:46:43,031 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case3 	 Computation time:0.18146514892578125 	 Step26/52	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 17:46:43,202 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case4 	 Computation time:0.16876697540283203 	 Step24/46	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 17:47:03,215 - Agent - : Accurracy(reachGoalnoCollision): 1.0 
+  DeteriorationRate(MakeSpan): 0.0727 
+  DeteriorationRate(FlowTime): 0.0763 
+  Rate(collisionPredictedinLoop): 0.6 
+  Rate(FailedReachGoalbyCollisionShielding): 0.0 
+  in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:668
+[INFO] - 2023-11-11 17:47:23,934 - root - : Hi, This is root. in /Users/peterwang/Desktop/github/magat_pathplanning/utils/config.py:321
+[INFO] - 2023-11-11 17:47:23,935 - root - : After the configurations are successfully processed and dirs are created. in /Users/peterwang/Desktop/github/magat_pathplanning/utils/config.py:322
+[INFO] - 2023-11-11 17:47:23,935 - root - : The pipeline of the project will begin now. in /Users/peterwang/Desktop/github/magat_pathplanning/utils/config.py:323
+[INFO] - 2023-11-11 17:47:23,946 - Agent - : Model: None
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:97
+[INFO] - 2023-11-11 17:47:23,947 - DecentralPlannerDataLoader Online Expert - : Loading #10 Agent DATA from Path without OnlineTF ..... in /Users/peterwang/Desktop/github/magat_pathplanning/dataloader/Dataloader_dcplocal_notTF_onlineExpert.py:24
+[INFO] - 2023-11-11 17:47:24,122 - Agent - : Program will run on *****CPU*****
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:149
+[INFO] - 2023-11-11 17:47:24,123 - Agent - : Loading checkpoint './Data/experiments/dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707/checkpoints/checkpoint_272.pth.tar' in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:224
+[INFO] - 2023-11-11 17:47:24,128 - Agent - : Checkpoint loaded successfully from './Data/experiments/dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707/checkpoints/' at (epoch 273) at (iteration 2678212)
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:238
+[INFO] - 2023-11-11 17:47:24,136 - Agent - : 
+test set on dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:652
+[INFO] - 2023-11-11 17:47:26,787 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case0 	 Computation time:0.19904589653015137 	 Step27/54	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 17:47:26,948 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case1 	 Computation time:0.15971088409423828 	 Step23/46	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 17:47:27,157 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case2 	 Computation time:0.20714807510375977 	 Step30/46	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 17:47:27,337 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case3 	 Computation time:0.17762303352355957 	 Step26/52	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 17:47:27,507 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case4 	 Computation time:0.1687486171722412 	 Step24/46	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 17:47:27,698 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case5 	 Computation time:0.189162015914917 	 Step28/56	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 17:47:27,932 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case6 	 Computation time:0.23160004615783691 	 Step34/60	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 17:47:28,122 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case7 	 Computation time:0.18869662284851074 	 Step28/54	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 17:47:28,310 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case8 	 Computation time:0.18695497512817383 	 Step27/54	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 17:47:28,530 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case9 	 Computation time:0.2175910472869873 	 Step32/48	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 17:47:48,546 - Agent - : Accurracy(reachGoalnoCollision): 1.0 
+  DeteriorationRate(MakeSpan): 0.0888 
+  DeteriorationRate(FlowTime): 0.0692 
+  Rate(collisionPredictedinLoop): 0.7 
+  Rate(FailedReachGoalbyCollisionShielding): 0.0 
+  in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:668
+[INFO] - 2023-11-11 17:57:03,184 - root - : Hi, This is root. in /Users/peterwang/Desktop/github/magat_pathplanning/utils/config.py:321
+[INFO] - 2023-11-11 17:57:03,185 - root - : After the configurations are successfully processed and dirs are created. in /Users/peterwang/Desktop/github/magat_pathplanning/utils/config.py:322
+[INFO] - 2023-11-11 17:57:03,185 - root - : The pipeline of the project will begin now. in /Users/peterwang/Desktop/github/magat_pathplanning/utils/config.py:323
+[INFO] - 2023-11-11 17:57:03,208 - Agent - : Model: None
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:97
+[INFO] - 2023-11-11 17:57:03,208 - DecentralPlannerDataLoader Online Expert - : Loading #10 Agent DATA from Path without OnlineTF ..... in /Users/peterwang/Desktop/github/magat_pathplanning/dataloader/Dataloader_dcplocal_notTF_onlineExpert.py:24
+[INFO] - 2023-11-11 17:57:03,425 - Agent - : Program will run on *****CPU*****
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:149
+[INFO] - 2023-11-11 17:57:03,425 - Agent - : Loading checkpoint './Data/experiments/dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707/checkpoints/checkpoint_272.pth.tar' in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:224
+[INFO] - 2023-11-11 17:57:03,441 - Agent - : Checkpoint loaded successfully from './Data/experiments/dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707/checkpoints/' at (epoch 273) at (iteration 2678212)
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:238
+[INFO] - 2023-11-11 17:57:03,451 - Agent - : 
+test set on dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:652
+[INFO] - 2023-11-11 17:57:06,159 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case0 	 Computation time:0.22382211685180664 	 Step27/54	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 17:57:06,321 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case1 	 Computation time:0.1602461338043213 	 Step23/46	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 17:57:06,529 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case2 	 Computation time:0.20707988739013672 	 Step30/46	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 17:57:06,712 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case3 	 Computation time:0.18126702308654785 	 Step26/52	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 17:57:06,881 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case4 	 Computation time:0.1672530174255371 	 Step24/46	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 17:57:07,078 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case5 	 Computation time:0.19574284553527832 	 Step28/56	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 17:57:07,316 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case6 	 Computation time:0.23655128479003906 	 Step34/60	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 17:57:07,512 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case7 	 Computation time:0.1940627098083496 	 Step28/54	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 17:57:07,704 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case8 	 Computation time:0.19067692756652832 	 Step27/54	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 17:57:07,928 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case9 	 Computation time:0.2214667797088623 	 Step32/48	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 17:57:27,946 - Agent - : Accurracy(reachGoalnoCollision): 1.0 
+  DeteriorationRate(MakeSpan): 0.0888 
+  DeteriorationRate(FlowTime): 0.0692 
+  Rate(collisionPredictedinLoop): 0.7 
+  Rate(FailedReachGoalbyCollisionShielding): 0.0 
+  in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:668
+[INFO] - 2023-11-11 18:13:54,552 - root - : Hi, This is root. in /Users/peterwang/Desktop/github/magat_pathplanning/utils/config.py:321
+[INFO] - 2023-11-11 18:13:54,553 - root - : After the configurations are successfully processed and dirs are created. in /Users/peterwang/Desktop/github/magat_pathplanning/utils/config.py:322
+[INFO] - 2023-11-11 18:13:54,553 - root - : The pipeline of the project will begin now. in /Users/peterwang/Desktop/github/magat_pathplanning/utils/config.py:323
+[INFO] - 2023-11-11 18:13:54,566 - Agent - : Model: None
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:97
+[INFO] - 2023-11-11 18:13:54,566 - DecentralPlannerDataLoader Online Expert - : Loading #10 Agent DATA from Path without OnlineTF ..... in /Users/peterwang/Desktop/github/magat_pathplanning/dataloader/Dataloader_dcplocal_notTF_onlineExpert.py:24
+[INFO] - 2023-11-11 18:13:55,014 - Agent - : Program will run on *****CPU*****
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:149
+[INFO] - 2023-11-11 18:13:55,014 - Agent - : Loading checkpoint './Data/experiments/dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707/checkpoints/checkpoint_272.pth.tar' in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:224
+[INFO] - 2023-11-11 18:13:55,022 - Agent - : Checkpoint loaded successfully from './Data/experiments/dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707/checkpoints/' at (epoch 273) at (iteration 2678212)
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:238
+[INFO] - 2023-11-11 18:13:55,033 - Agent - : 
+test set on dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:652
+[INFO] - 2023-11-11 18:13:58,931 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case0 	 Computation time:0.2998921871185303 	 Step27/54	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 18:13:59,170 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case1 	 Computation time:0.23682594299316406 	 Step23/46	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 18:13:59,494 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case2 	 Computation time:0.3222689628601074 	 Step30/46	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 18:13:59,777 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case3 	 Computation time:0.2804229259490967 	 Step26/52	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 18:14:00,035 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case4 	 Computation time:0.25657200813293457 	 Step24/46	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 18:14:00,335 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case5 	 Computation time:0.298076868057251 	 Step28/56	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 18:14:00,692 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case6 	 Computation time:0.35493898391723633 	 Step34/60	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 18:14:00,987 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case7 	 Computation time:0.2923099994659424 	 Step28/54	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 18:14:01,267 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case8 	 Computation time:0.2779550552368164 	 Step27/54	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 18:14:01,605 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case9 	 Computation time:0.3363819122314453 	 Step32/48	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 18:16:58,964 - Agent - : Accurracy(reachGoalnoCollision): 1.0 
+  DeteriorationRate(MakeSpan): 0.0888 
+  DeteriorationRate(FlowTime): 0.0692 
+  Rate(collisionPredictedinLoop): 0.7 
+  Rate(FailedReachGoalbyCollisionShielding): 0.0 
+  in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:668
+[INFO] - 2023-11-11 18:18:31,437 - root - : Hi, This is root. in /Users/peterwang/Desktop/github/magat_pathplanning/utils/config.py:321
+[INFO] - 2023-11-11 18:18:31,437 - root - : After the configurations are successfully processed and dirs are created. in /Users/peterwang/Desktop/github/magat_pathplanning/utils/config.py:322
+[INFO] - 2023-11-11 18:18:31,437 - root - : The pipeline of the project will begin now. in /Users/peterwang/Desktop/github/magat_pathplanning/utils/config.py:323
+[INFO] - 2023-11-11 18:18:31,451 - Agent - : Model: None
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:97
+[INFO] - 2023-11-11 18:18:31,451 - DecentralPlannerDataLoader Online Expert - : Loading #10 Agent DATA from Path without OnlineTF ..... in /Users/peterwang/Desktop/github/magat_pathplanning/dataloader/Dataloader_dcplocal_notTF_onlineExpert.py:24
+[INFO] - 2023-11-11 18:18:31,694 - Agent - : Program will run on *****CPU*****
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:149
+[INFO] - 2023-11-11 18:18:31,694 - Agent - : Loading checkpoint './Data/experiments/dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707/checkpoints/checkpoint_272.pth.tar' in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:224
+[INFO] - 2023-11-11 18:18:31,708 - Agent - : Checkpoint loaded successfully from './Data/experiments/dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707/checkpoints/' at (epoch 273) at (iteration 2678212)
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:238
+[INFO] - 2023-11-11 18:18:31,718 - Agent - : 
+test set on dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:652
+[INFO] - 2023-11-11 18:18:34,665 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case0 	 Computation time:0.2091212272644043 	 Step27/54	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 18:18:34,833 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case1 	 Computation time:0.1671152114868164 	 Step23/46	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 18:18:35,055 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case2 	 Computation time:0.21872687339782715 	 Step30/46	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 18:18:35,248 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case3 	 Computation time:0.19136714935302734 	 Step26/52	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 18:18:35,422 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case4 	 Computation time:0.17300915718078613 	 Step24/46	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 18:18:35,622 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case5 	 Computation time:0.19826698303222656 	 Step28/56	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 18:18:35,860 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case6 	 Computation time:0.23607897758483887 	 Step34/60	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 18:18:36,060 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case7 	 Computation time:0.19803500175476074 	 Step28/54	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 18:18:36,259 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case8 	 Computation time:0.1976792812347412 	 Step27/54	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 18:18:36,492 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case9 	 Computation time:0.2318432331085205 	 Step32/48	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 18:18:56,512 - Agent - : Accurracy(reachGoalnoCollision): 1.0 
+  DeteriorationRate(MakeSpan): 0.0888 
+  DeteriorationRate(FlowTime): 0.0692 
+  Rate(collisionPredictedinLoop): 0.7 
+  Rate(FailedReachGoalbyCollisionShielding): 0.0 
+  in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:668
+[INFO] - 2023-11-11 18:21:22,247 - root - : Hi, This is root. in /Users/peterwang/Desktop/github/magat_pathplanning/utils/config.py:321
+[INFO] - 2023-11-11 18:21:22,247 - root - : After the configurations are successfully processed and dirs are created. in /Users/peterwang/Desktop/github/magat_pathplanning/utils/config.py:322
+[INFO] - 2023-11-11 18:21:22,247 - root - : The pipeline of the project will begin now. in /Users/peterwang/Desktop/github/magat_pathplanning/utils/config.py:323
+[INFO] - 2023-11-11 18:21:22,259 - Agent - : Model: None
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:97
+[INFO] - 2023-11-11 18:21:22,259 - DecentralPlannerDataLoader Online Expert - : Loading #10 Agent DATA from Path without OnlineTF ..... in /Users/peterwang/Desktop/github/magat_pathplanning/dataloader/Dataloader_dcplocal_notTF_onlineExpert.py:24
+[INFO] - 2023-11-11 18:21:22,467 - Agent - : Program will run on *****CPU*****
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:149
+[INFO] - 2023-11-11 18:21:22,467 - Agent - : Loading checkpoint './Data/experiments/dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707/checkpoints/checkpoint_272.pth.tar' in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:224
+[INFO] - 2023-11-11 18:21:22,477 - Agent - : Checkpoint loaded successfully from './Data/experiments/dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707/checkpoints/' at (epoch 273) at (iteration 2678212)
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:238
+[INFO] - 2023-11-11 18:21:22,485 - Agent - : 
+test set on dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:652
+[INFO] - 2023-11-11 18:21:25,219 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case0 	 Computation time:0.20635628700256348 	 Step27/54	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 18:21:25,376 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case1 	 Computation time:0.15469002723693848 	 Step23/46	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 18:21:25,575 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case2 	 Computation time:0.1984419822692871 	 Step30/46	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 18:21:25,750 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case3 	 Computation time:0.17361688613891602 	 Step26/52	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 18:21:25,914 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case4 	 Computation time:0.16192173957824707 	 Step24/46	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 18:21:26,103 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case5 	 Computation time:0.18701386451721191 	 Step28/56	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 18:21:26,331 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case6 	 Computation time:0.22682404518127441 	 Step34/60	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 18:21:26,523 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case7 	 Computation time:0.19026684761047363 	 Step28/54	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 18:21:26,705 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case8 	 Computation time:0.18108701705932617 	 Step27/54	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 18:21:26,918 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case9 	 Computation time:0.21049022674560547 	 Step32/48	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 18:21:46,930 - Agent - : Accurracy(reachGoalnoCollision): 1.0 
+  DeteriorationRate(MakeSpan): 0.0888 
+  DeteriorationRate(FlowTime): 0.0692 
+  Rate(collisionPredictedinLoop): 0.7 
+  Rate(FailedReachGoalbyCollisionShielding): 0.0 
+  in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:668
+[INFO] - 2023-11-11 18:22:15,924 - root - : Hi, This is root. in /Users/peterwang/Desktop/github/magat_pathplanning/utils/config.py:321
+[INFO] - 2023-11-11 18:22:15,925 - root - : After the configurations are successfully processed and dirs are created. in /Users/peterwang/Desktop/github/magat_pathplanning/utils/config.py:322
+[INFO] - 2023-11-11 18:22:15,925 - root - : The pipeline of the project will begin now. in /Users/peterwang/Desktop/github/magat_pathplanning/utils/config.py:323
+[INFO] - 2023-11-11 18:22:15,936 - Agent - : Model: None
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:97
+[INFO] - 2023-11-11 18:22:15,936 - DecentralPlannerDataLoader Online Expert - : Loading #10 Agent DATA from Path without OnlineTF ..... in /Users/peterwang/Desktop/github/magat_pathplanning/dataloader/Dataloader_dcplocal_notTF_onlineExpert.py:24
+[INFO] - 2023-11-11 18:22:16,108 - Agent - : Program will run on *****CPU*****
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:149
+[INFO] - 2023-11-11 18:22:16,108 - Agent - : Loading checkpoint './Data/experiments/dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707/checkpoints/checkpoint_272.pth.tar' in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:224
+[INFO] - 2023-11-11 18:22:16,114 - Agent - : Checkpoint loaded successfully from './Data/experiments/dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707/checkpoints/' at (epoch 273) at (iteration 2678212)
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:238
+[INFO] - 2023-11-11 18:22:16,122 - Agent - : 
+test set on dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:652
+[INFO] - 2023-11-11 18:22:18,886 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case0 	 Computation time:0.19822096824645996 	 Step27/54	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 18:22:19,044 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case1 	 Computation time:0.1553959846496582 	 Step23/46	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 18:22:19,251 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case2 	 Computation time:0.2059781551361084 	 Step30/46	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 18:22:19,432 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case3 	 Computation time:0.1792001724243164 	 Step26/52	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 18:22:19,599 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case4 	 Computation time:0.16457295417785645 	 Step24/46	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 18:22:19,791 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case5 	 Computation time:0.19109606742858887 	 Step28/56	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 18:22:20,025 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case6 	 Computation time:0.2317819595336914 	 Step34/60	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 18:22:20,216 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case7 	 Computation time:0.19015979766845703 	 Step28/54	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 18:22:20,404 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case8 	 Computation time:0.18565917015075684 	 Step27/54	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 18:22:20,622 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case9 	 Computation time:0.21662402153015137 	 Step32/48	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 18:22:20,795 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case10 	 Computation time:0.17113995552062988 	 Step25/48	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 18:22:21,257 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case11 	 Computation time:0.45975685119628906 	 Step68/68	- AllReachGoal-False
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 18:22:21,484 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case12 	 Computation time:0.22476911544799805 	 Step33/66	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 18:22:21,703 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case13 	 Computation time:0.2172391414642334 	 Step32/60	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 18:22:21,869 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case14 	 Computation time:0.16431903839111328 	 Step24/46	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 18:22:22,076 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case15 	 Computation time:0.2050330638885498 	 Step30/60	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 18:22:22,582 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case16 	 Computation time:0.5041327476501465 	 Step74/74	- AllReachGoal-False
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 18:22:22,737 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case17 	 Computation time:0.1531541347503662 	 Step23/44	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 18:22:23,000 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case18 	 Computation time:0.26026201248168945 	 Step38/68	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 18:22:23,178 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case19 	 Computation time:0.17607688903808594 	 Step26/52	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 18:22:23,348 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case20 	 Computation time:0.16871190071105957 	 Step24/44	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 18:22:23,519 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case21 	 Computation time:0.16909122467041016 	 Step25/50	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 18:22:23,718 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case22 	 Computation time:0.19664502143859863 	 Step29/58	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 18:22:23,923 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case23 	 Computation time:0.20290303230285645 	 Step30/56	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 18:22:24,145 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case24 	 Computation time:0.2202167510986328 	 Step33/58	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 18:22:24,303 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case25 	 Computation time:0.15692496299743652 	 Step23/46	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 18:22:24,543 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case26 	 Computation time:0.23766493797302246 	 Step35/70	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 18:22:24,741 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case27 	 Computation time:0.19609594345092773 	 Step29/58	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 18:22:24,886 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case28 	 Computation time:0.1430819034576416 	 Step21/38	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 18:22:25,092 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case29 	 Computation time:0.20426082611083984 	 Step30/52	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 18:22:25,280 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case30 	 Computation time:0.18665695190429688 	 Step28/50	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 18:22:25,479 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case31 	 Computation time:0.19695186614990234 	 Step29/52	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 18:22:25,667 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case32 	 Computation time:0.1855459213256836 	 Step27/42	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 18:22:25,890 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case33 	 Computation time:0.221221923828125 	 Step33/62	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 18:22:26,079 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case34 	 Computation time:0.18700599670410156 	 Step28/54	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 18:22:26,243 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case35 	 Computation time:0.1625518798828125 	 Step24/44	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 18:22:26,412 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case36 	 Computation time:0.1676321029663086 	 Step25/46	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 18:22:26,595 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case37 	 Computation time:0.18091320991516113 	 Step26/50	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 18:22:26,747 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case38 	 Computation time:0.15009593963623047 	 Step22/44	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 18:22:26,954 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case39 	 Computation time:0.20496582984924316 	 Step30/60	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 18:22:27,214 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case40 	 Computation time:0.2584707736968994 	 Step38/58	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 18:22:27,491 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case41 	 Computation time:0.2748589515686035 	 Step41/54	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 18:22:27,674 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case42 	 Computation time:0.18153977394104004 	 Step27/52	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 18:22:27,994 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case43 	 Computation time:0.3179311752319336 	 Step47/68	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 18:22:28,158 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case44 	 Computation time:0.1623828411102295 	 Step24/50	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 18:22:28,342 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case45 	 Computation time:0.18188214302062988 	 Step27/50	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 18:22:28,559 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case46 	 Computation time:0.21520304679870605 	 Step32/64	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 18:22:28,771 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case47 	 Computation time:0.20986413955688477 	 Step31/62	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 18:22:28,996 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case48 	 Computation time:0.22263503074645996 	 Step33/66	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 18:22:29,198 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case49 	 Computation time:0.20042181015014648 	 Step30/60	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 18:22:29,324 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case50 	 Computation time:0.12473011016845703 	 Step18/36	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 18:22:29,516 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case51 	 Computation time:0.18962788581848145 	 Step28/52	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 18:22:29,700 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case52 	 Computation time:0.18190598487854004 	 Step27/54	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 18:22:29,905 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case53 	 Computation time:0.20351314544677734 	 Step30/58	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 18:22:30,147 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case54 	 Computation time:0.24053001403808594 	 Step35/62	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 18:22:30,314 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case55 	 Computation time:0.16473865509033203 	 Step24/48	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 18:22:30,505 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case56 	 Computation time:0.18947696685791016 	 Step28/52	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 18:22:30,649 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case57 	 Computation time:0.1417243480682373 	 Step21/40	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 18:22:30,803 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case58 	 Computation time:0.15187311172485352 	 Step22/44	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 18:22:30,980 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case59 	 Computation time:0.1752939224243164 	 Step26/48	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 18:22:31,138 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case60 	 Computation time:0.15665793418884277 	 Step23/46	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 18:22:31,303 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case61 	 Computation time:0.16293096542358398 	 Step24/48	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 18:22:31,488 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case62 	 Computation time:0.1836681365966797 	 Step27/52	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 18:22:31,724 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case63 	 Computation time:0.23395609855651855 	 Step35/70	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 18:22:31,883 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case64 	 Computation time:0.15679001808166504 	 Step23/46	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 18:22:32,095 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case65 	 Computation time:0.21071100234985352 	 Step31/52	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 18:22:32,252 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case66 	 Computation time:0.1544489860534668 	 Step23/46	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 18:22:32,457 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case67 	 Computation time:0.20366191864013672 	 Step30/58	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 18:22:32,634 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case68 	 Computation time:0.17495989799499512 	 Step26/50	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 18:22:32,874 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case69 	 Computation time:0.23814678192138672 	 Step35/66	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 18:22:33,096 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case70 	 Computation time:0.22021198272705078 	 Step33/54	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 18:22:33,270 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case71 	 Computation time:0.17185521125793457 	 Step25/50	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 18:22:33,422 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case72 	 Computation time:0.15064215660095215 	 Step22/44	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 18:22:33,638 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case73 	 Computation time:0.21419119834899902 	 Step32/56	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 18:22:33,851 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case74 	 Computation time:0.2115941047668457 	 Step31/48	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 18:22:34,071 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case75 	 Computation time:0.21746301651000977 	 Step32/54	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 18:22:34,275 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case76 	 Computation time:0.20212626457214355 	 Step30/48	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 18:22:34,418 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case77 	 Computation time:0.14142775535583496 	 Step21/42	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 18:22:34,615 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case78 	 Computation time:0.1956920623779297 	 Step29/48	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 18:22:34,805 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case79 	 Computation time:0.1876530647277832 	 Step28/42	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 18:22:35,005 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case80 	 Computation time:0.19825315475463867 	 Step29/54	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 18:22:35,238 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case81 	 Computation time:0.23166275024414062 	 Step34/66	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 18:22:35,420 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case82 	 Computation time:0.179976224899292 	 Step27/54	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 18:22:35,580 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case83 	 Computation time:0.15857505798339844 	 Step23/38	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 18:22:35,798 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case84 	 Computation time:0.2164769172668457 	 Step32/60	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 18:22:36,031 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case85 	 Computation time:0.23078227043151855 	 Step34/50	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 18:22:36,215 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case86 	 Computation time:0.18223977088928223 	 Step27/50	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 18:22:36,473 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case87 	 Computation time:0.2554130554199219 	 Step38/58	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 18:22:36,650 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case88 	 Computation time:0.17500710487365723 	 Step26/48	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 18:22:36,863 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case89 	 Computation time:0.21120214462280273 	 Step31/62	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 18:22:37,060 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case90 	 Computation time:0.19552183151245117 	 Step29/58	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 18:22:37,293 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case91 	 Computation time:0.23097705841064453 	 Step34/54	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 18:22:37,584 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case92 	 Computation time:0.2889981269836426 	 Step43/52	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 18:22:37,873 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case93 	 Computation time:0.2875649929046631 	 Step43/68	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 18:22:38,084 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case94 	 Computation time:0.2088921070098877 	 Step31/62	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 18:22:38,295 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case95 	 Computation time:0.20935297012329102 	 Step31/52	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 18:22:38,528 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case96 	 Computation time:0.23062515258789062 	 Step34/68	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 18:22:38,746 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case97 	 Computation time:0.21657299995422363 	 Step32/58	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 18:22:38,952 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case98 	 Computation time:0.20452618598937988 	 Step30/56	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 18:22:39,198 - Agent - : ################## dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 - End of loop ##################  
+ ####### Case99 	 Computation time:0.24349117279052734 	 Step36/62	- AllReachGoal-True
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-11 18:22:59,219 - Agent - : Accurracy(reachGoalnoCollision): 0.98 
+  DeteriorationRate(MakeSpan): 0.118 
+  DeteriorationRate(FlowTime): 0.0759 
+  Rate(collisionPredictedinLoop): 0.71 
+  Rate(FailedReachGoalbyCollisionShielding): 0.02 
+  in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:668
+[INFO] - 2023-11-11 18:48:18,463 - root - : Hi, This is root. in /Users/peterwang/Desktop/github/magat_pathplanning/utils/config.py:321
+[INFO] - 2023-11-11 18:48:18,464 - root - : After the configurations are successfully processed and dirs are created. in /Users/peterwang/Desktop/github/magat_pathplanning/utils/config.py:322
+[INFO] - 2023-11-11 18:48:18,464 - root - : The pipeline of the project will begin now. in /Users/peterwang/Desktop/github/magat_pathplanning/utils/config.py:323
+[INFO] - 2023-11-11 18:48:18,488 - Agent - : Model: None
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:97
+[INFO] - 2023-11-11 18:48:18,488 - DecentralPlannerDataLoader Online Expert - : Loading #10 Agent DATA from Path without OnlineTF ..... in /Users/peterwang/Desktop/github/magat_pathplanning/dataloader/Dataloader_dcplocal_notTF_onlineExpert.py:24
+[INFO] - 2023-11-11 18:48:18,964 - Agent - : Program will run on *****CPU*****
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:149
+[INFO] - 2023-11-11 18:48:18,964 - Agent - : Loading checkpoint './Data/experiments/dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707/checkpoints/checkpoint_272.pth.tar' in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:224
+[INFO] - 2023-11-11 18:48:18,983 - Agent - : Checkpoint loaded successfully from './Data/experiments/dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707/checkpoints/' at (epoch 273) at (iteration 2678212)
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:238
+[INFO] - 2023-11-11 18:48:18,994 - Agent - : 
+test set on dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191707 
+ in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:652
