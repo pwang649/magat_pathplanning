@@ -1,6 +1,6 @@
 import subprocess
 
-agents = range(10, 10+1, 10)
+agents = range(100, 110+1, 30)
 
 for agent in agents:
     subprocess.call(["python", "../main.py",
