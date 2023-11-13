@@ -1,4 +1,4 @@
-experiments/
+#experiments/
 scripts_IROS/.nfs*
 .idea/
 *.pyc
@@ -11,5 +11,5 @@ Jupyter_OE_S/
 Jupyter_OE_S_v2/
 Jupyter_test/
 Downloaded_Data/
-Data/
-Results/
+#Data/
+#Results/
