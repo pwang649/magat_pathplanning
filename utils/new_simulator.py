@@ -333,12 +333,12 @@ class multiRobotSimNew:
         self.store_attentionGSO.append(attentionGSO)
 
     # RVMod
-    def lacam_check_collision(self, current_pos, move):
+    def lacam_check_collision(self, actionPreds, current_pos):
         '''
         Runs LaCAM and PIBT instead of naive collision checking
         Args:
+            actionPreds: (N,5) action preds
             current_pos: (N,2) current position
-            move: (N,2) move matrix (all agents' proposed moves)
         Returns:
             new_move: valid move without collision
             out_boundary: matrix of whether the agent in place goes out of boundary
@@ -346,6 +346,10 @@ class multiRobotSimNew:
             collide_agents: ids of collided agents (earlier mover has advantages to move)
             collide_in_move_agents: ids of face-to-face collision (both stop)
         '''
+
+        ### Convert actionPreference probalities to move orders
+        actionPreferences = actionPreds.argsort()
+        # Do random sampling logic here if don't want argmax
 
         # agentsToBePlanned = np.arange(self.config.num_agents)
         agent_order = np.arange(self.config.num_agents)
@@ -357,23 +361,23 @@ class multiRobotSimNew:
         for agent_id in agent_order:
             if agent_id in plannedAgents:
                 continue
-            move_preferences = 1
-            lacamWorked = self.pibt(agent_id, move_preferences, plannedAgents, moveMatrix, occupiedNodes, occupiedEdges)
+            lacamWorked = self.pibt(agent_id, actionPreferences, plannedAgents, moveMatrix, occupiedNodes, occupiedEdges)
             if lacamWorked is False:
                 print('LaCAM failed for agent', agent_id)
                 ### Fall back to regular collision checking???
-        new_move = moveMatrix
         out_boundary = np.zeros(self.config.num_agents, dtype=bool)
         move_to_wall = []
         collide_agents = []
         collide_in_move_agents = []
+        pdb.set_trace()
+        return moveMatrix, move_to_wall, collide_agents, collide_in_move_agents
 
-    def pibt(self, agent_id, move_preferences, plannedAgents, moveMatrix, occupiedNodes, occupiedEdges):
+    def pibt(self, agent_id, actionPreferences, plannedAgents, moveMatrix, occupiedNodes, occupiedEdges):
         '''
         Runs PIBT for a single agent
         Args:
             agent_id: agent id
-            move_preferences: (5) up-down-left-right-wait
+            move_preferences: (N,5) up-down-left-right-wait
         Returns:
             isvalid: whether we can find a feasible solution
         '''
@@ -384,10 +388,13 @@ class multiRobotSimNew:
                     return a
             return -1
 
-        moves_ordered = np.argsort(move_preferences)[::-1]
+        # Below matches __init__ action order
+        pdb.set_trace()
+        moves_ordered = np.array([self.up, self.left, self.down, self.right, self.stop])
+        moves_ordered = moves_ordered[actionPreferences[agent_id]]
         current_pos = self.current_positions[agent_id]
-        for move_index in moves_ordered:
-            next_loc = current_pos + move_preferences[move_index]
+        for aMove in moves_ordered:
+            next_loc = current_pos + aMove
             
             # Skip if would leave map bounds
             if next_loc[0] < 0 or next_loc[0] >= self.size_map[0] or next_loc[1] < 0 or next_loc[1] >= self.size_map[1]:
@@ -403,14 +410,14 @@ class multiRobotSimNew:
                 continue
             
             ### Pretend we move there
-            moveMatrix[agent_id] = move_preferences[move_index]
+            moveMatrix[agent_id] = aMove
             plannedAgents.append(agent_id)
             occupiedNodes.append(next_loc)
             occupiedEdges.append((current_pos, next_loc))
             conflictingAgent = findAgentAtLocation(next_loc)
             if conflictingAgent != -1:
                 # Recurse
-                isvalid = self.pibt(conflictingAgent, move_preferences, moveMatrix, occupiedNodes, occupiedEdges)
+                isvalid = self.pibt(conflictingAgent, actionPreferences, moveMatrix, occupiedNodes, occupiedEdges)
                 if isvalid:
                     return True
                 else:
@@ -595,8 +602,9 @@ class multiRobotSimNew:
                 self.current_positions, proposed_moves)
             
             ### RVMod
-            pdb.set_trace()
-            self.lacam_check_collision(self.current_positions, new_move)
+            numpyActionVec = actionVec.detach().cpu().numpy()
+            new_move, move_to_boundary, move_to_wall_agents, collide_agents, collide_in_move_agents = self.lacam_check_collision(
+                numpyActionVec, self.current_positions)
 
             # if not (new_move == proposed_moves).all():
             #     print('something changes')
