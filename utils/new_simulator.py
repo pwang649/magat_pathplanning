@@ -20,6 +20,7 @@ import random
 import time
 import scipy.io as sio
 import shutil
+import pdb
 
 random.seed(1337)
 
@@ -331,6 +332,99 @@ class multiRobotSimNew:
         '''
         self.store_attentionGSO.append(attentionGSO)
 
+    # RVMod
+    def lacam_check_collision(self, current_pos, move):
+        '''
+        Runs LaCAM and PIBT instead of naive collision checking
+        Args:
+            current_pos: (N,2) current position
+            move: (N,2) move matrix (all agents' proposed moves)
+        Returns:
+            new_move: valid move without collision
+            out_boundary: matrix of whether the agent in place goes out of boundary
+            move_to_wall: ids of moving to walls
+            collide_agents: ids of collided agents (earlier mover has advantages to move)
+            collide_in_move_agents: ids of face-to-face collision (both stop)
+        '''
+
+        # agentsToBePlanned = np.arange(self.config.num_agents)
+        agent_order = np.arange(self.config.num_agents)
+        moveMatrix = np.zeros((self.config.num_agents, 2))
+        occupiedNodes = []
+        occupiedEdges = []
+        plannedAgents = []
+
+        for agent_id in agent_order:
+            if agent_id in plannedAgents:
+                continue
+            move_preferences = 1
+            lacamWorked = self.pibt(agent_id, move_preferences, plannedAgents, moveMatrix, occupiedNodes, occupiedEdges)
+            if lacamWorked is False:
+                print('LaCAM failed for agent', agent_id)
+                ### Fall back to regular collision checking???
+        new_move = moveMatrix
+        out_boundary = np.zeros(self.config.num_agents, dtype=bool)
+        move_to_wall = []
+        collide_agents = []
+        collide_in_move_agents = []
+
+    def pibt(self, agent_id, move_preferences, plannedAgents, moveMatrix, occupiedNodes, occupiedEdges):
+        '''
+        Runs PIBT for a single agent
+        Args:
+            agent_id: agent id
+            move_preferences: (5) up-down-left-right-wait
+        Returns:
+            isvalid: whether we can find a feasible solution
+        '''
+
+        def findAgentAtLocation(aLoc):
+            for a in range(self.config.num_agents):
+                if self.current_positions[a] == aLoc:
+                    return a
+            return -1
+
+        moves_ordered = np.argsort(move_preferences)[::-1]
+        current_pos = self.current_positions[agent_id]
+        for move_index in moves_ordered:
+            next_loc = current_pos + move_preferences[move_index]
+            
+            # Skip if would leave map bounds
+            if next_loc[0] < 0 or next_loc[0] >= self.size_map[0] or next_loc[1] < 0 or next_loc[1] >= self.size_map[1]:
+                continue
+            # Skip if obstacle
+            if next_loc in self.obstacle_positions:
+                continue
+            # Skip if vertex occupied by higher agent
+            if next_loc in occupiedNodes:
+                continue
+            # Skip is edge occupied by higher agent
+            if (current_pos, next_loc) in occupiedEdges:
+                continue
+            
+            ### Pretend we move there
+            moveMatrix[agent_id] = move_preferences[move_index]
+            plannedAgents.append(agent_id)
+            occupiedNodes.append(next_loc)
+            occupiedEdges.append((current_pos, next_loc))
+            conflictingAgent = findAgentAtLocation(next_loc)
+            if conflictingAgent != -1:
+                # Recurse
+                isvalid = self.pibt(conflictingAgent, move_preferences, moveMatrix, occupiedNodes, occupiedEdges)
+                if isvalid:
+                    return True
+                else:
+                    del plannedAgents[-1]
+                    del occupiedNodes[-1]
+                    del occupiedEdges[-1]
+                    continue
+            else:
+                # No conflict
+                return True
+            
+        # No valid move found
+        return False
+
     def check_collision(self, current_pos, move):
         '''
         This function checks collisions, and disable illegal movements of agents if needed.
@@ -499,6 +593,10 @@ class multiRobotSimNew:
             # Check collisions, update valid moves for each agent
             new_move, move_to_boundary, move_to_wall_agents, collide_agents, collide_in_move_agents = self.check_collision(
                 self.current_positions, proposed_moves)
+            
+            ### RVMod
+            pdb.set_trace()
+            self.lacam_check_collision(self.current_positions, new_move)
 
             # if not (new_move == proposed_moves).all():
             #     print('something changes')
