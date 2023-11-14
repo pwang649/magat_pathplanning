@@ -3,7 +3,7 @@ import subprocess
 agents = range(100, 110+1, 30)
 
 for agent in agents:
-    subprocess.call(["python", "../main.py",
+    subprocess.call(["python3", "../main.py",
                      "../configs/dcpGAT_OE_Random.json",
                      "--mode", "test",
                      "--best_epoch",
