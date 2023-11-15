@@ -111,6 +111,9 @@ class multiRobotSimNew:
         self.failureCases_input = self.config.failCases_dir + 'input/'
         self.dir_sol = os.path.join(self.config.failCases_dir, "output_ECBS/")
 
+        self.shieldType = self.config.shieldType
+        assert(self.shieldType in ["Default", "LaCAM"])
+
     def setup(self, loadInput, loadTarget, case_config, tensor_map, ID_dataset, mode):
         '''
         Setup of environment, called before actual use.
@@ -348,7 +351,7 @@ class multiRobotSimNew:
         '''
 
         ### Convert actionPreference probalities to move orders
-        actionPreferences = actionPreds.argsort()
+        actionPreferences = (-actionPreds).argsort() # Since we want descending order
         # Do random sampling logic here if don't want argmax
 
         # agentsToBePlanned = np.arange(self.config.num_agents)
@@ -607,14 +610,14 @@ class multiRobotSimNew:
             # update first step to move for each agent
             self.first_move[(proposed_actions != self.stop_keyValue) & (self.first_move == 0)] = currentstep
             # Check collisions, update valid moves for each agent
-            new_move, move_to_boundary, move_to_wall_agents, collide_agents, collide_in_move_agents = self.check_collision(
-                self.current_positions, proposed_moves)
+            if self.shieldType == "Default":
+                new_move, move_to_boundary, move_to_wall_agents, collide_agents, collide_in_move_agents = self.check_collision(
+                    self.current_positions, proposed_moves)
+            elif self.shieldType == "LaCAM": ### RVMod
+                numpyActionVec = actionVec.detach().cpu().numpy()
+                new_move, move_to_boundary, move_to_wall_agents, collide_agents, collide_in_move_agents = self.lacam_check_collision(
+                    numpyActionVec, self.current_positions)
             # pdb.set_trace()
-            
-            ### RVMod
-            numpyActionVec = actionVec.detach().cpu().numpy()
-            new_move, move_to_boundary, move_to_wall_agents, collide_agents, collide_in_move_agents = self.lacam_check_collision(
-                numpyActionVec, self.current_positions)
 
             # if not (new_move == proposed_moves).all():
             #     print('something changes')
