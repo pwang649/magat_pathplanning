@@ -366,9 +366,9 @@ class multiRobotSimNew:
                 continue
             lacamWorked = self.pibt(agent_id, actionPreferences, plannedAgents, moveMatrix, occupiedNodes, occupiedEdges)
             if lacamWorked is False:
-                print('LaCAM failed for agent', agent_id)
-                pdb.set_trace()
-                lacamWorked = self.pibt(agent_id, actionPreferences, plannedAgents, moveMatrix, occupiedNodes, occupiedEdges)
+                raise RuntimeError('PIBT failed for agent {}. Single-step PIBT should never fail!', agent_id)
+                # pdb.set_trace()
+                # lacamWorked = self.pibt(agent_id, actionPreferences, plannedAgents, moveMatrix, occupiedNodes, occupiedEdges)
                 ### Fall back to regular collision checking???
         out_boundary = np.zeros(self.config.num_agents, dtype=bool)
         move_to_wall = []
