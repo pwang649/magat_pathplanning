@@ -364,13 +364,16 @@ class multiRobotSimNew:
             lacamWorked = self.pibt(agent_id, actionPreferences, plannedAgents, moveMatrix, occupiedNodes, occupiedEdges)
             if lacamWorked is False:
                 print('LaCAM failed for agent', agent_id)
+                pdb.set_trace()
+                lacamWorked = self.pibt(agent_id, actionPreferences, plannedAgents, moveMatrix, occupiedNodes, occupiedEdges)
                 ### Fall back to regular collision checking???
         out_boundary = np.zeros(self.config.num_agents, dtype=bool)
         move_to_wall = []
         collide_agents = []
         collide_in_move_agents = []
-        pdb.set_trace()
-        return moveMatrix, move_to_wall, collide_agents, collide_in_move_agents
+        # pdb.set_trace()
+        #  move, out_boundary == True, move_to_wall, collide_agents, collide_in_move_agents
+        return moveMatrix, out_boundary, move_to_wall, collide_agents, collide_in_move_agents
 
     def pibt(self, agent_id, actionPreferences, plannedAgents, moveMatrix, occupiedNodes, occupiedEdges):
         '''
@@ -384,12 +387,14 @@ class multiRobotSimNew:
 
         def findAgentAtLocation(aLoc):
             for a in range(self.config.num_agents):
-                if self.current_positions[a] == aLoc:
+                if a == agent_id:
+                    continue
+                if tuple(self.current_positions[a]) == tuple(aLoc):
                     return a
             return -1
 
         # Below matches __init__ action order
-        pdb.set_trace()
+        # pdb.set_trace()
         moves_ordered = np.array([self.up, self.left, self.down, self.right, self.stop])
         moves_ordered = moves_ordered[actionPreferences[agent_id]]
         current_pos = self.current_positions[agent_id]
@@ -400,24 +405,26 @@ class multiRobotSimNew:
             if next_loc[0] < 0 or next_loc[0] >= self.size_map[0] or next_loc[1] < 0 or next_loc[1] >= self.size_map[1]:
                 continue
             # Skip if obstacle
-            if next_loc in self.obstacle_positions:
+            if tuple(next_loc) in self.wall_dict.keys():
                 continue
             # Skip if vertex occupied by higher agent
-            if next_loc in occupiedNodes:
+            if tuple(next_loc) in occupiedNodes:
                 continue
-            # Skip is edge occupied by higher agent
-            if (current_pos, next_loc) in occupiedEdges:
+            # Skip is reverse edge occupied by higher agent
+            if tuple([*next_loc, *current_pos]) in occupiedEdges:
                 continue
             
             ### Pretend we move there
             moveMatrix[agent_id] = aMove
+            # pdb.set_trace()
             plannedAgents.append(agent_id)
-            occupiedNodes.append(next_loc)
-            occupiedEdges.append((current_pos, next_loc))
+            occupiedNodes.append(tuple(next_loc))
+            occupiedEdges.append(tuple([*current_pos, *next_loc]))
             conflictingAgent = findAgentAtLocation(next_loc)
             if conflictingAgent != -1:
                 # Recurse
-                isvalid = self.pibt(conflictingAgent, actionPreferences, moveMatrix, occupiedNodes, occupiedEdges)
+                isvalid = self.pibt(conflictingAgent, actionPreferences, plannedAgents,
+                                    moveMatrix, occupiedNodes, occupiedEdges)
                 if isvalid:
                     return True
                 else:
@@ -430,6 +437,8 @@ class multiRobotSimNew:
                 return True
             
         # No valid move found
+        # print("Somehow PIBT failed!!!")
+        # pdb.set_trace()
         return False
 
     def check_collision(self, current_pos, move):
@@ -600,6 +609,7 @@ class multiRobotSimNew:
             # Check collisions, update valid moves for each agent
             new_move, move_to_boundary, move_to_wall_agents, collide_agents, collide_in_move_agents = self.check_collision(
                 self.current_positions, proposed_moves)
+            # pdb.set_trace()
             
             ### RVMod
             numpyActionVec = actionVec.detach().cpu().numpy()
