@@ -421,3 +421,25 @@ test set on dcpOEGAT_map32x32_rho1_10Agent/K2_HS0_P1/1602191363
   Rate(collisionPredictedinLoop): 0.0 
   Rate(FailedReachGoalbyCollisionShielding): 0.0 
   in /Users/peterwang/Desktop/github/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:668
+[INFO] - 2023-11-15 03:41:17,290 - root - : Hi, This is root. in /home/rishi/research/magat_pathplanning/utils/config.py:323
+[INFO] - 2023-11-15 03:41:17,290 - root - : After the configurations are successfully processed and dirs are created. in /home/rishi/research/magat_pathplanning/utils/config.py:324
+[INFO] - 2023-11-15 03:41:17,290 - root - : The pipeline of the project will begin now. in /home/rishi/research/magat_pathplanning/utils/config.py:325
+[INFO] - 2023-11-15 03:41:17,405 - Agent - : Model: None
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:97
+[INFO] - 2023-11-15 03:41:17,405 - DecentralPlannerDataLoader Online Expert - : Loading #10 Agent DATA from Path without OnlineTF ..... in /home/rishi/research/magat_pathplanning/dataloader/Dataloader_dcplocal_notTF_onlineExpert.py:24
+[INFO] - 2023-11-15 03:41:17,566 - Agent - : WARNING: You have a CUDA device, so you should probably enable CUDA in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:132
+[INFO] - 2023-11-15 03:41:17,566 - Agent - : Program will run on *****CPU*****
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:149
+[INFO] - 2023-11-15 03:41:17,566 - Agent - : Loading checkpoint '../Data/experiments/dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191363/checkpoints/model_best.pth.tar' in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:224
+[INFO] - 2023-11-15 03:41:17,734 - Agent - : Checkpoint loaded successfully from '../Data/experiments/dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191363/checkpoints/' at (epoch 141) at (iteration 1316952)
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:238
+[INFO] - 2023-11-15 03:41:17,745 - Agent - : 
+test set on dcpOEGAT_map32x32_rho1_10Agent/K2_HS0_P1/1602191363 
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:652
+[INFO] - 2023-11-15 03:41:32,053 - Agent - : ################## dcpOEGAT_map32x32_rho1_10Agent/K2_HS0_P1/1602191363 - End of loop ##################  
+ ####### Case0 	 Computation time:13.903127431869507 	 Step6/12	- AllReachGoal-True
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-15 03:41:45,802 - Agent - : ################## dcpOEGAT_map32x32_rho1_10Agent/K2_HS0_P1/1602191363 - End of loop ##################  
+ ####### Case1 	 Computation time:13.736881494522095 	 Step6/12	- AllReachGoal-True
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
+[INFO] - 2023-11-15 03:41:57,675 - Agent - : You have entered CTRL+C.. Wait to finalize in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:313

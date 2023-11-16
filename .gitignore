@@ -11,8 +11,9 @@ Jupyter_OE_S/
 Jupyter_OE_S_v2/
 Jupyter_test/
 Downloaded_Data/
-#Data/
+Data/
 #Results/
 
 Results_best/
 Data/Tensorboard/dcpOEGAT_map32x32_rho1_100Agent/
+*.gif
