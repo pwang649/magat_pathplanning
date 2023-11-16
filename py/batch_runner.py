@@ -35,7 +35,7 @@ def creat_output_csv(agent_num):
             csv_writer.writerow([magat_cost, magat_makespan, succeed, ECBS_cost, ECBS_makespan])
 
 if __name__ == '__main__':
-    agents = range(0, 100+1, 30)
+    agents = range(10, 100+1, 30)
 
     for agent in agents:
         subprocess.call(["python3", "../main.py",

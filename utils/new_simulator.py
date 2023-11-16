@@ -185,6 +185,7 @@ class multiRobotSimNew:
         self.current_positions = self.start_positions.copy()
         # Read goal positions
         self.goal_positions = loadInput[0, 0, :, :].cpu().numpy()
+        self.agent_priorities = np.sum(np.abs(self.current_positions - self.goal_positions), axis=-1) # RVMod (N,2)->(N)
         # save paths during the simulation
         self.path_list = []
         self.path_list.append(self.current_positions.copy())
@@ -336,12 +337,11 @@ class multiRobotSimNew:
         self.store_attentionGSO.append(attentionGSO)
 
     # RVMod
-    def lacam_check_collision(self, actionPreds, current_pos):
+    def lacam_check_collision(self, actionPreds):
         '''
         Runs LaCAM and PIBT instead of naive collision checking
         Args:
             actionPreds: (N,5) action preds
-            current_pos: (N,2) current position
         Returns:
             new_move: valid move without collision
             out_boundary: matrix of whether the agent in place goes out of boundary
@@ -354,8 +354,14 @@ class multiRobotSimNew:
         actionPreferences = (-actionPreds).argsort() # Since we want descending order
         # Do random sampling logic here if don't want argmax
 
-        # agentsToBePlanned = np.arange(self.config.num_agents)
-        agent_order = np.arange(self.config.num_agents)
+        # agent_order = np.arange(self.config.num_agents)
+        ### Recompute priorities
+        # RVMod: Update self.agent_priorities if reached goal
+        current_distance = np.sum(np.abs(self.current_positions - self.goal_positions), axis=1)
+        self.agent_priorities = np.maximum(self.agent_priorities, current_distance) # Increase priority if further from goal
+        self.agent_priorities[current_distance == 0] = 0 # Set priority to 0 if reached goal
+        agent_order = np.argsort(-self.agent_priorities) # Sort by priority, highest first
+        # pdb.set_trace()
         moveMatrix = np.zeros((self.config.num_agents, 2))
         occupiedNodes = []
         occupiedEdges = []
@@ -616,7 +622,7 @@ class multiRobotSimNew:
             elif self.shieldType == "LaCAM": ### RVMod
                 numpyActionVec = actionVec.detach().cpu().numpy()
                 new_move, move_to_boundary, move_to_wall_agents, collide_agents, collide_in_move_agents = self.lacam_check_collision(
-                    numpyActionVec, self.current_positions)
+                    numpyActionVec)
             # pdb.set_trace()
 
             # if not (new_move == proposed_moves).all():
