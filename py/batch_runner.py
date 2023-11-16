@@ -1,6 +1,6 @@
 import subprocess
 
-agents = range(100, 110+1, 30)
+agents = range(10, 110+1, 30)
 
 for agent in agents:
     subprocess.call(["python", "../main.py",
@@ -27,6 +27,7 @@ for agent in agents:
                      "--attentionMode", "KeyQuery",
                      "--tb_ExpName", "DotProduct_GAT_Resnet_3Block_distGSO_baseline_128",
                      "--log_anime",
+                     "--shieldType=LaCAM"
                      ])
 
 """
