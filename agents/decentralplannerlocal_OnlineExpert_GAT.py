@@ -930,7 +930,8 @@ class DecentralPlannerAgentLocalWithOnlineExpertGAT(BaseAgent):
             if mode == 'test_trainingSet' and self.switch_toOnlineExpert:
                 self.robot.save_failure_cases()
 
-        if currentStep >= (maxstep) and not allReachGoal and check_CollisionPredictedinLoop and not check_CollisionHappenedinLoop:
+        # if currentStep >= (maxstep) and not allReachGoal and check_CollisionPredictedinLoop and not check_CollisionHappenedinLoop: # RVMod Original
+        if currentStep >= (maxstep) and not allReachGoal and not check_CollisionHappenedinLoop: # RVMod
             findOptimalSolution, compare_makespan, compare_flowtime = self.robot.checkOptimality(False)
             # print("### Case - {} -Step{} exceed maxstep({})- ReachGoal: {} due to CollsionShielding \n".format(ID_dataset,currentStep,maxstep, allReachGoal))
             noReachGoalbyCollsionShielding = True

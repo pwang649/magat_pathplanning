@@ -351,8 +351,11 @@ class multiRobotSimNew:
         '''
 
         ### Convert actionPreference probalities to move orders
-        actionPreferences = (-actionPreds).argsort() # Since we want descending order
+        # actionPreferences = (-actionPreds).argsort() # Since we want descending order
         # Do random sampling logic here if don't want argmax
+        # tmp = np.random.choice(actionPreferences.shape[1], size=actionPreferences.shape[0], 
+        #                 replace=False, p=actionPreds)
+        # pdb.set_trace()
 
         # agent_order = np.arange(self.config.num_agents)
         ### Recompute priorities
@@ -361,7 +364,6 @@ class multiRobotSimNew:
         self.agent_priorities = np.maximum(self.agent_priorities, current_distance) # Increase priority if further from goal
         self.agent_priorities[current_distance == 0] = 0 # Set priority to 0 if reached goal
         agent_order = np.argsort(-self.agent_priorities) # Sort by priority, highest first
-        # pdb.set_trace()
         moveMatrix = np.zeros((self.config.num_agents, 2))
         occupiedNodes = []
         occupiedEdges = []
@@ -370,21 +372,23 @@ class multiRobotSimNew:
         for agent_id in agent_order:
             if agent_id in plannedAgents:
                 continue
-            lacamWorked = self.pibt(agent_id, actionPreferences, plannedAgents, moveMatrix, occupiedNodes, occupiedEdges)
+            # tmp1 = len(plannedAgents)
+            lacamWorked = self.pibt(agent_id, actionPreds, plannedAgents, moveMatrix, occupiedNodes, occupiedEdges)
+            # if len(plannedAgents) > tmp1+1:
+                # print("PIBT added {} agents to plannedAgents".format(len(plannedAgents)-tmp1))
             if lacamWorked is False:
+                print("PIBT ERROR!")
                 raise RuntimeError('PIBT failed for agent {}. Single-step PIBT should never fail!', agent_id)
-                # pdb.set_trace()
                 # lacamWorked = self.pibt(agent_id, actionPreferences, plannedAgents, moveMatrix, occupiedNodes, occupiedEdges)
                 ### Fall back to regular collision checking???
         out_boundary = np.zeros(self.config.num_agents, dtype=bool)
         move_to_wall = []
         collide_agents = []
         collide_in_move_agents = []
-        # pdb.set_trace()
         #  move, out_boundary == True, move_to_wall, collide_agents, collide_in_move_agents
         return moveMatrix, out_boundary, move_to_wall, collide_agents, collide_in_move_agents
 
-    def pibt(self, agent_id, actionPreferences, plannedAgents, moveMatrix, occupiedNodes, occupiedEdges):
+    def pibt(self, agent_id, actionPreds, plannedAgents, moveMatrix, occupiedNodes, occupiedEdges):
         '''
         Runs PIBT for a single agent
         Args:
@@ -403,9 +407,14 @@ class multiRobotSimNew:
             return -1
 
         # Below matches __init__ action order
-        # pdb.set_trace()
         moves_ordered = np.array([self.up, self.left, self.down, self.right, self.stop])
-        moves_ordered = moves_ordered[actionPreferences[agent_id]]
+        curActionPreds = actionPreds[agent_id]
+        # actionPreferences = (-curActionPreds).argsort() # If strict ordering
+        logits = np.exp(curActionPreds)
+        logits = logits / logits.sum()
+        actionPreferences = np.random.choice(5, size=5, replace=False, p=logits)
+        moves_ordered = moves_ordered[actionPreferences]
+
         current_pos = self.current_positions[agent_id]
         for aMove in moves_ordered:
             next_loc = current_pos + aMove
@@ -419,7 +428,7 @@ class multiRobotSimNew:
             # Skip if vertex occupied by higher agent
             if tuple(next_loc) in occupiedNodes:
                 continue
-            # Skip is reverse edge occupied by higher agent
+            # Skip if reverse edge occupied by higher agent
             if tuple([*next_loc, *current_pos]) in occupiedEdges:
                 continue
             
@@ -432,7 +441,7 @@ class multiRobotSimNew:
             conflictingAgent = findAgentAtLocation(next_loc)
             if conflictingAgent != -1:
                 # Recurse
-                isvalid = self.pibt(conflictingAgent, actionPreferences, plannedAgents,
+                isvalid = self.pibt(conflictingAgent, actionPreds, plannedAgents,
                                     moveMatrix, occupiedNodes, occupiedEdges)
                 if isvalid:
                     return True
@@ -446,8 +455,6 @@ class multiRobotSimNew:
                 return True
             
         # No valid move found
-        # print("Somehow PIBT failed!!!")
-        # pdb.set_trace()
         return False
 
     def check_collision(self, current_pos, move):
@@ -587,7 +594,7 @@ class multiRobotSimNew:
         # #     a = input('stop')
         return move, out_boundary == True, move_to_wall, collide_agents, collide_in_move_agents
 
-    def   move(self, actionVec, currentstep):
+    def move(self, actionVec, currentstep):
         # print('current step', currentstep)
         allReachGoal = (np.count_nonzero(self.reach_goal) == self.config.num_agents)
         # print('++++++++++step:', currentstep)
@@ -621,9 +628,17 @@ class multiRobotSimNew:
                     self.current_positions, proposed_moves)
             elif self.shieldType == "LaCAM": ### RVMod
                 numpyActionVec = actionVec.detach().cpu().numpy()
+                # pdb.set_trace()
+                prev_new_move, move_to_boundary, move_to_wall_agents, collide_agents, collide_in_move_agents = self.check_collision(
+                    self.current_positions, proposed_moves)
                 new_move, move_to_boundary, move_to_wall_agents, collide_agents, collide_in_move_agents = self.lacam_check_collision(
                     numpyActionVec)
-            # pdb.set_trace()
+                # pdb.set_trace()
+                numDif = (np.abs(new_move - prev_new_move).sum(axis=-1) > 0).sum()
+                if (numDif > 0):
+                    print("LaCAM changed {} moves".format(numDif))
+                    # pdb.set_trace()
+                
 
             # if not (new_move == proposed_moves).all():
             #     print('something changes')
