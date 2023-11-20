@@ -72,6 +72,8 @@ def process_config(args):
     config, _ = get_config_from_json(args.config)
     print(" THE Configuration of your experiment ..")
 
+    config.shieldType = args.shieldType
+
     config.mode = args.mode
     config.num_agents = args.num_agents
     config.map_w = args.map_w

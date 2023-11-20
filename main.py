@@ -48,6 +48,9 @@ def main():
         default='None',
         help='The Configuration file in json format')
 
+    arg_parser.add_argument('--shieldType', type=str, default="Default",
+                                help="[Default, LaCAM]") # RVMod
+
     arg_parser.add_argument('--mode', type=str, default='train')
     arg_parser.add_argument('--log_time_trained', type=str, default='0')
 
