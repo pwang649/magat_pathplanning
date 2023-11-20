@@ -104,63 +104,63 @@ map:
     - [11, 12]
     - [15, 3]
 agents:
--   goal: [13, 6]
+-   goal: [11, 5]
     name: agent0
-    start: [16, 6]
--   goal: [27, 6]
+    start: [10, 4]
+-   goal: [6, 27]
     name: agent1
-    start: [29, 7]
--   goal: [11, 15]
+    start: [8, 25]
+-   goal: [15, 25]
     name: agent2
-    start: [11, 18]
--   goal: [27, 31]
+    start: [15, 22]
+-   goal: [12, 16]
     name: agent3
-    start: [30, 31]
--   goal: [16, 10]
+    start: [15, 14]
+-   goal: [6, 12]
     name: agent4
-    start: [16, 9]
--   goal: [13, 25]
+    start: [5, 9]
+-   goal: [14, 15]
     name: agent5
-    start: [11, 24]
--   goal: [21, 30]
+    start: [13, 18]
+-   goal: [6, 0]
     name: agent6
-    start: [19, 30]
--   goal: [27, 19]
+    start: [3, 0]
+-   goal: [13, 19]
     name: agent7
-    start: [26, 21]
--   goal: [20, 17]
+    start: [12, 20]
+-   goal: [26, 26]
     name: agent8
-    start: [18, 19]
--   goal: [21, 2]
+    start: [23, 26]
+-   goal: [26, 5]
     name: agent9
-    start: [23, 2]
--   goal: [22, 14]
+    start: [27, 2]
+-   goal: [17, 27]
     name: agent10
-    start: [17, 16]
--   goal: [22, 10]
+    start: [18, 28]
+-   goal: [6, 13]
     name: agent11
-    start: [18, 13]
--   goal: [25, 13]
+    start: [4, 10]
+-   goal: [3, 4]
     name: agent12
-    start: [28, 11]
--   goal: [12, 11]
+    start: [5, 0]
+-   goal: [16, 26]
     name: agent13
-    start: [8, 10]
--   goal: [10, 16]
+    start: [21, 22]
+-   goal: [12, 15]
     name: agent14
-    start: [9, 10]
--   goal: [16, 12]
+    start: [12, 11]
+-   goal: [21, 8]
     name: agent15
-    start: [16, 5]
--   goal: [30, 22]
+    start: [20, 13]
+-   goal: [2, 17]
     name: agent16
-    start: [27, 16]
--   goal: [10, 5]
+    start: [3, 22]
+-   goal: [20, 30]
     name: agent17
-    start: [11, 1]
--   goal: [29, 16]
+    start: [26, 31]
+-   goal: [16, 16]
     name: agent18
-    start: [24, 11]
--   goal: [3, 12]
+    start: [9, 17]
+-   goal: [25, 15]
     name: agent19
-    start: [7, 15]
+    start: [27, 20]
