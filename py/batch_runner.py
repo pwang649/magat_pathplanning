@@ -9,7 +9,7 @@ def creat_output_csv(agent_num):
 
     # Create a CSV file
     csv_file_path = directory + '/output.csv'
-    cases = range(1, 11)
+    cases = range(1, 26)
 
     # Write the values to the CSV file
     with open(csv_file_path, 'w', newline='') as csv_file:
@@ -35,7 +35,7 @@ def creat_output_csv(agent_num):
             csv_writer.writerow([magat_cost, magat_makespan, succeed, ECBS_cost, ECBS_makespan])
 
 if __name__ == '__main__':
-    agents = range(40, 100+1, 30)
+    agents = range(50, 400+1, 50)
 
     for agent in agents:
         subprocess.call(["python3", "../main.py",
@@ -64,6 +64,7 @@ if __name__ == '__main__':
                          "--log_anime",
                          "--shieldType=LaCAM"
                          ])
+    for agent in agents:
         creat_output_csv(agent)
 
 """
