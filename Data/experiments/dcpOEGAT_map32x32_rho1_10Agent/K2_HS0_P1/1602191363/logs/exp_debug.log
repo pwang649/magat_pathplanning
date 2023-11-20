@@ -443,3 +443,117 @@ test set on dcpOEGAT_map32x32_rho1_10Agent/K2_HS0_P1/1602191363
  ####### Case1 	 Computation time:13.736881494522095 	 Step6/12	- AllReachGoal-True
  in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:947
 [INFO] - 2023-11-15 03:41:57,675 - Agent - : You have entered CTRL+C.. Wait to finalize in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:313
+[INFO] - 2023-11-20 00:47:32,847 - root - : Hi, This is root. in /home/rishi/research/magat_pathplanning/utils/config.py:323
+[INFO] - 2023-11-20 00:47:32,847 - root - : After the configurations are successfully processed and dirs are created. in /home/rishi/research/magat_pathplanning/utils/config.py:324
+[INFO] - 2023-11-20 00:47:32,847 - root - : The pipeline of the project will begin now. in /home/rishi/research/magat_pathplanning/utils/config.py:325
+[INFO] - 2023-11-20 00:47:52,834 - root - : Hi, This is root. in /home/rishi/research/magat_pathplanning/utils/config.py:323
+[INFO] - 2023-11-20 00:47:52,834 - root - : After the configurations are successfully processed and dirs are created. in /home/rishi/research/magat_pathplanning/utils/config.py:324
+[INFO] - 2023-11-20 00:47:52,834 - root - : The pipeline of the project will begin now. in /home/rishi/research/magat_pathplanning/utils/config.py:325
+[INFO] - 2023-11-20 00:47:52,985 - Agent - : Model: None
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:97
+[INFO] - 2023-11-20 00:47:52,985 - DecentralPlannerDataLoader Online Expert - : Loading #10 Agent DATA from Path without OnlineTF ..... in /home/rishi/research/magat_pathplanning/dataloader/Dataloader_dcplocal_notTF_onlineExpert.py:24
+[INFO] - 2023-11-20 00:50:04,179 - root - : Hi, This is root. in /home/rishi/research/magat_pathplanning/utils/config.py:323
+[INFO] - 2023-11-20 00:50:04,179 - root - : After the configurations are successfully processed and dirs are created. in /home/rishi/research/magat_pathplanning/utils/config.py:324
+[INFO] - 2023-11-20 00:50:04,180 - root - : The pipeline of the project will begin now. in /home/rishi/research/magat_pathplanning/utils/config.py:325
+[INFO] - 2023-11-20 00:50:04,333 - Agent - : Model: None
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:97
+[INFO] - 2023-11-20 00:50:04,334 - DecentralPlannerDataLoader Online Expert - : Loading #10 Agent DATA from Path without OnlineTF ..... in /home/rishi/research/magat_pathplanning/dataloader/Dataloader_dcplocal_notTF_onlineExpert.py:24
+[INFO] - 2023-11-20 00:50:04,529 - Agent - : WARNING: You have a CUDA device, so you should probably enable CUDA in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:132
+[INFO] - 2023-11-20 00:50:04,530 - Agent - : Program will run on *****CPU*****
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:149
+[INFO] - 2023-11-20 00:50:04,530 - Agent - : Loading checkpoint '../Data/experiments/dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191363/checkpoints/model_best.pth.tar' in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:224
+[INFO] - 2023-11-20 00:50:04,718 - Agent - : Checkpoint loaded successfully from '../Data/experiments/dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191363/checkpoints/' at (epoch 141) at (iteration 1316952)
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:238
+[INFO] - 2023-11-20 00:50:04,725 - Agent - : 
+test set on dcpOEGAT_map32x32_rho1_10Agent/K2_HS0_P1/1602191363 
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:652
+[INFO] - 2023-11-20 00:52:09,363 - root - : Hi, This is root. in /home/rishi/research/magat_pathplanning/utils/config.py:323
+[INFO] - 2023-11-20 00:52:09,364 - root - : After the configurations are successfully processed and dirs are created. in /home/rishi/research/magat_pathplanning/utils/config.py:324
+[INFO] - 2023-11-20 00:52:09,364 - root - : The pipeline of the project will begin now. in /home/rishi/research/magat_pathplanning/utils/config.py:325
+[INFO] - 2023-11-20 00:52:09,505 - Agent - : Model: None
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:97
+[INFO] - 2023-11-20 00:52:09,505 - DecentralPlannerDataLoader Online Expert - : Loading #10 Agent DATA from Path without OnlineTF ..... in /home/rishi/research/magat_pathplanning/dataloader/Dataloader_dcplocal_notTF_onlineExpert.py:24
+[INFO] - 2023-11-20 00:52:09,697 - Agent - : WARNING: You have a CUDA device, so you should probably enable CUDA in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:132
+[INFO] - 2023-11-20 00:52:09,698 - Agent - : Program will run on *****CPU*****
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:149
+[INFO] - 2023-11-20 00:52:09,698 - Agent - : Loading checkpoint '../Data/experiments/dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191363/checkpoints/model_best.pth.tar' in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:224
+[INFO] - 2023-11-20 00:52:09,900 - Agent - : Checkpoint loaded successfully from '../Data/experiments/dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191363/checkpoints/' at (epoch 141) at (iteration 1316952)
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:238
+[INFO] - 2023-11-20 00:52:09,917 - Agent - : 
+test set on dcpOEGAT_map32x32_rho1_10Agent/K2_HS0_P1/1602191363 
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:652
+[INFO] - 2023-11-20 00:52:46,150 - root - : Hi, This is root. in /home/rishi/research/magat_pathplanning/utils/config.py:323
+[INFO] - 2023-11-20 00:52:46,150 - root - : After the configurations are successfully processed and dirs are created. in /home/rishi/research/magat_pathplanning/utils/config.py:324
+[INFO] - 2023-11-20 00:52:46,150 - root - : The pipeline of the project will begin now. in /home/rishi/research/magat_pathplanning/utils/config.py:325
+[INFO] - 2023-11-20 00:52:46,305 - Agent - : Model: None
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:97
+[INFO] - 2023-11-20 00:52:46,305 - DecentralPlannerDataLoader Online Expert - : Loading #10 Agent DATA from Path without OnlineTF ..... in /home/rishi/research/magat_pathplanning/dataloader/Dataloader_dcplocal_notTF_onlineExpert.py:24
+[INFO] - 2023-11-20 00:52:46,494 - Agent - : WARNING: You have a CUDA device, so you should probably enable CUDA in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:132
+[INFO] - 2023-11-20 00:52:46,495 - Agent - : Program will run on *****CPU*****
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:149
+[INFO] - 2023-11-20 00:52:46,495 - Agent - : Loading checkpoint '../Data/experiments/dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191363/checkpoints/model_best.pth.tar' in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:224
+[INFO] - 2023-11-20 00:52:46,713 - Agent - : Checkpoint loaded successfully from '../Data/experiments/dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191363/checkpoints/' at (epoch 141) at (iteration 1316952)
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:238
+[INFO] - 2023-11-20 00:52:46,714 - Agent - : 
+test set on dcpOEGAT_map32x32_rho1_10Agent/K2_HS0_P1/1602191363 
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:652
+[INFO] - 2023-11-20 01:07:52,452 - root - : Hi, This is root. in /home/rishi/research/magat_pathplanning/utils/config.py:323
+[INFO] - 2023-11-20 01:07:52,452 - root - : After the configurations are successfully processed and dirs are created. in /home/rishi/research/magat_pathplanning/utils/config.py:324
+[INFO] - 2023-11-20 01:07:52,452 - root - : The pipeline of the project will begin now. in /home/rishi/research/magat_pathplanning/utils/config.py:325
+[INFO] - 2023-11-20 01:07:52,597 - Agent - : Model: None
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:97
+[INFO] - 2023-11-20 01:07:52,598 - DecentralPlannerDataLoader Online Expert - : Loading #10 Agent DATA from Path without OnlineTF ..... in /home/rishi/research/magat_pathplanning/dataloader/Dataloader_dcplocal_notTF_onlineExpert.py:24
+[INFO] - 2023-11-20 01:07:52,790 - Agent - : WARNING: You have a CUDA device, so you should probably enable CUDA in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:132
+[INFO] - 2023-11-20 01:07:52,791 - Agent - : Program will run on *****CPU*****
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:149
+[INFO] - 2023-11-20 01:07:52,791 - Agent - : Loading checkpoint '../Data/experiments/dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191363/checkpoints/model_best.pth.tar' in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:224
+[INFO] - 2023-11-20 01:07:52,974 - Agent - : Checkpoint loaded successfully from '../Data/experiments/dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191363/checkpoints/' at (epoch 141) at (iteration 1316952)
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:238
+[INFO] - 2023-11-20 01:07:52,989 - Agent - : 
+test set on dcpOEGAT_map32x32_rho1_10Agent/K2_HS0_P1/1602191363 
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:652
+[INFO] - 2023-11-20 01:08:00,869 - root - : Hi, This is root. in /home/rishi/research/magat_pathplanning/utils/config.py:323
+[INFO] - 2023-11-20 01:08:00,869 - root - : After the configurations are successfully processed and dirs are created. in /home/rishi/research/magat_pathplanning/utils/config.py:324
+[INFO] - 2023-11-20 01:08:00,869 - root - : The pipeline of the project will begin now. in /home/rishi/research/magat_pathplanning/utils/config.py:325
+[INFO] - 2023-11-20 01:08:01,022 - Agent - : Model: None
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:97
+[INFO] - 2023-11-20 01:08:01,022 - DecentralPlannerDataLoader Online Expert - : Loading #10 Agent DATA from Path without OnlineTF ..... in /home/rishi/research/magat_pathplanning/dataloader/Dataloader_dcplocal_notTF_onlineExpert.py:24
+[INFO] - 2023-11-20 01:08:01,221 - Agent - : WARNING: You have a CUDA device, so you should probably enable CUDA in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:132
+[INFO] - 2023-11-20 01:08:01,222 - Agent - : Program will run on *****CPU*****
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:149
+[INFO] - 2023-11-20 01:08:01,222 - Agent - : Loading checkpoint '../Data/experiments/dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191363/checkpoints/model_best.pth.tar' in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:224
+[INFO] - 2023-11-20 01:08:01,438 - Agent - : Checkpoint loaded successfully from '../Data/experiments/dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191363/checkpoints/' at (epoch 141) at (iteration 1316952)
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:238
+[INFO] - 2023-11-20 01:08:01,453 - Agent - : 
+test set on dcpOEGAT_map32x32_rho1_10Agent/K2_HS0_P1/1602191363 
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:652
+[INFO] - 2023-11-20 01:08:13,650 - root - : Hi, This is root. in /home/rishi/research/magat_pathplanning/utils/config.py:323
+[INFO] - 2023-11-20 01:08:13,651 - root - : After the configurations are successfully processed and dirs are created. in /home/rishi/research/magat_pathplanning/utils/config.py:324
+[INFO] - 2023-11-20 01:08:13,651 - root - : The pipeline of the project will begin now. in /home/rishi/research/magat_pathplanning/utils/config.py:325
+[INFO] - 2023-11-20 01:08:13,813 - Agent - : Model: None
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:97
+[INFO] - 2023-11-20 01:08:13,814 - DecentralPlannerDataLoader Online Expert - : Loading #10 Agent DATA from Path without OnlineTF ..... in /home/rishi/research/magat_pathplanning/dataloader/Dataloader_dcplocal_notTF_onlineExpert.py:24
+[INFO] - 2023-11-20 01:08:14,013 - Agent - : WARNING: You have a CUDA device, so you should probably enable CUDA in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:132
+[INFO] - 2023-11-20 01:08:14,013 - Agent - : Program will run on *****CPU*****
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:149
+[INFO] - 2023-11-20 01:08:14,014 - Agent - : Loading checkpoint '../Data/experiments/dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191363/checkpoints/model_best.pth.tar' in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:224
+[INFO] - 2023-11-20 01:08:14,223 - Agent - : Checkpoint loaded successfully from '../Data/experiments/dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191363/checkpoints/' at (epoch 141) at (iteration 1316952)
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:238
+[INFO] - 2023-11-20 01:08:14,229 - Agent - : 
+test set on dcpOEGAT_map32x32_rho1_10Agent/K2_HS0_P1/1602191363 
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:652
+[INFO] - 2023-11-20 01:08:27,115 - root - : Hi, This is root. in /home/rishi/research/magat_pathplanning/utils/config.py:323
+[INFO] - 2023-11-20 01:08:27,116 - root - : After the configurations are successfully processed and dirs are created. in /home/rishi/research/magat_pathplanning/utils/config.py:324
+[INFO] - 2023-11-20 01:08:27,116 - root - : The pipeline of the project will begin now. in /home/rishi/research/magat_pathplanning/utils/config.py:325
+[INFO] - 2023-11-20 01:08:27,265 - Agent - : Model: None
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:97
+[INFO] - 2023-11-20 01:08:27,265 - DecentralPlannerDataLoader Online Expert - : Loading #10 Agent DATA from Path without OnlineTF ..... in /home/rishi/research/magat_pathplanning/dataloader/Dataloader_dcplocal_notTF_onlineExpert.py:24
+[INFO] - 2023-11-20 01:08:27,456 - Agent - : WARNING: You have a CUDA device, so you should probably enable CUDA in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:132
+[INFO] - 2023-11-20 01:08:27,457 - Agent - : Program will run on *****CPU*****
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:149
+[INFO] - 2023-11-20 01:08:27,457 - Agent - : Loading checkpoint '../Data/experiments/dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191363/checkpoints/model_best.pth.tar' in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:224
+[INFO] - 2023-11-20 01:08:27,656 - Agent - : Checkpoint loaded successfully from '../Data/experiments/dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191363/checkpoints/' at (epoch 141) at (iteration 1316952)
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:238
+[INFO] - 2023-11-20 01:08:27,666 - Agent - : 
+test set on dcpOEGAT_map32x32_rho1_10Agent/K2_HS0_P1/1602191363 
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:652

@@ -1,7 +1,7 @@
 """
 An example for dataset loaders, starting with data loading including all the functions that either preprocess or postprocess data.
 """
-
+import pdb
 import os
 import csv
 import logging
@@ -202,7 +202,7 @@ class CreateDataset(data.Dataset):
 
     def load_test_data(self, path, _):
         # load dataset into test mode - only initial position, predict action towards goal
-
+        # print(path)
         data_contents = sio.loadmat(path)
         map_channel = data_contents['map'] # W x H
         goal_allagents = data_contents['goal'] # num_agent x 2
@@ -230,6 +230,11 @@ class CreateDataset(data.Dataset):
         list_path = []
         list_path_stepdata = []
         assert os.path.isdir(dir), '%s is not a valid directory' % dir
+        # if (not os.path.isdir(dir)):
+            # dir = 
+        # pdb.set_trace()
+        ### RVMod ecbs
+        # dir = "/home/rishi/research/magat_pathplanning/Data/DataSource_DMap_FixedComR/EffectiveDensity/Training/map32x32_density_p1/110_Agent/test"
 
         for root, _, fnames in sorted(os.walk(dir)):
             for fname in fnames:
