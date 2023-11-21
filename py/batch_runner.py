@@ -35,7 +35,7 @@ def creat_output_csv(agent_num):
             csv_writer.writerow([magat_cost, magat_makespan, succeed, ECBS_cost, ECBS_makespan])
 
 if __name__ == '__main__':
-    agents = range(100, 400+1, 50)
+    agents = range(50, 350+1, 50)
 
     for agent in agents:
         subprocess.call(["python3", "../main.py",
@@ -64,8 +64,9 @@ if __name__ == '__main__':
                          "--log_anime",
                          "--shieldType=LaCAM"
                          ])
-    for agent in agents:
         creat_output_csv(agent)
+    # for agent in agents:
+    #     creat_output_csv(agent)
 
 """
 python ../main.py ../configs/dcpGAT_OE_Random.json --mode test --best_epoch --test_general --log_time_trained 1602191363 \

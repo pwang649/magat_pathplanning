@@ -679,7 +679,12 @@ class multiRobotSimNew:
             # print('distance', current_distance)
             self.reach_goal[current_distance == 0] = 1
 
+            # pdb.set_trace()
             # Update end_step
+            # self.end_step[(current_distance == 0) & (self.end_step == 0)] = currentstep
+            ## I think above has a bug when an agent reaches its goal (setting end_step) but then moves out
+            ## The self.end_step == 0 will be False so it won't be updated
+            self.end_step[current_distance != 0] = 0 # Reset end_step for agents that moved out of goal
             self.end_step[(current_distance == 0) & (self.end_step == 0)] = currentstep
 
         if allReachGoal or (currentstep >= self.maxstep):
