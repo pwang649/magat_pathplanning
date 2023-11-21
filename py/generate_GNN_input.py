@@ -1,6 +1,6 @@
 import subprocess
 
-agents = range(100, 110+1, 10)
+agents = range(50, 450+1, 50)
 
 for agent in agents:
     subprocess.call(["python", "../offlineExpert/DataGen_Transformer_split_IDMap.py",

@@ -60,7 +60,7 @@ def load_scenario_file(scen_file,
         print(".scen version type does not match!")
         exit(-1)
     instances = [convert_nums(l.split('\t')) for l in ls[1:]]
-    instances.sort(key=lambda e: e[0])
+    # instances.sort(key=lambda e: e[0])
     for i in instances:
         assert(i[2] == map_width)
         assert(i[3] == map_height)
