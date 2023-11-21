@@ -350,13 +350,6 @@ class multiRobotSimNew:
             collide_in_move_agents: ids of face-to-face collision (both stop)
         '''
 
-        ### Convert actionPreference probalities to move orders
-        # actionPreferences = (-actionPreds).argsort() # Since we want descending order
-        # Do random sampling logic here if don't want argmax
-        # tmp = np.random.choice(actionPreferences.shape[1], size=actionPreferences.shape[0], 
-        #                 replace=False, p=actionPreds)
-        # pdb.set_trace()
-
         # agent_order = np.arange(self.config.num_agents)
         ### Recompute priorities
         # RVMod: Update self.agent_priorities if reached goal
@@ -369,10 +362,21 @@ class multiRobotSimNew:
         occupiedEdges = []
         plannedAgents = []
 
+        curLocations = set()
+        for agent_id in agent_order:
+            if tuple(self.current_positions[agent_id]) not in curLocations:
+                curLocations.add(tuple(self.current_positions[agent_id]))
+            else:
+                print("UH OH, MULTIPLE AGENTS AT SAME LOCATION!")
+                pdb.set_trace()
+
         for agent_id in agent_order:
             if agent_id in plannedAgents:
                 continue
             # tmp1 = len(plannedAgents)
+            current_pos = self.current_positions[agent_id]
+            if tuple(current_pos) in occupiedNodes:
+                pdb.set_trace()
             lacamWorked = self.pibt(agent_id, actionPreds, plannedAgents, moveMatrix, occupiedNodes, occupiedEdges)
             # if len(plannedAgents) > tmp1+1:
                 # print("PIBT added {} agents to plannedAgents".format(len(plannedAgents)-tmp1))
@@ -439,13 +443,14 @@ class multiRobotSimNew:
             occupiedNodes.append(tuple(next_loc))
             occupiedEdges.append(tuple([*current_pos, *next_loc]))
             conflictingAgent = findAgentAtLocation(next_loc)
-            if conflictingAgent != -1:
+            if conflictingAgent != -1 and conflictingAgent not in plannedAgents:
                 # Recurse
                 isvalid = self.pibt(conflictingAgent, actionPreds, plannedAgents,
                                     moveMatrix, occupiedNodes, occupiedEdges)
                 if isvalid:
                     return True
                 else:
+                    # pdb.set_trace()
                     del plannedAgents[-1]
                     del occupiedNodes[-1]
                     del occupiedEdges[-1]
@@ -629,15 +634,16 @@ class multiRobotSimNew:
             elif self.shieldType == "LaCAM": ### RVMod
                 numpyActionVec = actionVec.detach().cpu().numpy()
                 # pdb.set_trace()
-                prev_new_move, move_to_boundary, move_to_wall_agents, collide_agents, collide_in_move_agents = self.check_collision(
-                    self.current_positions, proposed_moves)
+                # prev_new_move, move_to_boundary, move_to_wall_agents, collide_agents, collide_in_move_agents = self.check_collision(
+                #     self.current_positions, proposed_moves)
                 new_move, move_to_boundary, move_to_wall_agents, collide_agents, collide_in_move_agents = self.lacam_check_collision(
                     numpyActionVec)
                 # pdb.set_trace()
-                numDif = (np.abs(new_move - prev_new_move).sum(axis=-1) > 0).sum()
-                if (numDif > 0):
-                    print("LaCAM changed {} moves".format(numDif))
+                # numDif = (np.abs(new_move - prev_new_move).sum(axis=-1) > 0).sum()
+                # if (numDif > 0):
+                #     print("LaCAM changed {} moves".format(numDif))
                     # pdb.set_trace()
+                # print("Made a move")
                 
 
             # if not (new_move == proposed_moves).all():
@@ -656,6 +662,14 @@ class multiRobotSimNew:
             # Compute Next position
             self.current_positions += new_move
             self.path_list.append(self.current_positions.copy())
+
+            # curLocations = set()
+            # for agent_id, agent_loc  in enumerate(self.current_positions):
+            #     if tuple(agent_loc) not in curLocations:
+            #         curLocations.add(tuple(agent_loc))
+            #     else:
+            #         print("UH OH, MULTIPLE AGENTS AT SAME LOCATION!")
+            #         pdb.set_trace()
             # print('decision:', new_move)
             # print('new position:', self.current_positions)
 

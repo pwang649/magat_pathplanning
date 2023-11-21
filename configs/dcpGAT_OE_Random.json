@@ -32,7 +32,7 @@
   "test_general": false,
   "train_TL": false,
 
-  "cuda": false,
+  "cuda": true,
   "gpu_device": 0,
 
   "checkpoint_file": "model_best.pth.tar",

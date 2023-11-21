@@ -3,7 +3,7 @@ Codes for running training and evaluation of Decentralised Path Planning with Gr
 The model was proposed by us in the below paper:
 Q. Li, W. Lin, Z. Liu and A. Prorok, "Message-Aware Graph Attention Networks for Large-Scale Multi-Robot Path Planning," in IEEE Robotics and Automation Letters, vol. 6, no. 3, pp. 5533-5540, July 2021, doi: 10.1109/LRA.2021.3077863.
 '''
-
+import pdb
 import shutil
 
 from fnmatch import fnmatch
@@ -918,17 +918,20 @@ class DecentralPlannerAgentLocalWithOnlineExpertGAT(BaseAgent):
         num_agents_reachgoal = self.robot.count_numAgents_ReachGoal()
         store_GSO, store_communication_radius = self.robot.count_GSO_communcationRadius(currentStep)
 
+        savedSomething = False
         if allReachGoal and not check_CollisionHappenedinLoop:
             check_collisionFreeSol = True
             noReachGoalbyCollsionShielding = False
             findOptimalSolution, compare_makespan, compare_flowtime = self.robot.checkOptimality(True)
             if self.config.log_anime and self.config.mode == 'test':
                 self.robot.save_success_cases('success')
+                savedSomething = True
 
         if currentStep >= (maxstep):
             findOptimalSolution, compare_makespan, compare_flowtime = self.robot.checkOptimality(False)
             if mode == 'test_trainingSet' and self.switch_toOnlineExpert:
                 self.robot.save_failure_cases()
+                savedSomething = True
 
         # if currentStep >= (maxstep) and not allReachGoal and check_CollisionPredictedinLoop and not check_CollisionHappenedinLoop: # RVMod Original
         if currentStep >= (maxstep) and not allReachGoal and not check_CollisionHappenedinLoop: # RVMod
@@ -937,7 +940,12 @@ class DecentralPlannerAgentLocalWithOnlineExpertGAT(BaseAgent):
             noReachGoalbyCollsionShielding = True
             if self.config.log_anime and self.config.mode == 'test':
                 self.robot.save_success_cases('failure')
+                savedSomething = True
         time_record = time.time() - Case_start
+
+        if not savedSomething:
+            print("DID NOT SAVE ANYTHING FOR SOME REASON")
+            pdb.set_trace()
 
         if self.config.mode == 'test':
             exp_status = "################## {} - End of loop ################## ".format(self.config.exp_name)

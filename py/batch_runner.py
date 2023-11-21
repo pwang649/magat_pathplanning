@@ -35,7 +35,7 @@ def creat_output_csv(agent_num):
             csv_writer.writerow([magat_cost, magat_makespan, succeed, ECBS_cost, ECBS_makespan])
 
 if __name__ == '__main__':
-    agents = range(50, 400+1, 50)
+    agents = range(100, 400+1, 50)
 
     for agent in agents:
         subprocess.call(["python3", "../main.py",
@@ -51,7 +51,7 @@ if __name__ == '__main__':
                          "--commR", "7",
                          "--list_map_w", "32",
                          "--list_agents", str(agent),
-                         "--list_num_testset", "10",
+                         "--list_num_testset", "25",
                          "--GSO_mode", "dist_GSO",
                          "--action_select", "exp_multinorm",
                          "--guidance", "Project_G",
