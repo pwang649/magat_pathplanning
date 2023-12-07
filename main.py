@@ -210,6 +210,14 @@ def main():
             np.random.seed(args.seed)
             torch.manual_seed(args.seed)
             # Create the Agent and pass all the configuration to it then run it..
+            aSeed = 1
+            torch.manual_seed(aSeed)
+            np.random.seed(aSeed)
+            random.seed(aSeed)
+            torch.cuda.manual_seed(aSeed)               
+            torch.cuda.manual_seed_all(aSeed)           
+            torch.backends.cudnn.deterministic = True
+
             agent_class = globals()[config.agent]
             agent = agent_class(config)
             agent.run()
