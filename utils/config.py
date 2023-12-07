@@ -73,6 +73,7 @@ def process_config(args):
     print(" THE Configuration of your experiment ..")
 
     config.shieldType = args.shieldType
+    config.pibt_r = args.pibt_r
 
     config.mode = args.mode
     config.num_agents = args.num_agents

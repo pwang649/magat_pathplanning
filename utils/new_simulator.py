@@ -112,6 +112,7 @@ class multiRobotSimNew:
         self.dir_sol = os.path.join(self.config.failCases_dir, "output_ECBS/")
 
         self.shieldType = self.config.shieldType
+        self.pibt_r = self.config.pibt_r
         assert(self.shieldType in ["Default", "LaCAM"])
 
     def setup(self, loadInput, loadTarget, case_config, tensor_map, ID_dataset, mode):
@@ -417,24 +418,30 @@ class multiRobotSimNew:
         curActionPreds = actionPreds[agent_id]
         # actionPreferences = (-curActionPreds).argsort() # If strict ordering
         logits = np.exp(curActionPreds)
-        # logits = logits / logits.sum()
-        BD_scores = []
-        for drow, dcol in [self.up, self.left, self.down, self.right, self.stop]:
-            neighbor_row = int(self.current_positions[agent_id][0] + drow)
-            neighbor_col = int(self.current_positions[agent_id][1] + dcol)
-            if neighbor_row < 0 or neighbor_col < 0 or neighbor_row >= self.size_map[0] or neighbor_col >= self.size_map[0]:
-                BD_scores.append(9999)
-                continue
-            neighbor_score = self.BDs[agent_id, neighbor_row, neighbor_col]
-            if neighbor_score == np.inf:
-                BD_scores.append(9999)
-                continue
-            BD_scores.append(self.BDs[agent_id, neighbor_row, neighbor_col])
+        logits = logits / logits.sum()
 
-        weighted_scores = BD_scores + 100 * logits # TODO: tune this
-        weighted_scores = weighted_scores / weighted_scores.sum()
-
-        actionPreferences = np.random.choice(5, size=5, replace=False, p=weighted_scores)
+        if self.pibt_r > 0: ### Incorporate BDs
+            BD_scores = []
+            for drow, dcol in moves_ordered:
+                neighbor_row = int(self.current_positions[agent_id][0] + drow)
+                neighbor_col = int(self.current_positions[agent_id][1] + dcol)
+                if neighbor_row < 0 or neighbor_col < 0 or neighbor_row >= self.size_map[0] or neighbor_col >= self.size_map[1]:
+                    BD_scores.append(9999)
+                    continue
+                neighbor_score = self.BDs[agent_id, neighbor_row, neighbor_col]
+                if neighbor_score == np.inf:
+                    BD_scores.append(9999)
+                    continue
+                BD_scores.append(neighbor_score)
+            # assert(self.BDs[agent_id, self.current_positions[agent_id][0], self.current_positions[agent_id][1]] < 1000)
+            assert(BD_scores[-1] < 1000)
+            weighted_scores = BD_scores + self.pibt_r * (1 - logits) # TODO: tune this
+            # weighted_scores = weighted_scores / weighted_scores.sum()
+            # pdb.set_trace()
+            actionPreferences = weighted_scores.argsort() # If strict ordering, sorts min to max
+        else:
+            ### Randomly sort using logits
+            actionPreferences = np.random.choice(5, size=5, replace=False, p=logits)
         moves_ordered = moves_ordered[actionPreferences]
 
         current_pos = self.current_positions[agent_id]
