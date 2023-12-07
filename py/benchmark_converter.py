@@ -7,7 +7,7 @@ files used by the example implementations provided by libMultiRobotPlanning.
 import os
 import argparse
 
-# Ex: python benchmark_converter.py ../maps/benchmark/random-32-32-10/scen-even/random-32-32-10-even-{}.scen ../maps/benchmark/random-32-32-10/random-32-32-10.map
+# Ex: python benchmark_converter.py ../maps/benchmark/random-32-32-10/scen-random/random-32-32-10-random-{}.scen ../maps/benchmark/random-32-32-10/random-32-32-10.map
 def setup_args():
     parser = argparse.ArgumentParser()
     parser.add_argument("scenario", type=str, help=".scen Scenario file")
@@ -60,7 +60,7 @@ def load_scenario_file(scen_file,
         print(".scen version type does not match!")
         exit(-1)
     instances = [convert_nums(l.split('\t')) for l in ls[1:]]
-    instances.sort(key=lambda e: e[0])
+    # instances.sort(key=lambda e: e[0])
     for i in instances:
         assert(i[2] == map_width)
         assert(i[3] == map_height)

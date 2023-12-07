@@ -1,4 +1,5 @@
 import csv
+import os
 import subprocess
 import os
 import yaml
@@ -14,7 +15,6 @@ def creat_output_csv(agent_num, scens):
     # Write the values to the CSV file
     with open(csv_file_path, 'a', newline='') as csv_file:
         csv_writer = csv.writer(csv_file)
-        csv_writer.writerow(['magatCost', 'magatMakespan', 'magatSucceed', 'ECBSCost', 'ECBSMakespan'])
 
         for case in cases:
             with open(directory + '/predict/predict_map32x32_IDMap00000_IDCase{:05d}.yaml'.format(case), 'r') as file:

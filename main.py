@@ -71,6 +71,7 @@ def main():
 
     arg_parser.add_argument('--num_testset', type=int, default=4500)
     arg_parser.add_argument('--load_num_validset', type=int, default=200)
+    arg_parser.add_argument('--seed', type=int, default=1337)
 
     arg_parser.add_argument('--test_epoch', type=int, default=0)
     arg_parser.add_argument('--lastest_epoch', action='store_true', default=False)
@@ -205,6 +206,10 @@ def main():
             args.num_testset = args.list_num_testset[id_case]
             # parse the config json file
             config = process_config(args)
+            config.seed = args.seed
+            random.seed(args.seed)
+            np.random.seed(args.seed)
+            torch.manual_seed(args.seed)
             # Create the Agent and pass all the configuration to it then run it..
             aSeed = args.seed
             torch.manual_seed(aSeed)

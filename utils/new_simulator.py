@@ -191,6 +191,8 @@ class multiRobotSimNew:
         self.path_list.append(self.current_positions.copy())
         self.path_matrix = None
 
+        self.BDs = np.load('BDs/random-32-32-10-scen-{}.npy'.format(int(ID_case.numpy())))
+
         # print('position vector:', self.start_positions.shape, self.goal_positions.shape)
 
         self.reach_goal = np.zeros(self.config.num_agents, )
@@ -415,8 +417,24 @@ class multiRobotSimNew:
         curActionPreds = actionPreds[agent_id]
         # actionPreferences = (-curActionPreds).argsort() # If strict ordering
         logits = np.exp(curActionPreds)
-        logits = logits / logits.sum()
-        actionPreferences = np.random.choice(5, size=5, replace=False, p=logits)
+        # logits = logits / logits.sum()
+        BD_scores = []
+        for drow, dcol in [self.up, self.left, self.down, self.right, self.stop]:
+            neighbor_row = int(self.current_positions[agent_id][0] + drow)
+            neighbor_col = int(self.current_positions[agent_id][1] + dcol)
+            if neighbor_row < 0 or neighbor_col < 0 or neighbor_row >= self.size_map[0] or neighbor_col >= self.size_map[0]:
+                BD_scores.append(9999)
+                continue
+            neighbor_score = self.BDs[agent_id, neighbor_row, neighbor_col]
+            if neighbor_score == np.inf:
+                BD_scores.append(9999)
+                continue
+            BD_scores.append(self.BDs[agent_id, neighbor_row, neighbor_col])
+
+        weighted_scores = BD_scores + 100 * logits # TODO: tune this
+        weighted_scores = weighted_scores / weighted_scores.sum()
+
+        actionPreferences = np.random.choice(5, size=5, replace=False, p=weighted_scores)
         moves_ordered = moves_ordered[actionPreferences]
 
         current_pos = self.current_positions[agent_id]

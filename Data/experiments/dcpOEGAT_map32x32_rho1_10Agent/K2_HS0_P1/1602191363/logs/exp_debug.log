@@ -1,3 +1,5 @@
+<<<<<<< HEAD
+=======
 [INFO] - 2023-11-12 11:54:53,484 - root - : Hi, This is root. in /Users/peterwang/Desktop/github/magat_pathplanning/utils/config.py:321
 [INFO] - 2023-11-12 11:54:53,484 - root - : After the configurations are successfully processed and dirs are created. in /Users/peterwang/Desktop/github/magat_pathplanning/utils/config.py:322
 [INFO] - 2023-11-12 11:54:53,484 - root - : The pipeline of the project will begin now. in /Users/peterwang/Desktop/github/magat_pathplanning/utils/config.py:323
@@ -557,3 +559,4 @@ test set on dcpOEGAT_map32x32_rho1_10Agent/K2_HS0_P1/1602191363
 [INFO] - 2023-11-20 01:08:27,666 - Agent - : 
 test set on dcpOEGAT_map32x32_rho1_10Agent/K2_HS0_P1/1602191363 
  in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:652
+>>>>>>> fe8d02c6170784b4d21c55a13aa2c9ec69952249
