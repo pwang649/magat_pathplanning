@@ -409,7 +409,7 @@ class DataTransformer:
                 nextX = goal_allagents[id_agent][0]
                 nextY = goal_allagents[id_agent][1]
 
-            actionCurrent = [nextX - currentX, nextY - currentY]
+            actionCurrent = [0, 0] # TODO: fix
 
 
             actionKeyIndex = self.delta.index(actionCurrent)

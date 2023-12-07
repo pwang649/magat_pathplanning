@@ -50,7 +50,7 @@ def visualize(agent, cases, seed):
 
 if __name__ == '__main__':
 
-    agents = range(50, 350+1, 50)
+    agents = range(150, 300+1, 50)
     cases = 2
     seeds = range(3)
 

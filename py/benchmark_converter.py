@@ -124,4 +124,4 @@ for scen_num in range(1, 26):
                              map_width,
                              map_height,
                              occupancy_list,
-                             "../maps/map32x32_density_p1/{}_Agent/input/input_map32x32_IDMap00000_IDCase{:05d}.yaml")
+                             "../maps/map128x128_density_p1/{}_Agent/input/input_map128x128_IDMap00000_IDCase{:05d}.yaml")
