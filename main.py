@@ -48,6 +48,7 @@ def main():
         default='None',
         help='The Configuration file in json format')
 
+    arg_parser.add_argument('--seed', type=int, default=1337)
     arg_parser.add_argument('--shieldType', type=str, default="Default",
                                 help="[Default, LaCAM]") # RVMod
 
@@ -205,7 +206,7 @@ def main():
             # parse the config json file
             config = process_config(args)
             # Create the Agent and pass all the configuration to it then run it..
-            aSeed = 1
+            aSeed = args.seed
             torch.manual_seed(aSeed)
             np.random.seed(aSeed)
             random.seed(aSeed)
