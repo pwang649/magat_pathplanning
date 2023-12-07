@@ -26,7 +26,7 @@ def convert_nums(l):
                 ""
     return l
 
-def load_scenario_file(scen_file):
+def load_scenario_file(scen_file, grid_map):
     if not os.path.isfile(scen_file):
         print("Scenario file not found!")
         exit(-1)
@@ -38,6 +38,9 @@ def load_scenario_file(scen_file):
     # instances.sort(key=lambda e: e[0])
     # ((sx, sy), (gx, gy))
     instances = [((i[4], i[5]), (i[6], i[7])) for i in instances]
+    for start, goal in instances:
+        assert(not np.isinf(grid_map[int(start[0])][int(start[0])]))
+        assert(not np.isinf(grid_map[int(goal[0])][int(goal[0])]))
     return instances
 
 def dijkstra_backward(grid, goal):
@@ -86,7 +89,7 @@ print("Map loaded")
 print("Loading scenario file")
 
 for scen_num in range(1, 26):
-    agents_data = load_scenario_file(args.scenario.format(scen_num))
+    agents_data = load_scenario_file(args.scenario.format(scen_num), grid_map)
 
     backward_dijkstra_info = generate_backward_dijkstra_info(grid_map, agents_data)
 

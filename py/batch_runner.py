@@ -50,7 +50,7 @@ def visualize(agent, cases, seed):
 
 if __name__ == '__main__':
 
-    agents = range(150, 300+1, 50)
+    agents = range(50, 300+1, 50)
     cases = 2
     seeds = range(3)
 
@@ -94,7 +94,7 @@ if __name__ == '__main__':
                              "--shieldType=LaCAM"
                              ])
             creat_output_csv(agent, cases)
-            visualize(agent, cases, seed)
+            # visualize(agent, cases, seed)
 
 """
 python ../main.py ../configs/dcpGAT_OE_Random.json --mode test --best_epoch --test_general --log_time_trained 1602191363 \
