@@ -15,6 +15,7 @@ def creat_output_csv(agent_num, scens):
     # Write the values to the CSV file
     with open(csv_file_path, 'a', newline='') as csv_file:
         csv_writer = csv.writer(csv_file)
+        csv_writer.writerow(['magatCost', 'magatMakespan', 'magatSucceed', 'ECBSCost', 'ECBSMakespan'])
 
         for case in cases:
             with open(directory + '/predict/predict_map32x32_IDMap00000_IDCase{:05d}.yaml'.format(case), 'r') as file:
@@ -89,5 +90,5 @@ python ../main.py ../configs/dcpGAT_OE_Random.json --mode test --best_epoch --te
     --list_num_testset 10 --GSO_mode dist_GSO --action_select exp_multinorm --guidance Project_G \
     --CNN_mode ResNetLarge_withMLP --batch_numAgent --test_num_processes 0 --nAttentionHeads 1 --attentionMode KeyQuery \
     --tb_ExpName DotProduct_GAT_Resnet_3Block_distGSO_baseline_128 --log_anime --shieldType=LaCAM --seed=1 --list_agents 100 \
-    --pibt_r=100
+    --pibt_r=0.001
 """
