@@ -230,7 +230,7 @@ class DecentralPlannerAgentLocalWithOnlineExpertGAT(BaseAgent):
                 self.rateReachGoal = checkpoint['rateReachGoal']
             except:
                 pass
-
+            
             self.current_iteration = checkpoint['iteration']
             self.model.load_state_dict(checkpoint['state_dict'])
             self.optimizer.load_state_dict(checkpoint['optimizer'])

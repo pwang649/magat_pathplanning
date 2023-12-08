@@ -48,8 +48,11 @@ def main():
         default='None',
         help='The Configuration file in json format')
 
+    arg_parser.add_argument('--seed', type=int, default=1337)
     arg_parser.add_argument('--shieldType', type=str, default="Default",
                                 help="[Default, LaCAM]") # RVMod
+    arg_parser.add_argument('--pibt_r', type=float, default=0.0,
+                                help="The weight of logits over bd")
 
     arg_parser.add_argument('--mode', type=str, default='train')
     arg_parser.add_argument('--log_time_trained', type=str, default='0')
@@ -70,7 +73,6 @@ def main():
 
     arg_parser.add_argument('--num_testset', type=int, default=4500)
     arg_parser.add_argument('--load_num_validset', type=int, default=200)
-    arg_parser.add_argument('--seed', type=int, default=1337)
 
     arg_parser.add_argument('--test_epoch', type=int, default=0)
     arg_parser.add_argument('--lastest_epoch', action='store_true', default=False)
@@ -206,11 +208,8 @@ def main():
             # parse the config json file
             config = process_config(args)
             config.seed = args.seed
-            random.seed(args.seed)
-            np.random.seed(args.seed)
-            torch.manual_seed(args.seed)
             # Create the Agent and pass all the configuration to it then run it..
-            aSeed = 1
+            aSeed = args.seed
             torch.manual_seed(aSeed)
             np.random.seed(aSeed)
             random.seed(aSeed)

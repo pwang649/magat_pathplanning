@@ -15,6 +15,7 @@ Data/
 #Results/
 
 Results_best/
+Data/Tensorboard/
 Data/Tensorboard/dcpOEGAT_map32x32_rho1_100Agent/
 *.gif
-maps/
+maps/*

@@ -93,7 +93,7 @@ for scen_num in range(1, 26):
 
     backward_dijkstra_info = generate_backward_dijkstra_info(grid_map, agents_data)
 
-    backward_dijkstra_info = np.array(backward_dijkstra_info)
+    backward_dijkstra_info = np.transpose(np.array(backward_dijkstra_info), (0, 2, 1))
 
     # Save NumPy array to a file
     np.save('BDs/random-32-32-10-scen-{}.npy'.format(scen_num), backward_dijkstra_info)

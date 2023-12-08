@@ -1,16 +1,16 @@
 import csv
 import os
 import subprocess
-
+import os
 import yaml
-
+import pdb
 
 def creat_output_csv(agent_num, scens):
     directory = "../Data/Results_best/AnimeDemo/dcpOEGAT/map32x32_rho1_{}Agent/K2_HS0/TR_M20p1_10Agent/1602191363/Project_G/exp_multinorm/commR_7".format(agent_num)
 
     # Create a CSV file
     csv_file_path = directory + '/output.csv'
-    cases = range(1, scens + 1)
+    cases = range(1, scens+1)
 
     # Write the values to the CSV file
     with open(csv_file_path, 'a', newline='') as csv_file:
@@ -35,6 +35,7 @@ def creat_output_csv(agent_num, scens):
             csv_writer.writerow([magat_cost, magat_makespan, succeed, ECBS_cost, ECBS_makespan])
 
 def visualize(agent, cases, seed):
+    print("Starting visualization!")
     directory = "../Data/Results_best/AnimeDemo/dcpOEGAT/map32x32_rho1_{}Agent/K2_HS0/TR_M20p1_10Agent/1602191363/Project_G/exp_multinorm/commR_7/".format(agent)
     if not os.path.exists(directory + "gifs"):
         os.makedirs(directory + "gifs")
@@ -47,12 +48,13 @@ def visualize(agent, cases, seed):
                              "--video", directory + "gifs/IDCase{:05d}_Seed{}.gif".format(case+1, seed),
                              "--nGraphFilterTaps", "2",
                              "--id_chosenAgent", "0"])
+    print("Ending visualization!")
 
 if __name__ == '__main__':
 
-    agents = range(50, 300+1, 50)
-    cases = 2
-    seeds = range(3)
+    agents = range(100, 450+1, 100)
+    num_scens = 10
+    seeds = range(1,6)
 
     for agent in agents:
         directory = "../Data/Results_best/AnimeDemo/dcpOEGAT/map32x32_rho1_{}Agent/K2_HS0/TR_M20p1_10Agent/1602191363/Project_G/exp_multinorm/commR_7".format(agent)
@@ -63,43 +65,29 @@ if __name__ == '__main__':
         os.makedirs(os.path.dirname(csv_file_path), exist_ok=True)
         with open(csv_file_path, 'w', newline='') as csv_file:
             csv_writer = csv.writer(csv_file)
-            csv_writer.writerow(['magatCost', 'magatMakespan', 'magatSucceed', 'ECBSCost', 'ECBSMakespan'])
+            # csv_writer.writerow(['magatCost', 'magatMakespan', 'magatSucceed', 'ECBSCost', 'ECBSMakespan'])
 
         for seed in seeds:
-            subprocess.call(["python3", "../main.py",
-                             "../configs/dcpGAT_OE_Random.json",
-                             "--mode", "test",
-                             "--best_epoch",
-                             "--test_general",
-                             "--log_time_trained", "1602191363",
-                             "--test_checkpoint",
-                             "--nGraphFilterTaps", "2",
-                             "--trained_num_agents", "10",
-                             "--trained_map_w", "20",
-                             "--commR", "7",
-                             "--list_map_w", "32",
-                             "--list_agents", str(agent),
-                             "--list_num_testset", str(cases),
-                             "--seed", str(seed),
-                             "--GSO_mode", "dist_GSO",
-                             "--action_select", "exp_multinorm",
-                             "--guidance", "Project_G",
-                             "--CNN_mode", "ResNetLarge_withMLP",
-                             "--batch_numAgent",
-                             "--test_num_processes", "0",
-                             "--nAttentionHeads", "1",
-                             "--attentionMode", "KeyQuery",
-                             "--tb_ExpName", "DotProduct_GAT_Resnet_3Block_distGSO_baseline_128",
-                             "--log_anime",
-                             "--shieldType=LaCAM"
-                             ])
-            creat_output_csv(agent, cases)
-            # visualize(agent, cases, seed)
+            command = """python ../main.py ../configs/dcpGAT_OE_Random.json --mode test --best_epoch --test_general --log_time_trained 1602191363 \
+    --test_checkpoint --nGraphFilterTaps 2 --trained_num_agents 10 --trained_map_w 20 --commR 7 --list_map_w 32 \
+    --GSO_mode dist_GSO --action_select exp_multinorm --guidance Project_G \
+    --CNN_mode ResNetLarge_withMLP --batch_numAgent --test_num_processes 0 --nAttentionHeads 1 --attentionMode KeyQuery \
+    --tb_ExpName DotProduct_GAT_Resnet_3Block_distGSO_baseline_128 --log_anime --shieldType=LaCAM \
+    --list_agents={} --list_num_testset={} --seed={} --pibt_r=100""".format(agent, num_scens, seed)
+            tmp = [str(x) for x in command.split(" ") if x != ""]
+            # pdb.set_trace()
+            subprocess.run(tmp, check=True)
+            creat_output_csv(agent, num_scens)
+            # visualize(agent, num_scens, seed)
+
+    # for agent in agents:
+    #     creat_output_csv(agent)
 
 """
 python ../main.py ../configs/dcpGAT_OE_Random.json --mode test --best_epoch --test_general --log_time_trained 1602191363 \
     --test_checkpoint --nGraphFilterTaps 2 --trained_num_agents 10 --trained_map_w 20 --commR 7 --list_map_w 32 \
-    --list_agents 100 --list_num_testset 10 --GSO_mode dist_GSO --action_select exp_multinorm --guidance Project_G \
+    --list_num_testset 10 --GSO_mode dist_GSO --action_select exp_multinorm --guidance Project_G \
     --CNN_mode ResNetLarge_withMLP --batch_numAgent --test_num_processes 0 --nAttentionHeads 1 --attentionMode KeyQuery \
-    --tb_ExpName DotProduct_GAT_Resnet_3Block_distGSO_baseline_128 --log_anime
+    --tb_ExpName DotProduct_GAT_Resnet_3Block_distGSO_baseline_128 --log_anime --shieldType=LaCAM --seed=1 --list_agents 100 \
+    --pibt_r=100
 """
