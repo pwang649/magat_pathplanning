@@ -435,7 +435,7 @@ class multiRobotSimNew:
                 BD_scores.append(neighbor_score)
             # assert(self.BDs[agent_id, self.current_positions[agent_id][0], self.current_positions[agent_id][1]] < 1000
             assert(BD_scores[-1] < 1000)
-            weighted_scores = BD_scores + self.pibt_r * (1 - logits) # TODO: tune this
+            weighted_scores = BD_scores - self.pibt_r * (1 - logits) # TODO: tune this
             # weighted_scores = weighted_scores / weighted_scores.sum()
             # pdb.set_trace()
             actionPreferences = weighted_scores.argsort() # If strict ordering, sorts min to max

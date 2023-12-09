@@ -39,8 +39,8 @@ def load_scenario_file(scen_file, grid_map):
     # ((sx, sy), (gx, gy))
     instances = [((i[4], i[5]), (i[6], i[7])) for i in instances]
     for start, goal in instances:
-        assert(not np.isinf(grid_map[int(start[0])][int(start[0])]))
-        assert(not np.isinf(grid_map[int(goal[0])][int(goal[0])]))
+        assert(not np.isinf(grid_map[int(start[0]), int(start[0])]))
+        assert(not np.isinf(grid_map[int(goal[0]), int(goal[0])]))
     return instances
 
 def dijkstra_backward(grid, goal):
@@ -85,6 +85,7 @@ def setup_args():
 args = setup_args()
 print("Loading map")
 grid_map = load_map_file(args.map)
+grid_map = np.array(grid_map).T
 print("Map loaded")
 print("Loading scenario file")
 
@@ -93,7 +94,7 @@ for scen_num in range(1, 26):
 
     backward_dijkstra_info = generate_backward_dijkstra_info(grid_map, agents_data)
 
-    backward_dijkstra_info = np.transpose(np.array(backward_dijkstra_info), (0, 2, 1))
+    backward_dijkstra_info = np.array(backward_dijkstra_info)
 
     # Save NumPy array to a file
     np.save('BDs/random-32-32-10-scen-{}.npy'.format(scen_num), backward_dijkstra_info)

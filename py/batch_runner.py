@@ -52,7 +52,7 @@ def visualize(agent, cases, seed):
 
 if __name__ == '__main__':
 
-    agents = range(100, 450+1, 100)
+    agents = range(50, 450+1, 100)
     num_scens = 10
     seeds = range(1,6)
 
@@ -73,7 +73,7 @@ if __name__ == '__main__':
     --GSO_mode dist_GSO --action_select exp_multinorm --guidance Project_G \
     --CNN_mode ResNetLarge_withMLP --batch_numAgent --test_num_processes 0 --nAttentionHeads 1 --attentionMode KeyQuery \
     --tb_ExpName DotProduct_GAT_Resnet_3Block_distGSO_baseline_128 --log_anime --shieldType=LaCAM \
-    --list_agents={} --list_num_testset={} --seed={} --pibt_r=100""".format(agent, num_scens, seed)
+    --list_agents={} --list_num_testset={} --seed={} --pibt_r=0.001""".format(agent, num_scens, seed)
             tmp = [str(x) for x in command.split(" ") if x != ""]
             # pdb.set_trace()
             subprocess.run(tmp, check=True)
