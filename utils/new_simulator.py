@@ -115,6 +115,8 @@ class multiRobotSimNew:
         self.pibt_r = self.config.pibt_r
         assert(self.shieldType in ["Default", "LaCAM"])
 
+        self.action_distribution = []
+
     def setup(self, loadInput, loadTarget, case_config, tensor_map, ID_dataset, mode):
         '''
         Setup of environment, called before actual use.
@@ -652,6 +654,17 @@ class multiRobotSimNew:
 
             # update first step to move for each agent
             self.first_move[(proposed_actions != self.stop_keyValue) & (self.first_move == 0)] = currentstep
+
+            actionVec_current = torch.exp(actionVec)
+
+            actionKey_predict = torch.multinomial(actionVec_current, 5, replacement=False)
+            current_distribution = np.zeros((5, 5))
+            for agent in range(self.config.num_agents):
+                for i in range(5):
+                    current_distribution[actionKey_predict[agent, i], i] += 1
+
+            self.action_distribution.append(current_distribution)
+
             # Check collisions, update valid moves for each agent
             if self.shieldType == "Default":
                 new_move, move_to_boundary, move_to_wall_agents, collide_agents, collide_in_move_agents = self.check_collision(
@@ -729,6 +742,11 @@ class multiRobotSimNew:
             # maximum makespan
             self.makespanPredict = np.max(self.end_step) - np.min(self.first_move) + 1
             # print(self.makespanPredict)
+
+            if self.shieldType == "LaCAM":
+                np.save('action_distribution_LaCAM/agent_{}_scen_{}.npy'.format(self.config.num_agents, self.ID_case), np.array(self.action_distribution))
+            else:
+                np.save('action_distribution/agent_{}_scen_{}.npy'.format(self.config.num_agents, self.ID_case), np.array(self.action_distribution))
 
         return allReachGoal, self.check_moveCollision, self.check_predictCollsion
 
