@@ -876,6 +876,9 @@ class DecentralPlannerAgentLocalWithOnlineExpertGAT(BaseAgent):
         currentStep = 0
 
         Case_start = time.time()
+        extraTime = 0
+        self.robot.naiveShieldTime = 0
+        self.robot.shieldTime = 0
         Time_cases_ForwardPass = []
         for step in range(maxstep):
             currentStep = step + 1
@@ -897,8 +900,9 @@ class DecentralPlannerAgentLocalWithOnlineExpertGAT(BaseAgent):
             time_ForwardPass = time.time() - step_start
 
             Time_cases_ForwardPass.append(time_ForwardPass)
+            tmpTime = time.time()
             allReachGoal, check_moveCollision, check_predictCollision = self.robot.move(actionVec_predict, currentStep)
-
+            extraTime += time.time() - tmpTime
 
             if check_moveCollision:
                 check_CollisionHappenedinLoop = True
@@ -914,6 +918,9 @@ class DecentralPlannerAgentLocalWithOnlineExpertGAT(BaseAgent):
             elif currentStep >= (maxstep):
                 # print("### Case - {} exceed maxstep - RealGoal: {} - check_moveCollision: {} - check_predictCollision: {}".format(ID_dataset, allReachGoal, check_CollisionHappenedinLoop, check_CollisionPredictedinLoop))
                 break
+        print("Per step shield time: {}".format(self.robot.shieldTime/currentStep))
+        print("Total shield time: {}".format(self.robot.shieldTime))
+        self.robot.totalTime = time.time() - Case_start
 
         num_agents_reachgoal = self.robot.count_numAgents_ReachGoal()
         store_GSO, store_communication_radius = self.robot.count_GSO_communcationRadius(currentStep)

@@ -53,6 +53,7 @@ def main():
                                 help="[Default, LaCAM]") # RVMod
     arg_parser.add_argument('--pibt_r', type=float, default=0.0,
                                 help="The weight of logits over bd")
+    arg_parser.add_argument('--folderMod', type=str, default="")
 
     arg_parser.add_argument('--mode', type=str, default='train')
     arg_parser.add_argument('--log_time_trained', type=str, default='0')

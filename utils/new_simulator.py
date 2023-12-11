@@ -113,6 +113,7 @@ class multiRobotSimNew:
 
         self.shieldType = self.config.shieldType
         self.pibt_r = self.config.pibt_r
+        self.shieldTime = 0
         assert(self.shieldType in ["Default", "LaCAM"])
 
     def setup(self, loadInput, loadTarget, case_config, tensor_map, ID_dataset, mode):
@@ -435,7 +436,7 @@ class multiRobotSimNew:
                 BD_scores.append(neighbor_score)
             # assert(self.BDs[agent_id, self.current_positions[agent_id][0], self.current_positions[agent_id][1]] < 1000
             assert(BD_scores[-1] < 1000)
-            weighted_scores = BD_scores - self.pibt_r * (1 - logits) # TODO: tune this
+            weighted_scores = BD_scores + self.pibt_r * (1 - logits) # TODO: tune this
             # weighted_scores = weighted_scores / weighted_scores.sum()
             # pdb.set_trace()
             actionPreferences = weighted_scores.argsort() # If strict ordering, sorts min to max
@@ -654,22 +655,36 @@ class multiRobotSimNew:
             self.first_move[(proposed_actions != self.stop_keyValue) & (self.first_move == 0)] = currentstep
             # Check collisions, update valid moves for each agent
             if self.shieldType == "Default":
+                time_start = time.time()
                 new_move, move_to_boundary, move_to_wall_agents, collide_agents, collide_in_move_agents = self.check_collision(
                     self.current_positions, proposed_moves)
+                time_end = time.time()
+                self.shieldTime += time_end - time_start
             elif self.shieldType == "LaCAM": ### RVMod
                 numpyActionVec = actionVec.detach().cpu().numpy()
                 # pdb.set_trace()
-                # prev_new_move, move_to_boundary, move_to_wall_agents, collide_agents, collide_in_move_agents = self.check_collision(
-                #     self.current_positions, proposed_moves)
+                time_start = time.time()
+                prev_new_move, move_to_boundary, move_to_wall_agents, collide_agents, collide_in_move_agents = self.check_collision(
+                    self.current_positions, proposed_moves)
+                self.naiveShieldTime += time.time() - time_start
+
+                time_start = time.time()
                 new_move, move_to_boundary, move_to_wall_agents, collide_agents, collide_in_move_agents = self.lacam_check_collision(
                     numpyActionVec)
+                time_end = time.time()
+                self.shieldTime += time_end - time_start
                 # pdb.set_trace()
                 # numDif = (np.abs(new_move - prev_new_move).sum(axis=-1) > 0).sum()
                 # if (numDif > 0):
                 #     print("LaCAM changed {} moves".format(numDif))
                     # pdb.set_trace()
                 # print("Made a move")
-                
+            
+            # Extra check to make sure we didn't break anything!
+            # new_move, move_to_boundary, move_to_wall_agents, collide_agents, collide_in_move_agents = self.check_collision(
+            #         self.current_positions, new_move)
+            # assert(move_to_boundary.sum() + len(move_to_wall_agents) +
+            #        len(collide_agents) + len(collide_in_move_agents) == 0)
 
             # if not (new_move == proposed_moves).all():
             #     print('something changes')
@@ -801,6 +816,9 @@ class multiRobotSimNew:
         f_sol.write("    cost: {}\n".format(int(self.flowtimePredict)))
         f_sol.write("    makespan: {}\n".format(int(self.makespanPredict)))
         f_sol.write("    succeed: {}\n".format(int(checkSuccess)))
+        f_sol.write("    lacamShieldTime: {}\n".format(self.shieldTime))
+        f_sol.write("    naiveShieldTime: {}\n".format(self.naiveShieldTime))
+        f_sol.write("    totalTime: {}\n".format(self.totalTime))
         f_sol.write("schedule:\n")
 
         for id_agent in range(self.config.num_agents):

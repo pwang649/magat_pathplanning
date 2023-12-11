@@ -74,6 +74,7 @@ def process_config(args):
 
     config.shieldType = args.shieldType
     config.pibt_r = args.pibt_r
+    config.folderMod = args.folderMod
 
     config.mode = args.mode
     config.num_agents = args.num_agents
@@ -286,12 +287,14 @@ def process_config(args):
     config.result_statistics_dir = os.path.join(config.save_data, label_result_folder, label_Statistics_folder)
     config.result_demo_dir = os.path.join(config.save_data, label_result_folder, 'Demo/{}/'.format(config.exp_name))
 
-
     if config.id_env==None:
-        log_str_AnimeDemo = os.path.join('AnimeDemo',config.exp_net, testEnv_Setup, exp_HyperPara, exp_Setup_training,  config.exp_time, config.guidance, config.action_select, 'commR_{}'.format(config.commR))
+        log_str_AnimeDemo = os.path.join('AnimeDemo',config.exp_net + config.folderMod, 
+                                        testEnv_Setup, exp_HyperPara, exp_Setup_training,  
+                                        config.exp_time, config.guidance, config.action_select, 'commR_{}'.format(config.commR))
     else:
-        log_str_AnimeDemo = os.path.join('AnimeDemo', config.exp_net, testEnv_Setup, 'IDMap{:05d}'.format(config.id_env), exp_HyperPara, exp_Setup_training,
-                                         config.exp_time, config.guidance, config.action_select, 'commR_{}'.format(config.commR))
+        log_str_AnimeDemo = os.path.join('AnimeDemo', config.exp_net + config.folderMod, 
+                                        testEnv_Setup, 'IDMap{:05d}'.format(config.id_env), exp_HyperPara, exp_Setup_training,
+                                        config.exp_time, config.guidance, config.action_select, 'commR_{}'.format(config.commR))
 
     config.result_AnimeDemo_dir_input = os.path.join(config.save_data, label_result_folder,log_str_AnimeDemo,'input/')
     config.result_AnimeDemo_dir_predict_success = os.path.join(config.save_data, label_result_folder, log_str_AnimeDemo,'predict')

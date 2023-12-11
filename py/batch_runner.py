@@ -5,8 +5,9 @@ import os
 import yaml
 import pdb
 
-def creat_output_csv(agent_num, scens):
-    directory = "../Data/Results_best/AnimeDemo/dcpOEGAT/map32x32_rho1_{}Agent/K2_HS0/TR_M20p1_10Agent/1602191363/Project_G/exp_multinorm/commR_7".format(agent_num)
+def creat_output_csv(agent_num, scens, folderMod):
+    directory = "../Data/Results_best/AnimeDemo/dcpOEGAT{}/map32x32_rho1_{}Agent/K2_HS0/TR_M20p1_10Agent/1602191363/Project_G/exp_multinorm/commR_7".format(
+                                                folderMod, agent_num)
 
     # Create a CSV file
     csv_file_path = directory + '/output.csv'
@@ -15,7 +16,7 @@ def creat_output_csv(agent_num, scens):
     # Write the values to the CSV file
     with open(csv_file_path, 'a', newline='') as csv_file:
         csv_writer = csv.writer(csv_file)
-        csv_writer.writerow(['magatCost', 'magatMakespan', 'magatSucceed', 'ECBSCost', 'ECBSMakespan'])
+        csv_writer.writerow(['magatCost', 'magatMakespan', 'magatSucceed', 'pibtShieldTime', 'naiveShieldTime', 'totalTime', 'ECBSCost', 'ECBSMakespan'])
 
         for case in cases:
             with open(directory + '/predict/predict_map32x32_IDMap00000_IDCase{:05d}.yaml'.format(case), 'r') as file:
@@ -29,11 +30,15 @@ def creat_output_csv(agent_num, scens):
             magat_makespan = magat_statistics.get('makespan', None)
             succeed = magat_statistics.get('succeed', None)
 
+            pibtShieldTime = magat_statistics.get('lacamShieldTime', None)
+            naiveShieldTime = magat_statistics.get('naiveShieldTime', None)
+            totalTime = magat_statistics.get('totalTime', None)
+
             ECBS_statistics = target.get('statistics', {})
             ECBS_cost = ECBS_statistics.get('cost', None)
             ECBS_makespan = ECBS_statistics.get('makespan', None)
 
-            csv_writer.writerow([magat_cost, magat_makespan, succeed, ECBS_cost, ECBS_makespan])
+            csv_writer.writerow([magat_cost, magat_makespan, succeed, pibtShieldTime, naiveShieldTime, totalTime, ECBS_cost, ECBS_makespan])
 
 def visualize(agent, cases, seed):
     print("Starting visualization!")
@@ -53,12 +58,16 @@ def visualize(agent, cases, seed):
 
 if __name__ == '__main__':
 
-    agents = range(50, 450+1, 100)
-    num_scens = 10
+    agents = range(50, 450+1, 50)
+    num_scens = 25
     seeds = range(1,6)
 
+    rVal = 0.01
+    folderMod = "_R{}".format(int(rVal*100))
+
     for agent in agents:
-        directory = "../Data/Results_best/AnimeDemo/dcpOEGAT/map32x32_rho1_{}Agent/K2_HS0/TR_M20p1_10Agent/1602191363/Project_G/exp_multinorm/commR_7".format(agent)
+        directory = "../Data/Results_best/AnimeDemo/dcpOEGAT{}/map32x32_rho1_{}Agent/K2_HS0/TR_M20p1_10Agent/1602191363/Project_G/exp_multinorm/commR_7".format(
+                        folderMod, agent)
 
         # Create a CSV file
         csv_file_path = directory + '/output.csv'
@@ -74,11 +83,11 @@ if __name__ == '__main__':
     --GSO_mode dist_GSO --action_select exp_multinorm --guidance Project_G \
     --CNN_mode ResNetLarge_withMLP --batch_numAgent --test_num_processes 0 --nAttentionHeads 1 --attentionMode KeyQuery \
     --tb_ExpName DotProduct_GAT_Resnet_3Block_distGSO_baseline_128 --log_anime --shieldType=LaCAM \
-    --list_agents={} --list_num_testset={} --seed={} --pibt_r=0.001""".format(agent, num_scens, seed)
+    --list_agents={} --list_num_testset={} --seed={} --pibt_r={} --folderMod={}""".format(agent, num_scens, seed, rVal, folderMod)
             tmp = [str(x) for x in command.split(" ") if x != ""]
             # pdb.set_trace()
             subprocess.run(tmp, check=True)
-            creat_output_csv(agent, num_scens)
+            creat_output_csv(agent, num_scens, folderMod)
             # visualize(agent, num_scens, seed)
 
     # for agent in agents:
@@ -90,5 +99,5 @@ python ../main.py ../configs/dcpGAT_OE_Random.json --mode test --best_epoch --te
     --list_num_testset 10 --GSO_mode dist_GSO --action_select exp_multinorm --guidance Project_G \
     --CNN_mode ResNetLarge_withMLP --batch_numAgent --test_num_processes 0 --nAttentionHeads 1 --attentionMode KeyQuery \
     --tb_ExpName DotProduct_GAT_Resnet_3Block_distGSO_baseline_128 --log_anime --shieldType=LaCAM --seed=1 --list_agents 100 \
-    --pibt_r=0.001
+    --pibt_r=0.001 --folderMod=_1
 """
