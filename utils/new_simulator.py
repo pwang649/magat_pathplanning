@@ -115,7 +115,10 @@ class multiRobotSimNew:
         self.pibt_r = self.config.pibt_r
         assert(self.shieldType in ["Default", "LaCAM"])
 
-        self.action_distribution = []
+        self.action_distribution_random = []
+        self.action_distribution_random_exclude_goal = []
+        self.action_distribution_strict = []
+        self.action_distribution_strict_exclude_goal = []
 
     def setup(self, loadInput, loadTarget, case_config, tensor_map, ID_dataset, mode):
         '''
@@ -658,12 +661,26 @@ class multiRobotSimNew:
             actionVec_current = torch.exp(actionVec)
 
             actionKey_predict = torch.multinomial(actionVec_current, 5, replacement=False)
+            actionKey_strict = np.argsort(-actionVec)
+
             current_distribution = np.zeros((5, 5))
+            current_distribution_exclude_goal = np.zeros((5, 5))
+            current_distribution_strict = np.zeros((5, 5))
+            current_distribution_strict_exclude_goal = np.zeros((5, 5))
+
             for agent in range(self.config.num_agents):
                 for i in range(5):
-                    current_distribution[actionKey_predict[agent, i], i] += 1
+                    if np.sum(np.abs(self.current_positions[agent] - self.goal_positions[agent])) != 0:
+                        current_distribution_exclude_goal[actionKey_predict[agent, i], i] += 1
+                        current_distribution_strict_exclude_goal[actionKey_strict[agent, i], i] += 1
+                    else:
+                        current_distribution[actionKey_predict[agent, i], i] += 1
+                        current_distribution_strict[actionKey_strict[agent, i], i] += 1
 
-            self.action_distribution.append(current_distribution)
+            self.action_distribution_random.append(current_distribution)
+            self.action_distribution_random_exclude_goal.append(current_distribution_exclude_goal)
+            self.action_distribution_strict.append(current_distribution_strict)
+            self.action_distribution_strict_exclude_goal.append(current_distribution_strict_exclude_goal)
 
             # Check collisions, update valid moves for each agent
             if self.shieldType == "Default":
@@ -743,10 +760,15 @@ class multiRobotSimNew:
             self.makespanPredict = np.max(self.end_step) - np.min(self.first_move) + 1
             # print(self.makespanPredict)
 
-            if self.shieldType == "LaCAM":
-                np.save('action_distribution_LaCAM/agent_{}_scen_{}.npy'.format(self.config.num_agents, self.ID_case), np.array(self.action_distribution))
-            else:
-                np.save('action_distribution/agent_{}_scen_{}.npy'.format(self.config.num_agents, self.ID_case), np.array(self.action_distribution))
+            # if self.shieldType == "LaCAM":
+            #     np.save('action_distribution_LaCAM/agent_{}_scen_{}.npy'.format(self.config.num_agents, self.ID_case), np.array(self.action_distribution))
+            #     np.save('action_distribution_LaCAM_no_goal/agent_{}_scen_{}.npy'.format(self.config.num_agents, self.ID_case), np.array(self.action_distribution_exclude_goal))
+            # else:
+            np.save('action_distribution_random/agent_{}_scen_{}.npy'.format(self.config.num_agents, self.ID_case), np.array(self.action_distribution_random))
+            np.save('action_distribution_random_no_goal/agent_{}_scen_{}.npy'.format(self.config.num_agents, self.ID_case), np.array(self.action_distribution_random_exclude_goal))
+            np.save('action_distribution_strict/agent_{}_scen_{}.npy'.format(self.config.num_agents, self.ID_case), np.array(self.action_distribution_strict))
+            np.save('action_distribution_strict_no_goal/agent_{}_scen_{}.npy'.format(self.config.num_agents, self.ID_case), np.array(self.action_distribution_strict_exclude_goal))
+
 
         return allReachGoal, self.check_moveCollision, self.check_predictCollsion
 
