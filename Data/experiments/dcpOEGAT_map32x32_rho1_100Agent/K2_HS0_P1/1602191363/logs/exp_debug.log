@@ -6610,3 +6610,518 @@ test set on dcpOEGAT_map32x32_rho1_100Agent/K2_HS0_P1/1602191363
   Rate(collisionPredictedinLoop): 0.0 
   Rate(FailedReachGoalbyCollisionShielding): 0.0 
   in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:668
+[INFO] - 2023-12-11 13:15:11,201 - root - : Hi, This is root. in /home/rishi/research/magat_pathplanning/utils/config.py:327
+[INFO] - 2023-12-11 13:15:11,202 - root - : After the configurations are successfully processed and dirs are created. in /home/rishi/research/magat_pathplanning/utils/config.py:328
+[INFO] - 2023-12-11 13:15:11,202 - root - : The pipeline of the project will begin now. in /home/rishi/research/magat_pathplanning/utils/config.py:329
+[INFO] - 2023-12-11 13:15:11,212 - Agent - : Model: None
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:97
+[INFO] - 2023-12-11 13:15:11,212 - DecentralPlannerDataLoader Online Expert - : Loading #100 Agent DATA from Path without OnlineTF ..... in /home/rishi/research/magat_pathplanning/dataloader/Dataloader_dcplocal_notTF_onlineExpert.py:24
+[INFO] - 2023-12-11 13:15:11,417 - Agent - : Program will run on *****GPU-CUDA*****  in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:144
+[INFO] - 2023-12-11 13:15:11,417 - Cuda Statistics - : __Python VERSION:  3.11.5 (main, Sep 11 2023, 13:54:46) [GCC 11.2.0] in /home/rishi/research/magat_pathplanning/utils/misc.py:29
+[INFO] - 2023-12-11 13:15:11,417 - Cuda Statistics - : __pyTorch VERSION:  2.1.0 in /home/rishi/research/magat_pathplanning/utils/misc.py:30
+[INFO] - 2023-12-11 13:15:11,417 - Cuda Statistics - : __CUDA VERSION in /home/rishi/research/magat_pathplanning/utils/misc.py:31
+[INFO] - 2023-12-11 13:15:11,418 - Cuda Statistics - : __CUDNN VERSION:  8902 in /home/rishi/research/magat_pathplanning/utils/misc.py:33
+[INFO] - 2023-12-11 13:15:11,418 - Cuda Statistics - : __Number CUDA Devices:  1 in /home/rishi/research/magat_pathplanning/utils/misc.py:34
+[INFO] - 2023-12-11 13:15:11,418 - Cuda Statistics - : __Devices in /home/rishi/research/magat_pathplanning/utils/misc.py:35
+[INFO] - 2023-12-11 13:15:11,431 - Cuda Statistics - : Active CUDA Device: GPU 0 in /home/rishi/research/magat_pathplanning/utils/misc.py:38
+[INFO] - 2023-12-11 13:15:11,431 - Cuda Statistics - : Available devices  1 in /home/rishi/research/magat_pathplanning/utils/misc.py:39
+[INFO] - 2023-12-11 13:15:11,431 - Cuda Statistics - : Current cuda device  0 in /home/rishi/research/magat_pathplanning/utils/misc.py:40
+[INFO] - 2023-12-11 13:15:11,432 - Agent - : Loading checkpoint '../Data/experiments/dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191363/checkpoints/model_best.pth.tar' in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:224
+[INFO] - 2023-12-11 13:15:11,440 - Agent - : Checkpoint loaded successfully from '../Data/experiments/dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191363/checkpoints/' at (epoch 141) at (iteration 1316952)
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:238
+[INFO] - 2023-12-11 13:15:11,441 - Agent - : 
+test set on dcpOEGAT_map32x32_rho1_100Agent/K2_HS0_P1/1602191363 
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:652
+[INFO] - 2023-12-11 13:15:15,508 - Agent - : ################## dcpOEGAT_map32x32_rho1_100Agent/K2_HS0_P1/1602191363 - End of loop ##################  
+ ####### Case0 	 Computation time:3.739743947982788 	 Step54/162	- AllReachGoal-True
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:963
+[INFO] - 2023-12-11 13:15:18,698 - Agent - : ################## dcpOEGAT_map32x32_rho1_100Agent/K2_HS0_P1/1602191363 - End of loop ##################  
+ ####### Case1 	 Computation time:3.184105157852173 	 Step52/156	- AllReachGoal-True
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:963
+[INFO] - 2023-12-11 13:15:21,639 - Agent - : ################## dcpOEGAT_map32x32_rho1_100Agent/K2_HS0_P1/1602191363 - End of loop ##################  
+ ####### Case2 	 Computation time:2.9346368312835693 	 Step48/144	- AllReachGoal-True
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:963
+[INFO] - 2023-12-11 13:15:24,662 - Agent - : ################## dcpOEGAT_map32x32_rho1_100Agent/K2_HS0_P1/1602191363 - End of loop ##################  
+ ####### Case3 	 Computation time:3.015415906906128 	 Step50/150	- AllReachGoal-True
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:963
+[INFO] - 2023-12-11 13:15:27,771 - Agent - : ################## dcpOEGAT_map32x32_rho1_100Agent/K2_HS0_P1/1602191363 - End of loop ##################  
+ ####### Case4 	 Computation time:3.1025125980377197 	 Step51/153	- AllReachGoal-True
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:963
+[INFO] - 2023-12-11 13:15:30,926 - Agent - : ################## dcpOEGAT_map32x32_rho1_100Agent/K2_HS0_P1/1602191363 - End of loop ##################  
+ ####### Case5 	 Computation time:3.1484715938568115 	 Step52/156	- AllReachGoal-True
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:963
+[INFO] - 2023-12-11 13:15:33,820 - Agent - : ################## dcpOEGAT_map32x32_rho1_100Agent/K2_HS0_P1/1602191363 - End of loop ##################  
+ ####### Case6 	 Computation time:2.8879473209381104 	 Step47/141	- AllReachGoal-True
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:963
+[INFO] - 2023-12-11 13:15:37,173 - Agent - : ################## dcpOEGAT_map32x32_rho1_100Agent/K2_HS0_P1/1602191363 - End of loop ##################  
+ ####### Case7 	 Computation time:3.346111297607422 	 Step56/180	- AllReachGoal-True
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:963
+[INFO] - 2023-12-11 13:15:40,782 - Agent - : ################## dcpOEGAT_map32x32_rho1_100Agent/K2_HS0_P1/1602191363 - End of loop ##################  
+ ####### Case8 	 Computation time:3.6012511253356934 	 Step60/180	- AllReachGoal-True
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:963
+[INFO] - 2023-12-11 13:15:44,085 - Agent - : ################## dcpOEGAT_map32x32_rho1_100Agent/K2_HS0_P1/1602191363 - End of loop ##################  
+ ####### Case9 	 Computation time:3.2969226837158203 	 Step55/165	- AllReachGoal-True
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:963
+[INFO] - 2023-12-11 13:15:47,102 - Agent - : ################## dcpOEGAT_map32x32_rho1_100Agent/K2_HS0_P1/1602191363 - End of loop ##################  
+ ####### Case10 	 Computation time:3.0104801654815674 	 Step50/150	- AllReachGoal-True
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:963
+[INFO] - 2023-12-11 13:15:50,310 - Agent - : ################## dcpOEGAT_map32x32_rho1_100Agent/K2_HS0_P1/1602191363 - End of loop ##################  
+ ####### Case11 	 Computation time:3.20062518119812 	 Step52/159	- AllReachGoal-True
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:963
+[INFO] - 2023-12-11 13:15:53,081 - Agent - : ################## dcpOEGAT_map32x32_rho1_100Agent/K2_HS0_P1/1602191363 - End of loop ##################  
+ ####### Case12 	 Computation time:2.764390707015991 	 Step46/138	- AllReachGoal-True
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:963
+[INFO] - 2023-12-11 13:15:56,446 - Agent - : ################## dcpOEGAT_map32x32_rho1_100Agent/K2_HS0_P1/1602191363 - End of loop ##################  
+ ####### Case13 	 Computation time:3.3579561710357666 	 Step55/171	- AllReachGoal-True
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:963
+[INFO] - 2023-12-11 13:15:59,713 - Agent - : ################## dcpOEGAT_map32x32_rho1_100Agent/K2_HS0_P1/1602191363 - End of loop ##################  
+ ####### Case14 	 Computation time:3.260578155517578 	 Step53/165	- AllReachGoal-True
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:963
+[INFO] - 2023-12-11 13:16:02,840 - Agent - : ################## dcpOEGAT_map32x32_rho1_100Agent/K2_HS0_P1/1602191363 - End of loop ##################  
+ ####### Case15 	 Computation time:3.120457887649536 	 Step51/168	- AllReachGoal-True
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:963
+[INFO] - 2023-12-11 13:16:05,801 - Agent - : ################## dcpOEGAT_map32x32_rho1_100Agent/K2_HS0_P1/1602191363 - End of loop ##################  
+ ####### Case16 	 Computation time:2.954061508178711 	 Step48/144	- AllReachGoal-True
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:963
+[INFO] - 2023-12-11 13:16:08,778 - Agent - : ################## dcpOEGAT_map32x32_rho1_100Agent/K2_HS0_P1/1602191363 - End of loop ##################  
+ ####### Case17 	 Computation time:2.9725818634033203 	 Step49/147	- AllReachGoal-True
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:963
+[INFO] - 2023-12-11 13:16:11,568 - Agent - : ################## dcpOEGAT_map32x32_rho1_100Agent/K2_HS0_P1/1602191363 - End of loop ##################  
+ ####### Case18 	 Computation time:2.7859513759613037 	 Step46/147	- AllReachGoal-True
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:963
+[INFO] - 2023-12-11 13:16:15,086 - Agent - : ################## dcpOEGAT_map32x32_rho1_100Agent/K2_HS0_P1/1602191363 - End of loop ##################  
+ ####### Case19 	 Computation time:3.5115861892700195 	 Step57/171	- AllReachGoal-True
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:963
+[INFO] - 2023-12-11 13:16:18,192 - Agent - : ################## dcpOEGAT_map32x32_rho1_100Agent/K2_HS0_P1/1602191363 - End of loop ##################  
+ ####### Case20 	 Computation time:3.101398468017578 	 Step51/153	- AllReachGoal-True
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:963
+[INFO] - 2023-12-11 13:16:21,425 - Agent - : ################## dcpOEGAT_map32x32_rho1_100Agent/K2_HS0_P1/1602191363 - End of loop ##################  
+ ####### Case21 	 Computation time:3.227437734603882 	 Step53/159	- AllReachGoal-True
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:963
+[INFO] - 2023-12-11 13:16:24,368 - Agent - : ################## dcpOEGAT_map32x32_rho1_100Agent/K2_HS0_P1/1602191363 - End of loop ##################  
+ ####### Case22 	 Computation time:2.9383950233459473 	 Step48/144	- AllReachGoal-True
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:963
+[INFO] - 2023-12-11 13:16:27,380 - Agent - : ################## dcpOEGAT_map32x32_rho1_100Agent/K2_HS0_P1/1602191363 - End of loop ##################  
+ ####### Case23 	 Computation time:3.0063202381134033 	 Step50/150	- AllReachGoal-True
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:963
+[INFO] - 2023-12-11 13:16:30,497 - Agent - : ################## dcpOEGAT_map32x32_rho1_100Agent/K2_HS0_P1/1602191363 - End of loop ##################  
+ ####### Case24 	 Computation time:3.1119132041931152 	 Step51/153	- AllReachGoal-True
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:963
+[INFO] - 2023-12-11 13:16:30,515 - Agent - : Accurracy(reachGoalnoCollision): 1.0 
+  DeteriorationRate(MakeSpan): 0.0125 
+  DeteriorationRate(FlowTime): 0.2688 
+  Rate(collisionPredictedinLoop): 0.0 
+  Rate(FailedReachGoalbyCollisionShielding): 0.0 
+  in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:668
+[INFO] - 2023-12-11 13:17:04,863 - root - : Hi, This is root. in /home/rishi/research/magat_pathplanning/utils/config.py:327
+[INFO] - 2023-12-11 13:17:04,863 - root - : After the configurations are successfully processed and dirs are created. in /home/rishi/research/magat_pathplanning/utils/config.py:328
+[INFO] - 2023-12-11 13:17:04,863 - root - : The pipeline of the project will begin now. in /home/rishi/research/magat_pathplanning/utils/config.py:329
+[INFO] - 2023-12-11 13:17:04,872 - Agent - : Model: None
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:97
+[INFO] - 2023-12-11 13:17:04,873 - DecentralPlannerDataLoader Online Expert - : Loading #100 Agent DATA from Path without OnlineTF ..... in /home/rishi/research/magat_pathplanning/dataloader/Dataloader_dcplocal_notTF_onlineExpert.py:24
+[INFO] - 2023-12-11 13:17:05,075 - Agent - : Program will run on *****GPU-CUDA*****  in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:144
+[INFO] - 2023-12-11 13:17:05,075 - Cuda Statistics - : __Python VERSION:  3.11.5 (main, Sep 11 2023, 13:54:46) [GCC 11.2.0] in /home/rishi/research/magat_pathplanning/utils/misc.py:29
+[INFO] - 2023-12-11 13:17:05,075 - Cuda Statistics - : __pyTorch VERSION:  2.1.0 in /home/rishi/research/magat_pathplanning/utils/misc.py:30
+[INFO] - 2023-12-11 13:17:05,075 - Cuda Statistics - : __CUDA VERSION in /home/rishi/research/magat_pathplanning/utils/misc.py:31
+[INFO] - 2023-12-11 13:17:05,076 - Cuda Statistics - : __CUDNN VERSION:  8902 in /home/rishi/research/magat_pathplanning/utils/misc.py:33
+[INFO] - 2023-12-11 13:17:05,076 - Cuda Statistics - : __Number CUDA Devices:  1 in /home/rishi/research/magat_pathplanning/utils/misc.py:34
+[INFO] - 2023-12-11 13:17:05,076 - Cuda Statistics - : __Devices in /home/rishi/research/magat_pathplanning/utils/misc.py:35
+[INFO] - 2023-12-11 13:17:05,088 - Cuda Statistics - : Active CUDA Device: GPU 0 in /home/rishi/research/magat_pathplanning/utils/misc.py:38
+[INFO] - 2023-12-11 13:17:05,088 - Cuda Statistics - : Available devices  1 in /home/rishi/research/magat_pathplanning/utils/misc.py:39
+[INFO] - 2023-12-11 13:17:05,088 - Cuda Statistics - : Current cuda device  0 in /home/rishi/research/magat_pathplanning/utils/misc.py:40
+[INFO] - 2023-12-11 13:17:05,088 - Agent - : Loading checkpoint '../Data/experiments/dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191363/checkpoints/model_best.pth.tar' in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:224
+[INFO] - 2023-12-11 13:17:05,096 - Agent - : Checkpoint loaded successfully from '../Data/experiments/dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191363/checkpoints/' at (epoch 141) at (iteration 1316952)
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:238
+[INFO] - 2023-12-11 13:17:05,097 - Agent - : 
+test set on dcpOEGAT_map32x32_rho1_100Agent/K2_HS0_P1/1602191363 
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:652
+[INFO] - 2023-12-11 13:17:09,108 - Agent - : ################## dcpOEGAT_map32x32_rho1_100Agent/K2_HS0_P1/1602191363 - End of loop ##################  
+ ####### Case0 	 Computation time:3.7522974014282227 	 Step54/162	- AllReachGoal-True
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:963
+[INFO] - 2023-12-11 13:17:12,263 - Agent - : ################## dcpOEGAT_map32x32_rho1_100Agent/K2_HS0_P1/1602191363 - End of loop ##################  
+ ####### Case1 	 Computation time:3.1491549015045166 	 Step52/156	- AllReachGoal-True
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:963
+[INFO] - 2023-12-11 13:17:15,204 - Agent - : ################## dcpOEGAT_map32x32_rho1_100Agent/K2_HS0_P1/1602191363 - End of loop ##################  
+ ####### Case2 	 Computation time:2.9339044094085693 	 Step48/144	- AllReachGoal-True
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:963
+[INFO] - 2023-12-11 13:17:18,259 - Agent - : ################## dcpOEGAT_map32x32_rho1_100Agent/K2_HS0_P1/1602191363 - End of loop ##################  
+ ####### Case3 	 Computation time:3.0482935905456543 	 Step50/150	- AllReachGoal-True
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:963
+[INFO] - 2023-12-11 13:17:21,363 - Agent - : ################## dcpOEGAT_map32x32_rho1_100Agent/K2_HS0_P1/1602191363 - End of loop ##################  
+ ####### Case4 	 Computation time:3.097043991088867 	 Step51/153	- AllReachGoal-True
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:963
+[INFO] - 2023-12-11 13:17:24,522 - Agent - : ################## dcpOEGAT_map32x32_rho1_100Agent/K2_HS0_P1/1602191363 - End of loop ##################  
+ ####### Case5 	 Computation time:3.152275323867798 	 Step52/156	- AllReachGoal-True
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:963
+[INFO] - 2023-12-11 13:17:27,390 - Agent - : ################## dcpOEGAT_map32x32_rho1_100Agent/K2_HS0_P1/1602191363 - End of loop ##################  
+ ####### Case6 	 Computation time:2.8616368770599365 	 Step47/141	- AllReachGoal-True
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:963
+[INFO] - 2023-12-11 13:17:30,856 - Agent - : ################## dcpOEGAT_map32x32_rho1_100Agent/K2_HS0_P1/1602191363 - End of loop ##################  
+ ####### Case7 	 Computation time:3.4580953121185303 	 Step56/180	- AllReachGoal-True
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:963
+[INFO] - 2023-12-11 13:17:34,560 - Agent - : ################## dcpOEGAT_map32x32_rho1_100Agent/K2_HS0_P1/1602191363 - End of loop ##################  
+ ####### Case8 	 Computation time:3.6971616744995117 	 Step60/180	- AllReachGoal-True
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:963
+[INFO] - 2023-12-11 13:17:38,007 - Agent - : ################## dcpOEGAT_map32x32_rho1_100Agent/K2_HS0_P1/1602191363 - End of loop ##################  
+ ####### Case9 	 Computation time:3.440534830093384 	 Step55/165	- AllReachGoal-True
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:963
+[INFO] - 2023-12-11 13:17:41,067 - Agent - : ################## dcpOEGAT_map32x32_rho1_100Agent/K2_HS0_P1/1602191363 - End of loop ##################  
+ ####### Case10 	 Computation time:3.0530927181243896 	 Step50/150	- AllReachGoal-True
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:963
+[INFO] - 2023-12-11 13:17:44,254 - Agent - : ################## dcpOEGAT_map32x32_rho1_100Agent/K2_HS0_P1/1602191363 - End of loop ##################  
+ ####### Case11 	 Computation time:3.179473400115967 	 Step52/159	- AllReachGoal-True
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:963
+[INFO] - 2023-12-11 13:17:47,001 - Agent - : ################## dcpOEGAT_map32x32_rho1_100Agent/K2_HS0_P1/1602191363 - End of loop ##################  
+ ####### Case12 	 Computation time:2.740671396255493 	 Step45/138	- AllReachGoal-True
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:963
+[INFO] - 2023-12-11 13:17:50,339 - Agent - : ################## dcpOEGAT_map32x32_rho1_100Agent/K2_HS0_P1/1602191363 - End of loop ##################  
+ ####### Case13 	 Computation time:3.3309149742126465 	 Step55/171	- AllReachGoal-True
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:963
+[INFO] - 2023-12-11 13:17:53,584 - Agent - : ################## dcpOEGAT_map32x32_rho1_100Agent/K2_HS0_P1/1602191363 - End of loop ##################  
+ ####### Case14 	 Computation time:3.238701343536377 	 Step53/165	- AllReachGoal-True
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:963
+[INFO] - 2023-12-11 13:17:56,684 - Agent - : ################## dcpOEGAT_map32x32_rho1_100Agent/K2_HS0_P1/1602191363 - End of loop ##################  
+ ####### Case15 	 Computation time:3.0916056632995605 	 Step51/168	- AllReachGoal-True
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:963
+[INFO] - 2023-12-11 13:17:59,647 - Agent - : ################## dcpOEGAT_map32x32_rho1_100Agent/K2_HS0_P1/1602191363 - End of loop ##################  
+ ####### Case16 	 Computation time:2.9562346935272217 	 Step48/144	- AllReachGoal-True
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:963
+[INFO] - 2023-12-11 13:18:02,624 - Agent - : ################## dcpOEGAT_map32x32_rho1_100Agent/K2_HS0_P1/1602191363 - End of loop ##################  
+ ####### Case17 	 Computation time:2.9728965759277344 	 Step49/147	- AllReachGoal-True
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:963
+[INFO] - 2023-12-11 13:18:05,500 - Agent - : ################## dcpOEGAT_map32x32_rho1_100Agent/K2_HS0_P1/1602191363 - End of loop ##################  
+ ####### Case18 	 Computation time:2.8713455200195312 	 Step47/147	- AllReachGoal-True
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:963
+[INFO] - 2023-12-11 13:18:08,986 - Agent - : ################## dcpOEGAT_map32x32_rho1_100Agent/K2_HS0_P1/1602191363 - End of loop ##################  
+ ####### Case19 	 Computation time:3.4803097248077393 	 Step57/171	- AllReachGoal-True
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:963
+[INFO] - 2023-12-11 13:18:12,090 - Agent - : ################## dcpOEGAT_map32x32_rho1_100Agent/K2_HS0_P1/1602191363 - End of loop ##################  
+ ####### Case20 	 Computation time:3.099290370941162 	 Step51/153	- AllReachGoal-True
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:963
+[INFO] - 2023-12-11 13:18:15,319 - Agent - : ################## dcpOEGAT_map32x32_rho1_100Agent/K2_HS0_P1/1602191363 - End of loop ##################  
+ ####### Case21 	 Computation time:3.2245354652404785 	 Step53/159	- AllReachGoal-True
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:963
+[INFO] - 2023-12-11 13:18:18,246 - Agent - : ################## dcpOEGAT_map32x32_rho1_100Agent/K2_HS0_P1/1602191363 - End of loop ##################  
+ ####### Case22 	 Computation time:2.9219655990600586 	 Step48/144	- AllReachGoal-True
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:963
+[INFO] - 2023-12-11 13:18:21,275 - Agent - : ################## dcpOEGAT_map32x32_rho1_100Agent/K2_HS0_P1/1602191363 - End of loop ##################  
+ ####### Case23 	 Computation time:3.0243589878082275 	 Step50/150	- AllReachGoal-True
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:963
+[INFO] - 2023-12-11 13:18:24,509 - Agent - : ################## dcpOEGAT_map32x32_rho1_100Agent/K2_HS0_P1/1602191363 - End of loop ##################  
+ ####### Case24 	 Computation time:3.228285789489746 	 Step51/153	- AllReachGoal-True
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:963
+[INFO] - 2023-12-11 13:18:24,532 - Agent - : Accurracy(reachGoalnoCollision): 1.0 
+  DeteriorationRate(MakeSpan): 0.0126 
+  DeteriorationRate(FlowTime): 0.2724 
+  Rate(collisionPredictedinLoop): 0.0 
+  Rate(FailedReachGoalbyCollisionShielding): 0.0 
+  in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:668
+[INFO] - 2023-12-11 13:18:59,706 - root - : Hi, This is root. in /home/rishi/research/magat_pathplanning/utils/config.py:327
+[INFO] - 2023-12-11 13:18:59,706 - root - : After the configurations are successfully processed and dirs are created. in /home/rishi/research/magat_pathplanning/utils/config.py:328
+[INFO] - 2023-12-11 13:18:59,706 - root - : The pipeline of the project will begin now. in /home/rishi/research/magat_pathplanning/utils/config.py:329
+[INFO] - 2023-12-11 13:18:59,716 - Agent - : Model: None
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:97
+[INFO] - 2023-12-11 13:18:59,716 - DecentralPlannerDataLoader Online Expert - : Loading #100 Agent DATA from Path without OnlineTF ..... in /home/rishi/research/magat_pathplanning/dataloader/Dataloader_dcplocal_notTF_onlineExpert.py:24
+[INFO] - 2023-12-11 13:18:59,919 - Agent - : Program will run on *****GPU-CUDA*****  in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:144
+[INFO] - 2023-12-11 13:18:59,920 - Cuda Statistics - : __Python VERSION:  3.11.5 (main, Sep 11 2023, 13:54:46) [GCC 11.2.0] in /home/rishi/research/magat_pathplanning/utils/misc.py:29
+[INFO] - 2023-12-11 13:18:59,920 - Cuda Statistics - : __pyTorch VERSION:  2.1.0 in /home/rishi/research/magat_pathplanning/utils/misc.py:30
+[INFO] - 2023-12-11 13:18:59,920 - Cuda Statistics - : __CUDA VERSION in /home/rishi/research/magat_pathplanning/utils/misc.py:31
+[INFO] - 2023-12-11 13:18:59,920 - Cuda Statistics - : __CUDNN VERSION:  8902 in /home/rishi/research/magat_pathplanning/utils/misc.py:33
+[INFO] - 2023-12-11 13:18:59,920 - Cuda Statistics - : __Number CUDA Devices:  1 in /home/rishi/research/magat_pathplanning/utils/misc.py:34
+[INFO] - 2023-12-11 13:18:59,920 - Cuda Statistics - : __Devices in /home/rishi/research/magat_pathplanning/utils/misc.py:35
+[INFO] - 2023-12-11 13:18:59,932 - Cuda Statistics - : Active CUDA Device: GPU 0 in /home/rishi/research/magat_pathplanning/utils/misc.py:38
+[INFO] - 2023-12-11 13:18:59,932 - Cuda Statistics - : Available devices  1 in /home/rishi/research/magat_pathplanning/utils/misc.py:39
+[INFO] - 2023-12-11 13:18:59,932 - Cuda Statistics - : Current cuda device  0 in /home/rishi/research/magat_pathplanning/utils/misc.py:40
+[INFO] - 2023-12-11 13:18:59,932 - Agent - : Loading checkpoint '../Data/experiments/dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191363/checkpoints/model_best.pth.tar' in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:224
+[INFO] - 2023-12-11 13:18:59,941 - Agent - : Checkpoint loaded successfully from '../Data/experiments/dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191363/checkpoints/' at (epoch 141) at (iteration 1316952)
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:238
+[INFO] - 2023-12-11 13:18:59,943 - Agent - : 
+test set on dcpOEGAT_map32x32_rho1_100Agent/K2_HS0_P1/1602191363 
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:652
+[INFO] - 2023-12-11 13:19:04,102 - Agent - : ################## dcpOEGAT_map32x32_rho1_100Agent/K2_HS0_P1/1602191363 - End of loop ##################  
+ ####### Case0 	 Computation time:3.755031108856201 	 Step54/162	- AllReachGoal-True
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:963
+[INFO] - 2023-12-11 13:19:07,263 - Agent - : ################## dcpOEGAT_map32x32_rho1_100Agent/K2_HS0_P1/1602191363 - End of loop ##################  
+ ####### Case1 	 Computation time:3.153567314147949 	 Step52/156	- AllReachGoal-True
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:963
+[INFO] - 2023-12-11 13:19:10,161 - Agent - : ################## dcpOEGAT_map32x32_rho1_100Agent/K2_HS0_P1/1602191363 - End of loop ##################  
+ ####### Case2 	 Computation time:2.890866756439209 	 Step48/144	- AllReachGoal-True
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:963
+[INFO] - 2023-12-11 13:19:13,172 - Agent - : ################## dcpOEGAT_map32x32_rho1_100Agent/K2_HS0_P1/1602191363 - End of loop ##################  
+ ####### Case3 	 Computation time:3.0046520233154297 	 Step50/150	- AllReachGoal-True
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:963
+[INFO] - 2023-12-11 13:19:16,240 - Agent - : ################## dcpOEGAT_map32x32_rho1_100Agent/K2_HS0_P1/1602191363 - End of loop ##################  
+ ####### Case4 	 Computation time:3.0608296394348145 	 Step51/153	- AllReachGoal-True
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:963
+[INFO] - 2023-12-11 13:19:19,389 - Agent - : ################## dcpOEGAT_map32x32_rho1_100Agent/K2_HS0_P1/1602191363 - End of loop ##################  
+ ####### Case5 	 Computation time:3.1424124240875244 	 Step52/156	- AllReachGoal-True
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:963
+[INFO] - 2023-12-11 13:19:22,220 - Agent - : ################## dcpOEGAT_map32x32_rho1_100Agent/K2_HS0_P1/1602191363 - End of loop ##################  
+ ####### Case6 	 Computation time:2.824207067489624 	 Step47/141	- AllReachGoal-True
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:963
+[INFO] - 2023-12-11 13:19:25,591 - Agent - : ################## dcpOEGAT_map32x32_rho1_100Agent/K2_HS0_P1/1602191363 - End of loop ##################  
+ ####### Case7 	 Computation time:3.3640120029449463 	 Step56/180	- AllReachGoal-True
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:963
+[INFO] - 2023-12-11 13:19:36,472 - Agent - : ################## dcpOEGAT_map32x32_rho1_100Agent/K2_HS0_P1/1602191363 - End of loop ##################  
+ ####### Case8 	 Computation time:10.8737154006958 	 Step180/180	- AllReachGoal-False
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:963
+[INFO] - 2023-12-11 13:19:39,800 - Agent - : ################## dcpOEGAT_map32x32_rho1_100Agent/K2_HS0_P1/1602191363 - End of loop ##################  
+ ####### Case9 	 Computation time:3.321690559387207 	 Step55/165	- AllReachGoal-True
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:963
+[INFO] - 2023-12-11 13:19:42,812 - Agent - : ################## dcpOEGAT_map32x32_rho1_100Agent/K2_HS0_P1/1602191363 - End of loop ##################  
+ ####### Case10 	 Computation time:3.004385232925415 	 Step50/150	- AllReachGoal-True
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:963
+[INFO] - 2023-12-11 13:19:45,933 - Agent - : ################## dcpOEGAT_map32x32_rho1_100Agent/K2_HS0_P1/1602191363 - End of loop ##################  
+ ####### Case11 	 Computation time:3.1143455505371094 	 Step52/159	- AllReachGoal-True
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:963
+[INFO] - 2023-12-11 13:19:48,653 - Agent - : ################## dcpOEGAT_map32x32_rho1_100Agent/K2_HS0_P1/1602191363 - End of loop ##################  
+ ####### Case12 	 Computation time:2.7141273021698 	 Step45/138	- AllReachGoal-True
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:963
+[INFO] - 2023-12-11 13:19:51,936 - Agent - : ################## dcpOEGAT_map32x32_rho1_100Agent/K2_HS0_P1/1602191363 - End of loop ##################  
+ ####### Case13 	 Computation time:3.2757229804992676 	 Step55/171	- AllReachGoal-True
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:963
+[INFO] - 2023-12-11 13:19:55,124 - Agent - : ################## dcpOEGAT_map32x32_rho1_100Agent/K2_HS0_P1/1602191363 - End of loop ##################  
+ ####### Case14 	 Computation time:3.1814115047454834 	 Step53/165	- AllReachGoal-True
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:963
+[INFO] - 2023-12-11 13:19:58,199 - Agent - : ################## dcpOEGAT_map32x32_rho1_100Agent/K2_HS0_P1/1602191363 - End of loop ##################  
+ ####### Case15 	 Computation time:3.0677003860473633 	 Step51/168	- AllReachGoal-True
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:963
+[INFO] - 2023-12-11 13:20:01,083 - Agent - : ################## dcpOEGAT_map32x32_rho1_100Agent/K2_HS0_P1/1602191363 - End of loop ##################  
+ ####### Case16 	 Computation time:2.877572536468506 	 Step48/144	- AllReachGoal-True
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:963
+[INFO] - 2023-12-11 13:20:04,037 - Agent - : ################## dcpOEGAT_map32x32_rho1_100Agent/K2_HS0_P1/1602191363 - End of loop ##################  
+ ####### Case17 	 Computation time:2.9497976303100586 	 Step49/147	- AllReachGoal-True
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:963
+[INFO] - 2023-12-11 13:20:06,910 - Agent - : ################## dcpOEGAT_map32x32_rho1_100Agent/K2_HS0_P1/1602191363 - End of loop ##################  
+ ####### Case18 	 Computation time:2.868213415145874 	 Step48/147	- AllReachGoal-True
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:963
+[INFO] - 2023-12-11 13:20:10,345 - Agent - : ################## dcpOEGAT_map32x32_rho1_100Agent/K2_HS0_P1/1602191363 - End of loop ##################  
+ ####### Case19 	 Computation time:3.429257392883301 	 Step57/171	- AllReachGoal-True
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:963
+[INFO] - 2023-12-11 13:20:13,431 - Agent - : ################## dcpOEGAT_map32x32_rho1_100Agent/K2_HS0_P1/1602191363 - End of loop ##################  
+ ####### Case20 	 Computation time:3.0814011096954346 	 Step51/153	- AllReachGoal-True
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:963
+[INFO] - 2023-12-11 13:20:16,598 - Agent - : ################## dcpOEGAT_map32x32_rho1_100Agent/K2_HS0_P1/1602191363 - End of loop ##################  
+ ####### Case21 	 Computation time:3.1624419689178467 	 Step53/159	- AllReachGoal-True
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:963
+[INFO] - 2023-12-11 13:20:19,484 - Agent - : ################## dcpOEGAT_map32x32_rho1_100Agent/K2_HS0_P1/1602191363 - End of loop ##################  
+ ####### Case22 	 Computation time:2.881466865539551 	 Step48/144	- AllReachGoal-True
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:963
+[INFO] - 2023-12-11 13:20:22,485 - Agent - : ################## dcpOEGAT_map32x32_rho1_100Agent/K2_HS0_P1/1602191363 - End of loop ##################  
+ ####### Case23 	 Computation time:2.9965975284576416 	 Step50/150	- AllReachGoal-True
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:963
+[INFO] - 2023-12-11 13:20:25,546 - Agent - : ################## dcpOEGAT_map32x32_rho1_100Agent/K2_HS0_P1/1602191363 - End of loop ##################  
+ ####### Case24 	 Computation time:3.056015968322754 	 Step51/153	- AllReachGoal-True
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:963
+[INFO] - 2023-12-11 13:20:25,568 - Agent - : Accurracy(reachGoalnoCollision): 0.96 
+  DeteriorationRate(MakeSpan): 0.0931 
+  DeteriorationRate(FlowTime): 0.2792 
+  Rate(collisionPredictedinLoop): 0.0 
+  Rate(FailedReachGoalbyCollisionShielding): 0.04 
+  in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:668
+[INFO] - 2023-12-11 13:21:01,907 - root - : Hi, This is root. in /home/rishi/research/magat_pathplanning/utils/config.py:327
+[INFO] - 2023-12-11 13:21:01,907 - root - : After the configurations are successfully processed and dirs are created. in /home/rishi/research/magat_pathplanning/utils/config.py:328
+[INFO] - 2023-12-11 13:21:01,907 - root - : The pipeline of the project will begin now. in /home/rishi/research/magat_pathplanning/utils/config.py:329
+[INFO] - 2023-12-11 13:21:01,917 - Agent - : Model: None
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:97
+[INFO] - 2023-12-11 13:21:01,917 - DecentralPlannerDataLoader Online Expert - : Loading #100 Agent DATA from Path without OnlineTF ..... in /home/rishi/research/magat_pathplanning/dataloader/Dataloader_dcplocal_notTF_onlineExpert.py:24
+[INFO] - 2023-12-11 13:21:02,123 - Agent - : Program will run on *****GPU-CUDA*****  in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:144
+[INFO] - 2023-12-11 13:21:02,123 - Cuda Statistics - : __Python VERSION:  3.11.5 (main, Sep 11 2023, 13:54:46) [GCC 11.2.0] in /home/rishi/research/magat_pathplanning/utils/misc.py:29
+[INFO] - 2023-12-11 13:21:02,123 - Cuda Statistics - : __pyTorch VERSION:  2.1.0 in /home/rishi/research/magat_pathplanning/utils/misc.py:30
+[INFO] - 2023-12-11 13:21:02,123 - Cuda Statistics - : __CUDA VERSION in /home/rishi/research/magat_pathplanning/utils/misc.py:31
+[INFO] - 2023-12-11 13:21:02,124 - Cuda Statistics - : __CUDNN VERSION:  8902 in /home/rishi/research/magat_pathplanning/utils/misc.py:33
+[INFO] - 2023-12-11 13:21:02,124 - Cuda Statistics - : __Number CUDA Devices:  1 in /home/rishi/research/magat_pathplanning/utils/misc.py:34
+[INFO] - 2023-12-11 13:21:02,124 - Cuda Statistics - : __Devices in /home/rishi/research/magat_pathplanning/utils/misc.py:35
+[INFO] - 2023-12-11 13:21:02,135 - Cuda Statistics - : Active CUDA Device: GPU 0 in /home/rishi/research/magat_pathplanning/utils/misc.py:38
+[INFO] - 2023-12-11 13:21:02,136 - Cuda Statistics - : Available devices  1 in /home/rishi/research/magat_pathplanning/utils/misc.py:39
+[INFO] - 2023-12-11 13:21:02,136 - Cuda Statistics - : Current cuda device  0 in /home/rishi/research/magat_pathplanning/utils/misc.py:40
+[INFO] - 2023-12-11 13:21:02,136 - Agent - : Loading checkpoint '../Data/experiments/dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191363/checkpoints/model_best.pth.tar' in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:224
+[INFO] - 2023-12-11 13:21:02,144 - Agent - : Checkpoint loaded successfully from '../Data/experiments/dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191363/checkpoints/' at (epoch 141) at (iteration 1316952)
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:238
+[INFO] - 2023-12-11 13:21:02,145 - Agent - : 
+test set on dcpOEGAT_map32x32_rho1_100Agent/K2_HS0_P1/1602191363 
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:652
+[INFO] - 2023-12-11 13:21:06,095 - Agent - : ################## dcpOEGAT_map32x32_rho1_100Agent/K2_HS0_P1/1602191363 - End of loop ##################  
+ ####### Case0 	 Computation time:3.6726765632629395 	 Step54/162	- AllReachGoal-True
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:963
+[INFO] - 2023-12-11 13:21:09,234 - Agent - : ################## dcpOEGAT_map32x32_rho1_100Agent/K2_HS0_P1/1602191363 - End of loop ##################  
+ ####### Case1 	 Computation time:3.1323797702789307 	 Step52/156	- AllReachGoal-True
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:963
+[INFO] - 2023-12-11 13:21:12,116 - Agent - : ################## dcpOEGAT_map32x32_rho1_100Agent/K2_HS0_P1/1602191363 - End of loop ##################  
+ ####### Case2 	 Computation time:2.8758509159088135 	 Step48/144	- AllReachGoal-True
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:963
+[INFO] - 2023-12-11 13:21:15,130 - Agent - : ################## dcpOEGAT_map32x32_rho1_100Agent/K2_HS0_P1/1602191363 - End of loop ##################  
+ ####### Case3 	 Computation time:3.007767677307129 	 Step50/150	- AllReachGoal-True
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:963
+[INFO] - 2023-12-11 13:21:18,197 - Agent - : ################## dcpOEGAT_map32x32_rho1_100Agent/K2_HS0_P1/1602191363 - End of loop ##################  
+ ####### Case4 	 Computation time:3.0601511001586914 	 Step51/153	- AllReachGoal-True
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:963
+[INFO] - 2023-12-11 13:21:21,320 - Agent - : ################## dcpOEGAT_map32x32_rho1_100Agent/K2_HS0_P1/1602191363 - End of loop ##################  
+ ####### Case5 	 Computation time:3.1164424419403076 	 Step52/156	- AllReachGoal-True
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:963
+[INFO] - 2023-12-11 13:21:24,137 - Agent - : ################## dcpOEGAT_map32x32_rho1_100Agent/K2_HS0_P1/1602191363 - End of loop ##################  
+ ####### Case6 	 Computation time:2.810347557067871 	 Step47/141	- AllReachGoal-True
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:963
+[INFO] - 2023-12-11 13:21:27,483 - Agent - : ################## dcpOEGAT_map32x32_rho1_100Agent/K2_HS0_P1/1602191363 - End of loop ##################  
+ ####### Case7 	 Computation time:3.3395283222198486 	 Step56/180	- AllReachGoal-True
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:963
+[INFO] - 2023-12-11 13:21:31,078 - Agent - : ################## dcpOEGAT_map32x32_rho1_100Agent/K2_HS0_P1/1602191363 - End of loop ##################  
+ ####### Case8 	 Computation time:3.5881969928741455 	 Step60/180	- AllReachGoal-True
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:963
+[INFO] - 2023-12-11 13:21:34,390 - Agent - : ################## dcpOEGAT_map32x32_rho1_100Agent/K2_HS0_P1/1602191363 - End of loop ##################  
+ ####### Case9 	 Computation time:3.3056344985961914 	 Step55/165	- AllReachGoal-True
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:963
+[INFO] - 2023-12-11 13:21:37,477 - Agent - : ################## dcpOEGAT_map32x32_rho1_100Agent/K2_HS0_P1/1602191363 - End of loop ##################  
+ ####### Case10 	 Computation time:3.0811409950256348 	 Step50/150	- AllReachGoal-True
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:963
+[INFO] - 2023-12-11 13:21:40,686 - Agent - : ################## dcpOEGAT_map32x32_rho1_100Agent/K2_HS0_P1/1602191363 - End of loop ##################  
+ ####### Case11 	 Computation time:3.2010748386383057 	 Step52/159	- AllReachGoal-True
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:963
+[INFO] - 2023-12-11 13:21:43,830 - Agent - : ################## dcpOEGAT_map32x32_rho1_100Agent/K2_HS0_P1/1602191363 - End of loop ##################  
+ ####### Case12 	 Computation time:3.1375930309295654 	 Step52/138	- AllReachGoal-True
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:963
+[INFO] - 2023-12-11 13:21:47,251 - Agent - : ################## dcpOEGAT_map32x32_rho1_100Agent/K2_HS0_P1/1602191363 - End of loop ##################  
+ ####### Case13 	 Computation time:3.41420841217041 	 Step55/171	- AllReachGoal-True
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:963
+[INFO] - 2023-12-11 13:21:50,578 - Agent - : ################## dcpOEGAT_map32x32_rho1_100Agent/K2_HS0_P1/1602191363 - End of loop ##################  
+ ####### Case14 	 Computation time:3.320675849914551 	 Step53/165	- AllReachGoal-True
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:963
+[INFO] - 2023-12-11 13:21:54,053 - Agent - : ################## dcpOEGAT_map32x32_rho1_100Agent/K2_HS0_P1/1602191363 - End of loop ##################  
+ ####### Case15 	 Computation time:3.4685888290405273 	 Step53/168	- AllReachGoal-True
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:963
+[INFO] - 2023-12-11 13:21:57,157 - Agent - : ################## dcpOEGAT_map32x32_rho1_100Agent/K2_HS0_P1/1602191363 - End of loop ##################  
+ ####### Case16 	 Computation time:3.097452163696289 	 Step48/144	- AllReachGoal-True
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:963
+[INFO] - 2023-12-11 13:22:00,442 - Agent - : ################## dcpOEGAT_map32x32_rho1_100Agent/K2_HS0_P1/1602191363 - End of loop ##################  
+ ####### Case17 	 Computation time:3.27976393699646 	 Step49/147	- AllReachGoal-True
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:963
+[INFO] - 2023-12-11 13:22:03,385 - Agent - : ################## dcpOEGAT_map32x32_rho1_100Agent/K2_HS0_P1/1602191363 - End of loop ##################  
+ ####### Case18 	 Computation time:2.938257932662964 	 Step46/147	- AllReachGoal-True
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:963
+[INFO] - 2023-12-11 13:22:06,876 - Agent - : ################## dcpOEGAT_map32x32_rho1_100Agent/K2_HS0_P1/1602191363 - End of loop ##################  
+ ####### Case19 	 Computation time:3.4837632179260254 	 Step57/171	- AllReachGoal-True
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:963
+[INFO] - 2023-12-11 13:22:09,945 - Agent - : ################## dcpOEGAT_map32x32_rho1_100Agent/K2_HS0_P1/1602191363 - End of loop ##################  
+ ####### Case20 	 Computation time:3.063410997390747 	 Step51/153	- AllReachGoal-True
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:963
+[INFO] - 2023-12-11 13:22:13,350 - Agent - : ################## dcpOEGAT_map32x32_rho1_100Agent/K2_HS0_P1/1602191363 - End of loop ##################  
+ ####### Case21 	 Computation time:3.3998188972473145 	 Step53/159	- AllReachGoal-True
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:963
+[INFO] - 2023-12-11 13:22:16,513 - Agent - : ################## dcpOEGAT_map32x32_rho1_100Agent/K2_HS0_P1/1602191363 - End of loop ##################  
+ ####### Case22 	 Computation time:3.1581103801727295 	 Step48/144	- AllReachGoal-True
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:963
+[INFO] - 2023-12-11 13:22:19,815 - Agent - : ################## dcpOEGAT_map32x32_rho1_100Agent/K2_HS0_P1/1602191363 - End of loop ##################  
+ ####### Case23 	 Computation time:3.2970993518829346 	 Step50/150	- AllReachGoal-True
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:963
+[INFO] - 2023-12-11 13:22:23,137 - Agent - : ################## dcpOEGAT_map32x32_rho1_100Agent/K2_HS0_P1/1602191363 - End of loop ##################  
+ ####### Case24 	 Computation time:3.3163902759552 	 Step51/153	- AllReachGoal-True
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:963
+[INFO] - 2023-12-11 13:22:23,160 - Agent - : Accurracy(reachGoalnoCollision): 1.0 
+  DeteriorationRate(MakeSpan): 0.0164 
+  DeteriorationRate(FlowTime): 0.2775 
+  Rate(collisionPredictedinLoop): 0.0 
+  Rate(FailedReachGoalbyCollisionShielding): 0.0 
+  in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:668
+[INFO] - 2023-12-11 13:22:57,735 - root - : Hi, This is root. in /home/rishi/research/magat_pathplanning/utils/config.py:327
+[INFO] - 2023-12-11 13:22:57,735 - root - : After the configurations are successfully processed and dirs are created. in /home/rishi/research/magat_pathplanning/utils/config.py:328
+[INFO] - 2023-12-11 13:22:57,735 - root - : The pipeline of the project will begin now. in /home/rishi/research/magat_pathplanning/utils/config.py:329
+[INFO] - 2023-12-11 13:22:57,745 - Agent - : Model: None
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:97
+[INFO] - 2023-12-11 13:22:57,745 - DecentralPlannerDataLoader Online Expert - : Loading #100 Agent DATA from Path without OnlineTF ..... in /home/rishi/research/magat_pathplanning/dataloader/Dataloader_dcplocal_notTF_onlineExpert.py:24
+[INFO] - 2023-12-11 13:22:57,957 - Agent - : Program will run on *****GPU-CUDA*****  in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:144
+[INFO] - 2023-12-11 13:22:57,957 - Cuda Statistics - : __Python VERSION:  3.11.5 (main, Sep 11 2023, 13:54:46) [GCC 11.2.0] in /home/rishi/research/magat_pathplanning/utils/misc.py:29
+[INFO] - 2023-12-11 13:22:57,957 - Cuda Statistics - : __pyTorch VERSION:  2.1.0 in /home/rishi/research/magat_pathplanning/utils/misc.py:30
+[INFO] - 2023-12-11 13:22:57,957 - Cuda Statistics - : __CUDA VERSION in /home/rishi/research/magat_pathplanning/utils/misc.py:31
+[INFO] - 2023-12-11 13:22:57,958 - Cuda Statistics - : __CUDNN VERSION:  8902 in /home/rishi/research/magat_pathplanning/utils/misc.py:33
+[INFO] - 2023-12-11 13:22:57,958 - Cuda Statistics - : __Number CUDA Devices:  1 in /home/rishi/research/magat_pathplanning/utils/misc.py:34
+[INFO] - 2023-12-11 13:22:57,958 - Cuda Statistics - : __Devices in /home/rishi/research/magat_pathplanning/utils/misc.py:35
+[INFO] - 2023-12-11 13:22:57,971 - Cuda Statistics - : Active CUDA Device: GPU 0 in /home/rishi/research/magat_pathplanning/utils/misc.py:38
+[INFO] - 2023-12-11 13:22:57,972 - Cuda Statistics - : Available devices  1 in /home/rishi/research/magat_pathplanning/utils/misc.py:39
+[INFO] - 2023-12-11 13:22:57,972 - Cuda Statistics - : Current cuda device  0 in /home/rishi/research/magat_pathplanning/utils/misc.py:40
+[INFO] - 2023-12-11 13:22:57,972 - Agent - : Loading checkpoint '../Data/experiments/dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191363/checkpoints/model_best.pth.tar' in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:224
+[INFO] - 2023-12-11 13:22:57,981 - Agent - : Checkpoint loaded successfully from '../Data/experiments/dcpOEGAT_map20x20_rho1_10Agent/K2_HS0_P1/1602191363/checkpoints/' at (epoch 141) at (iteration 1316952)
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:238
+[INFO] - 2023-12-11 13:22:57,982 - Agent - : 
+test set on dcpOEGAT_map32x32_rho1_100Agent/K2_HS0_P1/1602191363 
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:652
+[INFO] - 2023-12-11 13:23:02,289 - Agent - : ################## dcpOEGAT_map32x32_rho1_100Agent/K2_HS0_P1/1602191363 - End of loop ##################  
+ ####### Case0 	 Computation time:4.0322160720825195 	 Step54/162	- AllReachGoal-True
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:963
+[INFO] - 2023-12-11 13:23:05,717 - Agent - : ################## dcpOEGAT_map32x32_rho1_100Agent/K2_HS0_P1/1602191363 - End of loop ##################  
+ ####### Case1 	 Computation time:3.4217112064361572 	 Step52/156	- AllReachGoal-True
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:963
+[INFO] - 2023-12-11 13:23:08,885 - Agent - : ################## dcpOEGAT_map32x32_rho1_100Agent/K2_HS0_P1/1602191363 - End of loop ##################  
+ ####### Case2 	 Computation time:3.161571979522705 	 Step48/144	- AllReachGoal-True
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:963
+[INFO] - 2023-12-11 13:23:12,146 - Agent - : ################## dcpOEGAT_map32x32_rho1_100Agent/K2_HS0_P1/1602191363 - End of loop ##################  
+ ####### Case3 	 Computation time:3.2545275688171387 	 Step50/150	- AllReachGoal-True
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:963
+[INFO] - 2023-12-11 13:23:15,546 - Agent - : ################## dcpOEGAT_map32x32_rho1_100Agent/K2_HS0_P1/1602191363 - End of loop ##################  
+ ####### Case4 	 Computation time:3.393296718597412 	 Step51/153	- AllReachGoal-True
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:963
+[INFO] - 2023-12-11 13:23:18,926 - Agent - : ################## dcpOEGAT_map32x32_rho1_100Agent/K2_HS0_P1/1602191363 - End of loop ##################  
+ ####### Case5 	 Computation time:3.372518539428711 	 Step52/156	- AllReachGoal-True
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:963
+[INFO] - 2023-12-11 13:23:21,966 - Agent - : ################## dcpOEGAT_map32x32_rho1_100Agent/K2_HS0_P1/1602191363 - End of loop ##################  
+ ####### Case6 	 Computation time:3.0340209007263184 	 Step47/141	- AllReachGoal-True
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:963
+[INFO] - 2023-12-11 13:23:25,609 - Agent - : ################## dcpOEGAT_map32x32_rho1_100Agent/K2_HS0_P1/1602191363 - End of loop ##################  
+ ####### Case7 	 Computation time:3.6346912384033203 	 Step56/180	- AllReachGoal-True
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:963
+[INFO] - 2023-12-11 13:23:29,484 - Agent - : ################## dcpOEGAT_map32x32_rho1_100Agent/K2_HS0_P1/1602191363 - End of loop ##################  
+ ####### Case8 	 Computation time:3.8687021732330322 	 Step60/180	- AllReachGoal-True
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:963
+[INFO] - 2023-12-11 13:23:32,995 - Agent - : ################## dcpOEGAT_map32x32_rho1_100Agent/K2_HS0_P1/1602191363 - End of loop ##################  
+ ####### Case9 	 Computation time:3.503979444503784 	 Step55/165	- AllReachGoal-True
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:963
+[INFO] - 2023-12-11 13:23:36,267 - Agent - : ################## dcpOEGAT_map32x32_rho1_100Agent/K2_HS0_P1/1602191363 - End of loop ##################  
+ ####### Case10 	 Computation time:3.2660560607910156 	 Step50/150	- AllReachGoal-True
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:963
+[INFO] - 2023-12-11 13:23:39,568 - Agent - : ################## dcpOEGAT_map32x32_rho1_100Agent/K2_HS0_P1/1602191363 - End of loop ##################  
+ ####### Case11 	 Computation time:3.2937803268432617 	 Step52/159	- AllReachGoal-True
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:963
+[INFO] - 2023-12-11 13:23:42,365 - Agent - : ################## dcpOEGAT_map32x32_rho1_100Agent/K2_HS0_P1/1602191363 - End of loop ##################  
+ ####### Case12 	 Computation time:2.7906107902526855 	 Step45/138	- AllReachGoal-True
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:963
+[INFO] - 2023-12-11 13:23:45,755 - Agent - : ################## dcpOEGAT_map32x32_rho1_100Agent/K2_HS0_P1/1602191363 - End of loop ##################  
+ ####### Case13 	 Computation time:3.3828654289245605 	 Step55/171	- AllReachGoal-True
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:963
+[INFO] - 2023-12-11 13:23:49,008 - Agent - : ################## dcpOEGAT_map32x32_rho1_100Agent/K2_HS0_P1/1602191363 - End of loop ##################  
+ ####### Case14 	 Computation time:3.2472262382507324 	 Step53/165	- AllReachGoal-True
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:963
+[INFO] - 2023-12-11 13:23:52,269 - Agent - : ################## dcpOEGAT_map32x32_rho1_100Agent/K2_HS0_P1/1602191363 - End of loop ##################  
+ ####### Case15 	 Computation time:3.2534122467041016 	 Step53/168	- AllReachGoal-True
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:963
+[INFO] - 2023-12-11 13:23:55,192 - Agent - : ################## dcpOEGAT_map32x32_rho1_100Agent/K2_HS0_P1/1602191363 - End of loop ##################  
+ ####### Case16 	 Computation time:2.9164981842041016 	 Step48/144	- AllReachGoal-True
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:963
+[INFO] - 2023-12-11 13:23:58,193 - Agent - : ################## dcpOEGAT_map32x32_rho1_100Agent/K2_HS0_P1/1602191363 - End of loop ##################  
+ ####### Case17 	 Computation time:2.9955334663391113 	 Step49/147	- AllReachGoal-True
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:963
+[INFO] - 2023-12-11 13:24:01,050 - Agent - : ################## dcpOEGAT_map32x32_rho1_100Agent/K2_HS0_P1/1602191363 - End of loop ##################  
+ ####### Case18 	 Computation time:2.8522720336914062 	 Step47/147	- AllReachGoal-True
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:963
+[INFO] - 2023-12-11 13:24:04,522 - Agent - : ################## dcpOEGAT_map32x32_rho1_100Agent/K2_HS0_P1/1602191363 - End of loop ##################  
+ ####### Case19 	 Computation time:3.4665565490722656 	 Step57/171	- AllReachGoal-True
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:963
+[INFO] - 2023-12-11 13:24:07,649 - Agent - : ################## dcpOEGAT_map32x32_rho1_100Agent/K2_HS0_P1/1602191363 - End of loop ##################  
+ ####### Case20 	 Computation time:3.122436761856079 	 Step51/153	- AllReachGoal-True
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:963
+[INFO] - 2023-12-11 13:24:10,883 - Agent - : ################## dcpOEGAT_map32x32_rho1_100Agent/K2_HS0_P1/1602191363 - End of loop ##################  
+ ####### Case21 	 Computation time:3.227980852127075 	 Step53/159	- AllReachGoal-True
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:963
+[INFO] - 2023-12-11 13:24:13,901 - Agent - : ################## dcpOEGAT_map32x32_rho1_100Agent/K2_HS0_P1/1602191363 - End of loop ##################  
+ ####### Case22 	 Computation time:3.0136618614196777 	 Step48/144	- AllReachGoal-True
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:963
+[INFO] - 2023-12-11 13:24:16,954 - Agent - : ################## dcpOEGAT_map32x32_rho1_100Agent/K2_HS0_P1/1602191363 - End of loop ##################  
+ ####### Case23 	 Computation time:3.0465776920318604 	 Step50/150	- AllReachGoal-True
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:963
+[INFO] - 2023-12-11 13:24:20,064 - Agent - : ################## dcpOEGAT_map32x32_rho1_100Agent/K2_HS0_P1/1602191363 - End of loop ##################  
+ ####### Case24 	 Computation time:3.105900287628174 	 Step51/153	- AllReachGoal-True
+ in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:963
+[INFO] - 2023-12-11 13:24:20,084 - Agent - : Accurracy(reachGoalnoCollision): 1.0 
+  DeteriorationRate(MakeSpan): 0.0111 
+  DeteriorationRate(FlowTime): 0.2745 
+  Rate(collisionPredictedinLoop): 0.0 
+  Rate(FailedReachGoalbyCollisionShielding): 0.0 
+  in /home/rishi/research/magat_pathplanning/agents/decentralplannerlocal_OnlineExpert_GAT.py:668

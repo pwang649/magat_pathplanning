@@ -879,6 +879,7 @@ class DecentralPlannerAgentLocalWithOnlineExpertGAT(BaseAgent):
         extraTime = 0
         self.robot.naiveShieldTime = 0
         self.robot.shieldTime = 0
+        self.debugCheck = 0
         Time_cases_ForwardPass = []
         for step in range(maxstep):
             currentStep = step + 1
