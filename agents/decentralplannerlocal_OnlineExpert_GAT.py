@@ -970,8 +970,9 @@ class DecentralPlannerAgentLocalWithOnlineExpertGAT(BaseAgent):
 
             Time_cases_ForwardPass.append(time_ForwardPass)
             tmpTime = time.time()
-            allReachGoal, check_moveCollision, check_predictCollision = self.robot.move(actionVec_predict, currentStep)
+            allReachGoal, check_moveCollision, check_predictCollision, new_move = self.robot.move(actionVec_predict, currentStep)
             extraTime += time.time() - tmpTime
+            # self.robot.current_positions += new_move
 
             if check_moveCollision:
                 check_CollisionHappenedinLoop = True

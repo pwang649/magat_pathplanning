@@ -58,7 +58,7 @@ def visualize(agent, cases, seed):
 
 if __name__ == '__main__':
 
-    agents = range(250, 250+1, 250)
+    agents = range(100, 100+1, 50)
     num_scens = 25
     # seeds = range(1,6)
     seeds = range(1,2)

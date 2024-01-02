@@ -218,7 +218,7 @@ class multiRobotSimNew:
         # Calculate maximum allowed steps in this simulation, otherwise timeout
         self.maxstep = int(makespanTarget.type(torch.int32) * self.rate_maxstep)
 
-        self.check_predictCollsion = False
+        # self.check_predictCollsion = False
         self.check_moveCollision = True
         self.check_predictEdgeCollsion = [False] * self.config.num_agents
         self.count_reachgoal = [False] * self.config.num_agents
@@ -654,8 +654,8 @@ class multiRobotSimNew:
         # print('first_move:', self.first_move)
         # print('end_step:', self.end_step)
 
-        self.check_predictCollsion = False
-        self.check_moveCollision = False
+        check_predictCollsion = False
+        check_moveCollision = False
 
         if (not allReachGoal) and (currentstep < self.maxstep):
 
@@ -709,10 +709,10 @@ class multiRobotSimNew:
             # if not (new_move == proposed_moves).all():
             #     print('something changes')
 
-            if not self.check_predictCollsion:
+            if not check_predictCollsion:
                 if np.count_nonzero(move_to_boundary) != 0 or len(move_to_wall_agents) != 0 or np.count_nonzero(
                         collide_agents) != 0 or len(collide_in_move_agents) != 0:
-                    self.check_predictCollsion = True
+                    check_predictCollsion = True
 
             # if len(move_to_wall_agents) != 0 or np.count_nonzero(collide_agents) != 0 or len(collide_in_move_agents) != 0:
             #     print('collision happens step {}'.format(currentstep), move_to_wall_agents, collide_agents, collide_in_move_agents)
@@ -765,7 +765,7 @@ class multiRobotSimNew:
             self.makespanPredict = np.max(self.end_step) - np.min(self.first_move) + 1
             # print(self.makespanPredict)
 
-        return allReachGoal, self.check_moveCollision, self.check_predictCollsion
+        return allReachGoal, check_moveCollision, check_predictCollsion, 123
 
     def save_success_cases(self, mode):
         '''
