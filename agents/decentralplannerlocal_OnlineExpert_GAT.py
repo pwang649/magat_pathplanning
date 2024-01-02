@@ -33,7 +33,7 @@ from onlineExpert.DataTransformer_local_onlineExpert import DataTransformer
 from onlineExpert.ECBS_onlineExpert import ComputeECBSSolution
 
 
-
+from collections import deque
 
 # whether to use skip connection for feature before and after GNN
 
@@ -855,6 +855,74 @@ class DecentralPlannerAgentLocalWithOnlineExpertGAT(BaseAgent):
             pass
 
         return dir_name, folder_name
+
+    def lacam_high_level(self):
+        class HLNode:
+            def __init__(self, state, action_preferences, parent):
+                self.state = state
+                self.action_preferences
+                self.parent = parent
+                self.queue_of_constraints = deque()
+            
+            def getNextState(self):
+                curConstraint = self.queue_of_constraints.popleft()
+                allReachGoal, _, _ = self.robot.move(self.action_preferences, curConstraint)
+                return 
+
+        # Get current state
+        # If not seen before
+        #   Get action probabilities and cache
+        # If seen before
+        #   Add a single constraint.
+        #   So need a way of adding constraints similar to a python "generator".
+        #   Do this by adding into a queue of constraints. Each constraint adds next agent's locations in order of probability.
+
+        # Constraints force agents to go to a certain location
+        #   This can be done by forcing their action sets to just that location, or to just move their directly
+            
+        # Starting locations
+        def getActionPreds(step):
+            """Note: just matters if step=0 or step > 0. Step = 1 vs 2 doesn't matter"""
+            currentStateGPU = self.robot.getCurrentState().to(self.config.device)
+            gsoGPU = self.robot.getGSO(step).to(self.config.device)
+            self.model.addGSO(gsoGPU)
+
+            actionVec_predict = self.model(currentStateGPU) # B x N X 5
+            if self.config.batch_numAgent:
+                actionVec_predict = actionVec_predict.detach().cpu()
+            else:
+                actionVec_predict = [ts.detach().cpu() for ts in actionVec_predict]
+            return actionVec_predict
+
+        currentStateGPU = self.robot.getCurrentState().to(self.config.device)
+        actionPreferences = getActionPreds(0)
+        curNode = HLNode(currentStateGPU, actionPreferences, None)
+
+        stateToHLNodes = dict()
+        stateToHLNodes[currentStateGPU] = curNode
+        
+        mainStack = deque()
+        mainStack.append(curNode)
+
+        while len(mainStack) > 0:
+            curNode = mainStack.popleft()
+
+            # Check goal condition will be done in the getNextState function
+            
+            isGoal, nextState, isExhausted = curNode.getNextState()
+            if isGoal:
+                return True
+            if isExhausted: # We have completed all the children of this node
+                continue # This naturally backtracks
+            if nextState in stateToHLNodes:
+                curNode = stateToHLNodes[nextState]
+            else:
+                # Create new HL Node
+                curNode = HLNode(nextState, getActionPreds(1), curNode)
+                stateToHLNodes[nextState] = curNode
+
+            mainStack.appendleft(curNode)
+        return False
 
     def mutliAgent_ActionPolicy(self, input, load_target, makespanTarget, tensor_map, ID_dataset,mode):
 

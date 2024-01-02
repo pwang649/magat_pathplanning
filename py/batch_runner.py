@@ -58,13 +58,14 @@ def visualize(agent, cases, seed):
 
 if __name__ == '__main__':
 
-    agents = range(50, 450+1, 50)
+    agents = range(250, 250+1, 250)
     num_scens = 25
-    seeds = range(1,6)
+    # seeds = range(1,6)
+    seeds = range(1,2)
 
     # rVal = 0.01
     # folderMod = "_R{}".format(int(rVal*100))
-    folderMod = "_JustBD"
+    folderMod = "_test"
 
     for agent in agents:
         directory = "../Data/Results_best/AnimeDemo/dcpOEGAT{}/map32x32_rho1_{}Agent/K2_HS0/TR_M20p1_10Agent/1602191363/Project_G/exp_multinorm/commR_7".format(
