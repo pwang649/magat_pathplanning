@@ -949,6 +949,8 @@ class DecentralPlannerAgentLocalWithOnlineExpertGAT(BaseAgent):
         self.robot.shieldTime = 0
         self.debugCheck = 0
         Time_cases_ForwardPass = []
+        robot_current_positions = self.robot.current_positions
+        end_step = np.zeros(self.config.num_agents, )
         for step in range(maxstep):
             currentStep = step + 1
             currentState = self.robot.getCurrentState()
@@ -970,9 +972,20 @@ class DecentralPlannerAgentLocalWithOnlineExpertGAT(BaseAgent):
 
             Time_cases_ForwardPass.append(time_ForwardPass)
             tmpTime = time.time()
-            allReachGoal, check_moveCollision, check_predictCollision, new_move = self.robot.move(actionVec_predict, currentStep)
+            allReachGoal, check_moveCollision, check_predictCollision, new_move, end_step = self.robot.move(robot_current_positions,
+                            end_step, actionVec_predict, currentStep)
             extraTime += time.time() - tmpTime
-            # self.robot.current_positions += new_move
+            robot_current_positions += new_move
+            self.robot.path_list.append(robot_current_positions)
+
+            ## Populate robot statistics. This is moved from new_simulator.py
+            
+            if allReachGoal or (step >= self.robot.maxstep):
+                end_step[end_step == 0] = step - 1
+            self.robot.agent_action_length = end_step - self.robot.first_move + 1
+            self.robot.flowtimePredict = np.sum(self.robot.agent_action_length)
+            self.robot.makespanPredict = np.max(end_step) - np.min(self.robot.first_move) + 1
+
 
             if check_moveCollision:
                 check_CollisionHappenedinLoop = True
