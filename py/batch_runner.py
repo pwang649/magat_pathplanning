@@ -59,9 +59,9 @@ def visualize(agent, cases, seed):
 if __name__ == '__main__':
 
     agents = range(100, 100+1, 50)
-    num_scens = 25
+    num_scens = 5
     # seeds = range(1,6)
-    seeds = range(1,2)
+    seeds = range(1,3)
 
     # rVal = 0.01
     # folderMod = "_R{}".format(int(rVal*100))

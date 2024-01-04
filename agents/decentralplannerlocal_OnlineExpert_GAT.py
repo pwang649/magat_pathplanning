@@ -857,17 +857,32 @@ class DecentralPlannerAgentLocalWithOnlineExpertGAT(BaseAgent):
         return dir_name, folder_name
 
     def lacam_high_level(self):
+        GOAL_POSITIONS = self.robot.goal_positions
+        TENSOR_GOAL_POSITIONS = torch.FloatTensor(GOAL_POSITIONS)
+        self.robot.initCommunicationRadius()
+
         class HLNode:
             def __init__(self, state, action_preferences, parent):
                 self.state = state
-                self.action_preferences
+                self.action_preferences = action_preferences
                 self.parent = parent
                 self.queue_of_constraints = deque()
-            
+                self.depth = self.parent.depth + 1
+                self.end_step = self.parent.end_step
+
+                ## Compute agent priorities
+                current_distance = np.sum(np.abs(state - GOAL_POSITIONS), axis=1) # (N,2)->(N)
+                self.agent_priorities = np.maximum(self.parent.agent_priorities, current_distance) # Increase priority if further from goal
+                self.agent_priorities[current_distance == 0] = 0 # Set priority to 0 if reached goal
+                
+
             def getNextState(self):
                 curConstraint = self.queue_of_constraints.popleft()
-                allReachGoal, _, _ = self.robot.move(self.action_preferences, curConstraint)
-                return 
+                # allReachGoal, _, _ = self.robot.move(self.action_preferences, curConstraint)
+                allReachGoal, _, _, new_move, end_step = self.robot.move(self.agent_priorities, 
+                            self.state, self.end_step, self.action_preferences, self.depth)
+                new_state = self.state + new_move
+                return allReachGoal, new_state, len(self.queue_of_constraints) == 0
 
         # Get current state
         # If not seen before
@@ -879,27 +894,40 @@ class DecentralPlannerAgentLocalWithOnlineExpertGAT(BaseAgent):
 
         # Constraints force agents to go to a certain location
         #   This can be done by forcing their action sets to just that location, or to just move their directly
-            
+        
         # Starting locations
-        def getActionPreds(step):
+            
+        def customGetCurState(current_positions):
+            store_stateAgents = torch.FloatTensor(current_positions)
+            tensor_currentState = self.robot.AgentState.toInputTensor(TENSOR_GOAL_POSITIONS, store_stateAgents)
+            tensor_currentState = tensor_currentState.unsqueeze(0)
+            return tensor_currentState
+        
+        def getActionPreds(curr_positions, step):
             """Note: just matters if step=0 or step > 0. Step = 1 vs 2 doesn't matter"""
-            currentStateGPU = self.robot.getCurrentState().to(self.config.device)
-            gsoGPU = self.robot.getGSO(step).to(self.config.device)
+            currentStateGPU = customGetCurState(curr_positions).to(self.config.device)
+
+            GSO, _, _ = self.robot.getAdjacencyMatrix(step, 
+                            curr_positions[None, :], self.robot.communicationRadius)
+            gsoGPU = torch.from_numpy(GSO).to(self.config.device)
             self.model.addGSO(gsoGPU)
 
             actionVec_predict = self.model(currentStateGPU) # B x N X 5
+
             if self.config.batch_numAgent:
                 actionVec_predict = actionVec_predict.detach().cpu()
             else:
                 actionVec_predict = [ts.detach().cpu() for ts in actionVec_predict]
+
+            pdb.set_trace()
             return actionVec_predict
 
-        currentStateGPU = self.robot.getCurrentState().to(self.config.device)
-        actionPreferences = getActionPreds(0)
-        curNode = HLNode(currentStateGPU, actionPreferences, None)
+        current_state = self.robot.current_positions
+        actionPreferences = getActionPreds(current_state, 0)
+        curNode = HLNode(current_state, actionPreferences, None)
 
         stateToHLNodes = dict()
-        stateToHLNodes[currentStateGPU] = curNode
+        stateToHLNodes[current_state] = curNode
         
         mainStack = deque()
         mainStack.append(curNode)
@@ -918,7 +946,7 @@ class DecentralPlannerAgentLocalWithOnlineExpertGAT(BaseAgent):
                 curNode = stateToHLNodes[nextState]
             else:
                 # Create new HL Node
-                curNode = HLNode(nextState, getActionPreds(1), curNode)
+                curNode = HLNode(nextState, getActionPreds(nextState, 1), curNode)
                 stateToHLNodes[nextState] = curNode
 
             mainStack.appendleft(curNode)
@@ -949,13 +977,35 @@ class DecentralPlannerAgentLocalWithOnlineExpertGAT(BaseAgent):
         self.robot.shieldTime = 0
         self.debugCheck = 0
         Time_cases_ForwardPass = []
+
+        ## Populate starting values
         robot_current_positions = self.robot.current_positions
+        agent_priorities = np.sum(np.abs(robot_current_positions - self.robot.goal_positions), axis=-1) # RVMod (N,2)->(N)
         end_step = np.zeros(self.config.num_agents, )
+
+        GOAL_POSITIONS = self.robot.goal_positions
+        TENSOR_GOAL_POSITIONS = torch.FloatTensor(GOAL_POSITIONS)
+        self.robot.initCommunicationRadius()
+
+        def customGetCurState(current_positions):
+            store_stateAgents = torch.FloatTensor(current_positions)
+            tensor_currentState = self.robot.AgentState.toInputTensor(TENSOR_GOAL_POSITIONS, store_stateAgents)
+            tensor_currentState = tensor_currentState.unsqueeze(0)
+            return tensor_currentState
+
+        ### RVMOD
+        # self.lacam_high_level()
+
         for step in range(maxstep):
             currentStep = step + 1
-            currentState = self.robot.getCurrentState()
-
+            # currentState = self.robot.getCurrentState()
+            currentState = customGetCurState(robot_current_positions)
             currentStateGPU = currentState.to(self.config.device)
+
+            ## Compute agent priorities
+            current_distance = np.sum(np.abs(robot_current_positions - self.robot.goal_positions), axis=1) # (N,2)->(N)
+            agent_priorities = np.maximum(agent_priorities, current_distance) # Increase priority if further from goal
+            agent_priorities[current_distance == 0] = 0 # Set priority to 0 if reached goal
 
             gso = self.robot.getGSO(step)
             gsoGPU = gso.to(self.config.device)
@@ -972,14 +1022,13 @@ class DecentralPlannerAgentLocalWithOnlineExpertGAT(BaseAgent):
 
             Time_cases_ForwardPass.append(time_ForwardPass)
             tmpTime = time.time()
-            allReachGoal, check_moveCollision, check_predictCollision, new_move, end_step = self.robot.move(robot_current_positions,
-                            end_step, actionVec_predict, currentStep)
+            allReachGoal, check_moveCollision, check_predictCollision, new_move, end_step = self.robot.move(agent_priorities, 
+                            robot_current_positions, end_step, actionVec_predict, currentStep)
             extraTime += time.time() - tmpTime
             robot_current_positions += new_move
             self.robot.path_list.append(robot_current_positions)
 
             ## Populate robot statistics. This is moved from new_simulator.py
-            
             if allReachGoal or (step >= self.robot.maxstep):
                 end_step[end_step == 0] = step - 1
             self.robot.agent_action_length = end_step - self.robot.first_move + 1
