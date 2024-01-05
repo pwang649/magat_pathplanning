@@ -198,7 +198,7 @@ class multiRobotSimNew:
         # print('position vector:', self.start_positions.shape, self.goal_positions.shape)
 
         self.reach_goal = np.zeros(self.config.num_agents, )
-        self.first_move = np.zeros(self.config.num_agents, )
+        self.first_move = np.zeros(self.config.num_agents, ) + 1 ## RVMod
         self.end_step = np.zeros(self.config.num_agents, )
 
         self.expert_first_move = np.zeros(self.config.num_agents, )
@@ -341,11 +341,14 @@ class multiRobotSimNew:
         self.store_attentionGSO.append(attentionGSO)
 
     # RVMod
-    def lacam_check_collision(self, actionPreds, current_positions, agent_priorities):
+    def lacam_check_collision(self, actionPreds, current_positions, agent_priorities, agent_constraints):
         '''
         Runs LaCAM and PIBT instead of naive collision checking
         Args:
             actionPreds: (N,5) action preds
+            current_positions: (N,2) current positions
+            agent_priorities: (N) agent priorities
+            agent_constraints: [(agent_id, action index), ...], empty list if no constraints
         Returns:
             new_move: valid move without collision
             out_boundary: matrix of whether the agent in place goes out of boundary
@@ -374,29 +377,35 @@ class multiRobotSimNew:
                 print("UH OH, MULTIPLE AGENTS AT SAME LOCATION!")
                 pdb.set_trace()
 
+        ### Plan constrained agents first
+        ## Convert agent_id constraints to actual agent indices based on agent_order
+        constrained_agents = dict()
+        for agent_id, action_index in agent_constraints:
+            which_agent = agent_order[agent_id]
+            constrained_agents[which_agent] = action_index
+
+        lacamWorked = True
         for agent_id in agent_order:
             if agent_id in plannedAgents:
                 continue
-            # tmp1 = len(plannedAgents)
-            current_pos = current_positions[agent_id]
-            if tuple(current_pos) in occupiedNodes:
-                pdb.set_trace()
-            lacamWorked = self.pibt(agent_id, actionPreds, plannedAgents, moveMatrix, occupiedNodes, occupiedEdges, current_positions)
-            # if len(plannedAgents) > tmp1+1:
-                # print("PIBT added {} agents to plannedAgents".format(len(plannedAgents)-tmp1))
+            lacamWorked = self.pibt(agent_id, actionPreds, plannedAgents, moveMatrix, occupiedNodes, occupiedEdges, 
+                                        current_positions, constrained_agents)
+            # if lacamWorked is False:
+            #     print("PIBT ERROR!")
+            #     raise RuntimeError('PIBT failed for agent {}. Single-step PIBT should never fail!', agent_id)
+            #     # lacamWorked = self.pibt(agent_id, actionPreferences, plannedAgents, moveMatrix, occupiedNodes, occupiedEdges)
             if lacamWorked is False:
-                print("PIBT ERROR!")
-                raise RuntimeError('PIBT failed for agent {}. Single-step PIBT should never fail!', agent_id)
-                # lacamWorked = self.pibt(agent_id, actionPreferences, plannedAgents, moveMatrix, occupiedNodes, occupiedEdges)
-                ### Fall back to regular collision checking???
+                break
+
         out_boundary = np.zeros(self.config.num_agents, dtype=bool)
         move_to_wall = []
         collide_agents = []
         collide_in_move_agents = []
         #  move, out_boundary == True, move_to_wall, collide_agents, collide_in_move_agents
-        return moveMatrix, out_boundary, move_to_wall, collide_agents, collide_in_move_agents
+        return moveMatrix, out_boundary, move_to_wall, collide_agents, collide_in_move_agents, lacamWorked
 
-    def pibt(self, agent_id, actionPreds, plannedAgents, moveMatrix, occupiedNodes, occupiedEdges, current_positions):
+    def pibt(self, agent_id, actionPreds, plannedAgents, moveMatrix, occupiedNodes, occupiedEdges, 
+                current_positions, constrained_agents):
         '''
         Runs PIBT for a single agent
         Args:
@@ -464,6 +473,9 @@ class multiRobotSimNew:
             # # pdb.set_trace()
             # actionPreferences = np.argsort(BD_scores) # If strict ordering, sorts min to max
         moves_ordered = moves_ordered[actionPreferences]
+        if agent_id in constrained_agents.keys(): # Force agent to only pick that action if constrained
+            action_index = constrained_agents[agent_id]
+            moves_ordered = moves_ordered[action_index:action_index+1]
 
         current_pos = current_positions[agent_id]
         for aMove in moves_ordered:
@@ -492,7 +504,7 @@ class multiRobotSimNew:
             if conflictingAgent != -1 and conflictingAgent not in plannedAgents:
                 # Recurse
                 isvalid = self.pibt(conflictingAgent, actionPreds, plannedAgents,
-                                    moveMatrix, occupiedNodes, occupiedEdges, current_positions)
+                                    moveMatrix, occupiedNodes, occupiedEdges, current_positions, constrained_agents)
                 if isvalid:
                     return True
                 else:
@@ -645,7 +657,8 @@ class multiRobotSimNew:
         # #     a = input('stop')
         return move, out_boundary == True, move_to_wall, collide_agents, collide_in_move_agents
 
-    def move(self, agent_priorities, current_positions, end_step, actionVec, currentstep):
+    def move(self, agent_priorities, current_positions, end_step, actionVec, currentstep,
+                cur_constraints):
 
         check_predictCollsion = False
         check_moveCollision = False
@@ -666,7 +679,7 @@ class multiRobotSimNew:
             proposed_moves[proposed_actions == self.stop_keyValue, :] = self.stop
 
             # update first step to move for each agent
-            self.first_move[(proposed_actions != self.stop_keyValue) & (self.first_move == 0)] = currentstep
+            # self.first_move[(proposed_actions != self.stop_keyValue) & (self.first_move == 0)] = currentstep
             # Check collisions, update valid moves for each agent
             if self.shieldType == "Default":
                 time_start = time.time()
@@ -683,10 +696,12 @@ class multiRobotSimNew:
                 # self.naiveShieldTime += time.time() - time_start
 
                 time_start = time.time()
-                new_move, move_to_boundary, move_to_wall_agents, collide_agents, collide_in_move_agents = self.lacam_check_collision(
-                    numpyActionVec, current_positions, agent_priorities)
+                new_move, move_to_boundary, move_to_wall_agents, collide_agents, collide_in_move_agents, lacam_worked = self.lacam_check_collision(
+                    numpyActionVec, current_positions, agent_priorities, cur_constraints)
                 time_end = time.time()
                 self.shieldTime += time_end - time_start
+                if lacam_worked is False:
+                    return False, False, False, None, None
             
             # Extra check to make sure we didn't break anything!
             # new_move, move_to_boundary, move_to_wall_agents, collide_agents, collide_in_move_agents = self.check_collision(

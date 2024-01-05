@@ -860,29 +860,53 @@ class DecentralPlannerAgentLocalWithOnlineExpertGAT(BaseAgent):
         GOAL_POSITIONS = self.robot.goal_positions
         TENSOR_GOAL_POSITIONS = torch.FloatTensor(GOAL_POSITIONS)
         self.robot.initCommunicationRadius()
+        NUM_AGENTS = self.config.num_agents
 
         class HLNode:
-            def __init__(self, state, action_preferences, parent):
+            def __init__(self, robot, state, action_preferences, parent):
+                self.robot = robot
                 self.state = state
                 self.action_preferences = action_preferences
                 self.parent = parent
                 self.queue_of_constraints = deque()
-                self.depth = self.parent.depth + 1
-                self.end_step = self.parent.end_step
+                self.queue_of_constraints.append([])
+                # Constraints are 
 
-                ## Compute agent priorities
-                current_distance = np.sum(np.abs(state - GOAL_POSITIONS), axis=1) # (N,2)->(N)
-                self.agent_priorities = np.maximum(self.parent.agent_priorities, current_distance) # Increase priority if further from goal
-                self.agent_priorities[current_distance == 0] = 0 # Set priority to 0 if reached goal
+                if parent is None:
+                    self.depth = 0
+                    self.end_step = np.zeros(NUM_AGENTS, )
+                    self.agent_priorities = np.sum(np.abs(state - GOAL_POSITIONS), axis=1)
+                else:
+                    self.depth = self.parent.depth + 1
+                    self.end_step = self.parent.end_step
+
+                    ## Compute agent priorities
+                    current_distance = np.sum(np.abs(state - GOAL_POSITIONS), axis=1) # (N,2)->(N)
+                    self.agent_priorities = np.maximum(self.parent.agent_priorities, current_distance) # Increase priority if further from goal
+                    self.agent_priorities[current_distance == 0] = 0 # Set priority to 0 if reached goal
                 
 
             def getNextState(self):
+                if len(self.queue_of_constraints) == 0:
+                    return False, None, True
                 curConstraint = self.queue_of_constraints.popleft()
+                # curConstraint is a list of tuples (agentId, actionIndex)
+                # agentId of K correponds to agent with K highest priority (?)
+                if len(curConstraint) == 0:
+                    for i in range(0,5):
+                        self.queue_of_constraints.append([(0,i)])
+                else:
+                    curAgent = curConstraint[-1][0]
+                    for i in range(0,5):
+                        self.queue_of_constraints.append(curConstraint + [(curAgent+1,i)])
                 # allReachGoal, _, _ = self.robot.move(self.action_preferences, curConstraint)
                 allReachGoal, _, _, new_move, end_step = self.robot.move(self.agent_priorities, 
-                            self.state, self.end_step, self.action_preferences, self.depth)
+                            self.state, self.end_step, self.action_preferences, self.depth, curConstraint)
+                # pdb.set_trace()
+                if new_move is None: # Failed with the constraints
+                    return False, None, True
                 new_state = self.state + new_move
-                return allReachGoal, new_state, len(self.queue_of_constraints) == 0
+                return allReachGoal, new_state, False
 
         # Get current state
         # If not seen before
@@ -913,41 +937,38 @@ class DecentralPlannerAgentLocalWithOnlineExpertGAT(BaseAgent):
             self.model.addGSO(gsoGPU)
 
             actionVec_predict = self.model(currentStateGPU) # B x N X 5
-
-            if self.config.batch_numAgent:
-                actionVec_predict = actionVec_predict.detach().cpu()
-            else:
-                actionVec_predict = [ts.detach().cpu() for ts in actionVec_predict]
-
-            pdb.set_trace()
+            actionVec_predict = actionVec_predict.detach().cpu()
+            # pdb.set_trace()
             return actionVec_predict
 
         current_state = self.robot.current_positions
         actionPreferences = getActionPreds(current_state, 0)
-        curNode = HLNode(current_state, actionPreferences, None)
+        curNode = HLNode(self.robot, current_state, actionPreferences, None)
 
         stateToHLNodes = dict()
-        stateToHLNodes[current_state] = curNode
+        stateToHLNodes[str(current_state)] = curNode
         
         mainStack = deque()
-        mainStack.append(curNode)
+        mainStack.appendleft(curNode)
 
         while len(mainStack) > 0:
+            # pdb.set_trace()
             curNode = mainStack.popleft()
 
             # Check goal condition will be done in the getNextState function
             
-            isGoal, nextState, isExhausted = curNode.getNextState()
+            isGoal, nextState, notValid = curNode.getNextState()
             if isGoal:
+                pdb.set_trace()
                 return True
-            if isExhausted: # We have completed all the children of this node
+            if notValid: # We have completed all the children of this node
                 continue # This naturally backtracks
-            if nextState in stateToHLNodes:
-                curNode = stateToHLNodes[nextState]
+            if str(nextState) in stateToHLNodes:
+                curNode = stateToHLNodes[str(nextState)]
             else:
                 # Create new HL Node
-                curNode = HLNode(nextState, getActionPreds(nextState, 1), curNode)
-                stateToHLNodes[nextState] = curNode
+                curNode = HLNode(self.robot, nextState, getActionPreds(nextState, 1), curNode)
+                stateToHLNodes[str(nextState)] = curNode
 
             mainStack.appendleft(curNode)
         return False
@@ -994,7 +1015,7 @@ class DecentralPlannerAgentLocalWithOnlineExpertGAT(BaseAgent):
             return tensor_currentState
 
         ### RVMOD
-        # self.lacam_high_level()
+        self.lacam_high_level()
 
         for step in range(maxstep):
             currentStep = step + 1
@@ -1023,7 +1044,7 @@ class DecentralPlannerAgentLocalWithOnlineExpertGAT(BaseAgent):
             Time_cases_ForwardPass.append(time_ForwardPass)
             tmpTime = time.time()
             allReachGoal, check_moveCollision, check_predictCollision, new_move, end_step = self.robot.move(agent_priorities, 
-                            robot_current_positions, end_step, actionVec_predict, currentStep)
+                            robot_current_positions, end_step, actionVec_predict, currentStep, [])
             extraTime += time.time() - tmpTime
             robot_current_positions += new_move
             self.robot.path_list.append(robot_current_positions)
