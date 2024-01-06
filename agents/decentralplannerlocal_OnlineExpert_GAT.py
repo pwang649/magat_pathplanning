@@ -884,7 +884,6 @@ class DecentralPlannerAgentLocalWithOnlineExpertGAT(BaseAgent):
                     current_distance = np.sum(np.abs(state - GOAL_POSITIONS), axis=1) # (N,2)->(N)
                     self.agent_priorities = np.maximum(self.parent.agent_priorities, current_distance) # Increase priority if further from goal
                     self.agent_priorities[current_distance == 0] = 0 # Set priority to 0 if reached goal
-                
 
             def getNextState(self):
                 if len(self.queue_of_constraints) == 0:
@@ -951,16 +950,27 @@ class DecentralPlannerAgentLocalWithOnlineExpertGAT(BaseAgent):
         mainStack = deque()
         mainStack.appendleft(curNode)
 
+        totalNodesExpanded = 0
         while len(mainStack) > 0:
             # pdb.set_trace()
             curNode = mainStack.popleft()
+            if len(curNode.queue_of_constraints) != 0:
+                mainStack.appendleft(curNode)
+            totalNodesExpanded += 1
 
             # Check goal condition will be done in the getNextState function
             
             isGoal, nextState, notValid = curNode.getNextState()
             if isGoal:
-                pdb.set_trace()
-                return True
+                # Get path via backtracking
+                end_step = curNode.end_step
+                entirePath = []
+                while curNode is not None:
+                    entirePath.append(curNode.state)
+                    curNode = curNode.parent
+                entirePath.reverse() # Reverse to get path from start to goal
+                print("-----LaCAM took {} totalNodesExpanded-----".format(totalNodesExpanded))
+                return entirePath, end_step
             if notValid: # We have completed all the children of this node
                 continue # This naturally backtracks
             if str(nextState) in stateToHLNodes:
@@ -971,7 +981,12 @@ class DecentralPlannerAgentLocalWithOnlineExpertGAT(BaseAgent):
                 stateToHLNodes[str(nextState)] = curNode
 
             mainStack.appendleft(curNode)
-        return False
+            if (totalNodesExpanded > 1000):
+                print("----------------LaCAM took too long------------------")
+                break
+        print("----------------LaCAM didn't find a solution?!?!?!---------------")
+        pdb.set_trace()
+        return None, None
 
     def mutliAgent_ActionPolicy(self, input, load_target, makespanTarget, tensor_map, ID_dataset,mode):
 
@@ -1015,65 +1030,73 @@ class DecentralPlannerAgentLocalWithOnlineExpertGAT(BaseAgent):
             return tensor_currentState
 
         ### RVMOD
-        self.lacam_high_level()
-
-        for step in range(maxstep):
-            currentStep = step + 1
-            # currentState = self.robot.getCurrentState()
-            currentState = customGetCurState(robot_current_positions)
-            currentStateGPU = currentState.to(self.config.device)
-
-            ## Compute agent priorities
-            current_distance = np.sum(np.abs(robot_current_positions - self.robot.goal_positions), axis=1) # (N,2)->(N)
-            agent_priorities = np.maximum(agent_priorities, current_distance) # Increase priority if further from goal
-            agent_priorities[current_distance == 0] = 0 # Set priority to 0 if reached goal
-
-            gso = self.robot.getGSO(step)
-            gsoGPU = gso.to(self.config.device)
-            self.model.addGSO(gsoGPU)
-            # self.model.addGSO(gsoGPU.unsqueeze(0))
-
-            step_start = time.time()
-            actionVec_predict = self.model(currentStateGPU) # B x N X 5
-            if self.config.batch_numAgent:
-                actionVec_predict = actionVec_predict.detach().cpu()
-            else:
-                actionVec_predict = [ts.detach().cpu() for ts in actionVec_predict]
-            time_ForwardPass = time.time() - step_start
-
-            Time_cases_ForwardPass.append(time_ForwardPass)
-            tmpTime = time.time()
-            allReachGoal, check_moveCollision, check_predictCollision, new_move, end_step = self.robot.move(agent_priorities, 
-                            robot_current_positions, end_step, actionVec_predict, currentStep, [])
-            extraTime += time.time() - tmpTime
-            robot_current_positions += new_move
-            self.robot.path_list.append(robot_current_positions)
-
-            ## Populate robot statistics. This is moved from new_simulator.py
-            if allReachGoal or (step >= self.robot.maxstep):
-                end_step[end_step == 0] = step - 1
+        entirePath, temp_end_step = self.lacam_high_level()
+        if temp_end_step is not None:
+            allReachGoal = True
+            end_step = temp_end_step
+            currentStep = len(entirePath)
+            self.robot.path_list = entirePath
             self.robot.agent_action_length = end_step - self.robot.first_move + 1
             self.robot.flowtimePredict = np.sum(self.robot.agent_action_length)
             self.robot.makespanPredict = np.max(end_step) - np.min(self.robot.first_move) + 1
 
+        else:
+            for step in range(maxstep):
+                currentStep = step + 1
+                # currentState = self.robot.getCurrentState()
+                currentState = customGetCurState(robot_current_positions)
+                currentStateGPU = currentState.to(self.config.device)
 
-            if check_moveCollision:
-                check_CollisionHappenedinLoop = True
+                ## Compute agent priorities
+                current_distance = np.sum(np.abs(robot_current_positions - self.robot.goal_positions), axis=1) # (N,2)->(N)
+                agent_priorities = np.maximum(agent_priorities, current_distance) # Increase priority if further from goal
+                agent_priorities[current_distance == 0] = 0 # Set priority to 0 if reached goal
+
+                gso = self.robot.getGSO(step)
+                gsoGPU = gso.to(self.config.device)
+                self.model.addGSO(gsoGPU)
+                # self.model.addGSO(gsoGPU.unsqueeze(0))
+
+                step_start = time.time()
+                actionVec_predict = self.model(currentStateGPU) # B x N X 5
+                if self.config.batch_numAgent:
+                    actionVec_predict = actionVec_predict.detach().cpu()
+                else:
+                    actionVec_predict = [ts.detach().cpu() for ts in actionVec_predict]
+                time_ForwardPass = time.time() - step_start
+
+                Time_cases_ForwardPass.append(time_ForwardPass)
+                tmpTime = time.time()
+                allReachGoal, check_moveCollision, check_predictCollision, new_move, end_step = self.robot.move(agent_priorities, 
+                                robot_current_positions, end_step, actionVec_predict, currentStep, [])
+                extraTime += time.time() - tmpTime
+                robot_current_positions += new_move
+                self.robot.path_list.append(robot_current_positions)
+
+                ## Populate robot statistics. This is moved from new_simulator.py
+                if allReachGoal or (step >= self.robot.maxstep):
+                    end_step[end_step == 0] = step - 1
+                self.robot.agent_action_length = end_step - self.robot.first_move + 1
+                self.robot.flowtimePredict = np.sum(self.robot.agent_action_length)
+                self.robot.makespanPredict = np.max(end_step) - np.min(self.robot.first_move) + 1
 
 
-            if check_predictCollision:
-                check_CollisionPredictedinLoop = True
+                if check_moveCollision:
+                    check_CollisionHappenedinLoop = True
 
-            if allReachGoal:
-                # findOptimalSolution, compare_makespan, compare_flowtime = self.robot.checkOptimality()
-                # print("### Case - {} within maxstep - RealGoal: {} ~~~~~~~~~~~~~~~~~~~~~~".format(ID_dataset, allReachGoal))
-                break
-            elif currentStep >= (maxstep):
-                # print("### Case - {} exceed maxstep - RealGoal: {} - check_moveCollision: {} - check_predictCollision: {}".format(ID_dataset, allReachGoal, check_CollisionHappenedinLoop, check_CollisionPredictedinLoop))
-                break
-        print("Per step shield time: {}".format(self.robot.shieldTime/currentStep))
-        print("Total shield time: {}".format(self.robot.shieldTime))
-        self.robot.totalTime = time.time() - Case_start
+                if check_predictCollision:
+                    check_CollisionPredictedinLoop = True
+
+                if allReachGoal:
+                    # findOptimalSolution, compare_makespan, compare_flowtime = self.robot.checkOptimality()
+                    # print("### Case - {} within maxstep - RealGoal: {} ~~~~~~~~~~~~~~~~~~~~~~".format(ID_dataset, allReachGoal))
+                    break
+                elif currentStep >= (maxstep):
+                    # print("### Case - {} exceed maxstep - RealGoal: {} - check_moveCollision: {} - check_predictCollision: {}".format(ID_dataset, allReachGoal, check_CollisionHappenedinLoop, check_CollisionPredictedinLoop))
+                    break
+            print("Per step shield time: {}".format(self.robot.shieldTime/currentStep))
+            print("Total shield time: {}".format(self.robot.shieldTime))
+            self.robot.totalTime = time.time() - Case_start
 
         num_agents_reachgoal = self.robot.count_numAgents_ReachGoal()
         store_GSO, store_communication_radius = self.robot.count_GSO_communcationRadius(currentStep)

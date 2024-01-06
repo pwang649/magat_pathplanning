@@ -114,6 +114,8 @@ class multiRobotSimNew:
         self.shieldType = self.config.shieldType
         self.pibt_r = self.config.pibt_r
         self.shieldTime = 0
+        self.naiveShieldTime = 0
+        self.totalTime = 0
         assert(self.shieldType in ["Default", "LaCAM"])
 
     def setup(self, loadInput, loadTarget, case_config, tensor_map, ID_dataset, mode):
