@@ -178,6 +178,7 @@ class DecentralPlannerAgentLocalWithOnlineExpertGAT(BaseAgent):
         self.time_record = None
         # dummy_input = (torch.zeros(self.config.map_w,self.config.map_w, 3),)
         # self.summary_writer.add_graph(self.model, dummy_input)
+        self.shieldType = self.config.shieldType
 
     def save_checkpoint(self, epoch, is_best=0, lastest=True):
         """
@@ -951,6 +952,7 @@ class DecentralPlannerAgentLocalWithOnlineExpertGAT(BaseAgent):
         mainStack.appendleft(curNode)
 
         totalNodesExpanded = 0
+        MAXNODECOUNT = 500
         while len(mainStack) > 0:
             # pdb.set_trace()
             curNode = mainStack.popleft()
@@ -970,7 +972,7 @@ class DecentralPlannerAgentLocalWithOnlineExpertGAT(BaseAgent):
                     curNode = curNode.parent
                 entirePath.reverse() # Reverse to get path from start to goal
                 print("-----LaCAM took {} totalNodesExpanded-----".format(totalNodesExpanded))
-                return entirePath, end_step
+                return entirePath, end_step, True
             if notValid: # We have completed all the children of this node
                 continue # This naturally backtracks
             if str(nextState) in stateToHLNodes:
@@ -981,12 +983,25 @@ class DecentralPlannerAgentLocalWithOnlineExpertGAT(BaseAgent):
                 stateToHLNodes[str(nextState)] = curNode
 
             mainStack.appendleft(curNode)
-            if (totalNodesExpanded > 1000):
+            if (totalNodesExpanded > MAXNODECOUNT):
                 print("----------------LaCAM took too long------------------")
                 break
-        print("----------------LaCAM didn't find a solution?!?!?!---------------")
-        pdb.set_trace()
-        return None, None
+
+        if (totalNodesExpanded <= MAXNODECOUNT):
+            print("----------------LaCAM didn't find a solution?!?!?!---------------")
+            # pdb.set_trace()
+
+        ### Return the best path?
+        end_step = curNode.end_step
+        end_step[end_step == 0] = curNode.depth
+
+        entirePath = []
+        while curNode is not None:
+            entirePath.append(curNode.state)
+            curNode = curNode.parent
+        entirePath.reverse() # Reverse to get path from start to goal
+        return entirePath, end_step, False
+        # return None, None
 
     def mutliAgent_ActionPolicy(self, input, load_target, makespanTarget, tensor_map, ID_dataset,mode):
 
@@ -1030,16 +1045,16 @@ class DecentralPlannerAgentLocalWithOnlineExpertGAT(BaseAgent):
             return tensor_currentState
 
         ### RVMOD
-        entirePath, temp_end_step = self.lacam_high_level()
-        if temp_end_step is not None:
-            allReachGoal = True
+        if self.shieldType == "LaCAM":
+            entirePath, temp_end_step, success = self.lacam_high_level()
+            # if temp_end_step is not None:
+            allReachGoal = success
             end_step = temp_end_step
             currentStep = len(entirePath)
             self.robot.path_list = entirePath
             self.robot.agent_action_length = end_step - self.robot.first_move + 1
             self.robot.flowtimePredict = np.sum(self.robot.agent_action_length)
             self.robot.makespanPredict = np.max(end_step) - np.min(self.robot.first_move) + 1
-
         else:
             for step in range(maxstep):
                 currentStep = step + 1

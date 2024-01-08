@@ -116,7 +116,7 @@ class multiRobotSimNew:
         self.shieldTime = 0
         self.naiveShieldTime = 0
         self.totalTime = 0
-        assert(self.shieldType in ["Default", "LaCAM"])
+        assert(self.shieldType in ["Default", "PIBT", "LaCAM"])
 
     def setup(self, loadInput, loadTarget, case_config, tensor_map, ID_dataset, mode):
         '''
@@ -689,7 +689,7 @@ class multiRobotSimNew:
                     current_positions, proposed_moves)
                 time_end = time.time()
                 self.shieldTime += time_end - time_start
-            elif self.shieldType == "LaCAM": ### RVMod
+            elif self.shieldType in ["PIBT", "LaCAM"]: ### RVMod
                 numpyActionVec = actionVec.detach().cpu().numpy()
                 # pdb.set_trace()
                 # time_start = time.time()

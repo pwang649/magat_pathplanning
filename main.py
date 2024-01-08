@@ -50,7 +50,7 @@ def main():
 
     arg_parser.add_argument('--seed', type=int, default=1337)
     arg_parser.add_argument('--shieldType', type=str, default="Default",
-                                help="[Default, LaCAM]") # RVMod
+                                help="[Default, PIBT, LaCAM]") # RVMod
     arg_parser.add_argument('--pibt_r', type=float, default=0.0,
                                 help="The weight of logits over bd")
     arg_parser.add_argument('--folderMod', type=str, default="")
