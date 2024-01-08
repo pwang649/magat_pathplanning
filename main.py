@@ -11,7 +11,7 @@ import argparse
 import torch
 import random
 import numpy as np
-
+import pdb
 
 from utils.config import *
 from agents import *
@@ -209,6 +209,7 @@ def main():
             # parse the config json file
             config = process_config(args)
             config.seed = args.seed
+            # pdb.set_trace()
             # Create the Agent and pass all the configuration to it then run it..
             aSeed = args.seed
             torch.manual_seed(aSeed)
@@ -217,6 +218,7 @@ def main():
             torch.cuda.manual_seed(aSeed)               
             torch.cuda.manual_seed_all(aSeed)           
             torch.backends.cudnn.deterministic = True
+            # torch.use_deterministic_algorithms(True) # Makes it 50 times slower, from 3.8 to 193 seconds
 
             agent_class = globals()[config.agent]
             agent = agent_class(config)
