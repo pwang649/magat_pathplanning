@@ -60,8 +60,8 @@ if __name__ == '__main__':
 
     agents = range(300, 400+1, 100)
     num_scens = 25
-    seeds = range(1,6)
-    # seeds = range(1,3)
+    # seeds = range(1,6)
+    seeds = range(1,3)
 
     # rVal = 0.01
     # folderMod = "_R{}".format(int(rVal*100))

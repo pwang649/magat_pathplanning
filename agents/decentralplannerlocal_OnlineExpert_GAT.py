@@ -899,7 +899,6 @@ class DecentralPlannerAgentLocalWithOnlineExpertGAT(BaseAgent):
                     curAgent = curConstraint[-1][0]
                     for i in range(0,5):
                         self.queue_of_constraints.append(curConstraint + [(curAgent+1,i)])
-                # allReachGoal, _, _ = self.robot.move(self.action_preferences, curConstraint)
                 allReachGoal, _, _, new_move, end_step = self.robot.move(self.agent_priorities, 
                             self.state, self.end_step, self.action_preferences, self.depth, curConstraint)
                 # pdb.set_trace()
@@ -1039,8 +1038,9 @@ class DecentralPlannerAgentLocalWithOnlineExpertGAT(BaseAgent):
         self.robot.initCommunicationRadius()
 
         def customGetCurState(current_positions):
+            store_goalAgents = torch.FloatTensor(self.robot.goal_positions)
             store_stateAgents = torch.FloatTensor(current_positions)
-            tensor_currentState = self.robot.AgentState.toInputTensor(TENSOR_GOAL_POSITIONS, store_stateAgents)
+            tensor_currentState = self.robot.AgentState.toInputTensor(store_goalAgents, store_stateAgents)
             tensor_currentState = tensor_currentState.unsqueeze(0)
             return tensor_currentState
 
@@ -1058,8 +1058,9 @@ class DecentralPlannerAgentLocalWithOnlineExpertGAT(BaseAgent):
         else:
             for step in range(maxstep):
                 currentStep = step + 1
-                # currentState = self.robot.getCurrentState()
-                currentState = customGetCurState(robot_current_positions)
+                self.robot.current_positions = robot_current_positions.copy()
+                currentState = self.robot.getCurrentState()
+                # currentState = customGetCurState(robot_current_positions)
                 currentStateGPU = currentState.to(self.config.device)
 
                 ## Compute agent priorities
@@ -1067,17 +1068,14 @@ class DecentralPlannerAgentLocalWithOnlineExpertGAT(BaseAgent):
                 agent_priorities = np.maximum(agent_priorities, current_distance) # Increase priority if further from goal
                 agent_priorities[current_distance == 0] = 0 # Set priority to 0 if reached goal
 
-                gso = self.robot.getGSO(step)
+                # gso = self.robot.getGSO(step, robot_current_positions.copy())
+                gso = self.robot.getGSO_ORIG(step)
                 gsoGPU = gso.to(self.config.device)
                 self.model.addGSO(gsoGPU)
-                # self.model.addGSO(gsoGPU.unsqueeze(0))
 
                 step_start = time.time()
                 actionVec_predict = self.model(currentStateGPU) # B x N X 5
-                if self.config.batch_numAgent:
-                    actionVec_predict = actionVec_predict.detach().cpu()
-                else:
-                    actionVec_predict = [ts.detach().cpu() for ts in actionVec_predict]
+                actionVec_predict = actionVec_predict.detach().cpu()
                 time_ForwardPass = time.time() - step_start
 
                 Time_cases_ForwardPass.append(time_ForwardPass)
@@ -1086,7 +1084,7 @@ class DecentralPlannerAgentLocalWithOnlineExpertGAT(BaseAgent):
                                 robot_current_positions, end_step, actionVec_predict, currentStep, [])
                 extraTime += time.time() - tmpTime
                 robot_current_positions += new_move
-                self.robot.path_list.append(robot_current_positions)
+                self.robot.path_list.append(robot_current_positions.copy())
 
                 ## Populate robot statistics. This is moved from new_simulator.py
                 if allReachGoal or (step >= self.robot.maxstep):
@@ -1114,7 +1112,7 @@ class DecentralPlannerAgentLocalWithOnlineExpertGAT(BaseAgent):
             self.robot.totalTime = time.time() - Case_start
 
         num_agents_reachgoal = self.robot.count_numAgents_ReachGoal()
-        store_GSO, store_communication_radius = self.robot.count_GSO_communcationRadius(currentStep)
+        # store_GSO, store_communication_radius = self.robot.count_GSO_communcationRadius(currentStep)
 
         savedSomething = False
         if allReachGoal and not check_CollisionHappenedinLoop:

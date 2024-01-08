@@ -303,7 +303,7 @@ class multiRobotSimNew:
         else:
             return tensor_currentState
 
-    def getGSO(self, step):
+    def getGSO(self, step, current_positions):
         '''
         Compute GSO (adjacency matrix) of the current agent graph,
         physically truncated according to radius of communication.
@@ -313,8 +313,9 @@ class multiRobotSimNew:
         Returns:
             GSO_tensor: the tensor of the current GSO
         '''
-        store_PosAgents = self.current_positions[None, :]  # Add new axis to fit input
-
+        # store_PosAgents = self.current_positions[None, :]  # Add new axis to fit input
+        store_PosAgents = current_positions[None, :]  # Add new axis to fit input
+        # pdb.set_trace()
         if step == 0:
             self.initCommunicationRadius()
         # print("{} - Step-{} - initCommunication Radius:{}".format(self.ID_dataset, step, self.communicationRadius))
@@ -323,6 +324,18 @@ class multiRobotSimNew:
         # GSO, communicationRadius, graphConnected = self.computeAdjacencyMatrix_fixedCommRadius(step, store_PosAgents, self.communicationRadius)
 
         # comm radius that ensure initial graph connected
+        GSO, communicationRadius, graphConnected = self.getAdjacencyMatrix(step, store_PosAgents,
+                                                                           self.communicationRadius)
+        GSO_tensor = torch.from_numpy(GSO)
+
+        self.store_GSO.append(GSO)
+        self.store_communication_radius.append(communicationRadius)
+        return GSO_tensor
+
+    def getGSO_ORIG(self, step):
+        store_PosAgents = self.current_positions[None, :]  # Add new axis to fit input
+        if step == 0:
+            self.initCommunicationRadius()
         GSO, communicationRadius, graphConnected = self.getAdjacencyMatrix(step, store_PosAgents,
                                                                            self.communicationRadius)
         GSO_tensor = torch.from_numpy(GSO)
@@ -392,9 +405,9 @@ class multiRobotSimNew:
                 continue
             lacamWorked = self.pibt(agent_id, actionPreds, plannedAgents, moveMatrix, occupiedNodes, occupiedEdges, 
                                         current_positions, constrained_agents)
-            # if lacamWorked is False:
-            #     print("PIBT ERROR!")
-            #     raise RuntimeError('PIBT failed for agent {}. Single-step PIBT should never fail!', agent_id)
+            if lacamWorked is False and self.shieldType == "PIBT":
+                print("PIBT ERROR!")
+                raise RuntimeError('PIBT failed for agent {}. Single-step PIBT should never fail without LaCAM constraints!', agent_id)
             #     # lacamWorked = self.pibt(agent_id, actionPreferences, plannedAgents, moveMatrix, occupiedNodes, occupiedEdges)
             if lacamWorked is False:
                 break
