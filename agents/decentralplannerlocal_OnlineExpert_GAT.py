@@ -949,6 +949,7 @@ class DecentralPlannerAgentLocalWithOnlineExpertGAT(BaseAgent):
 
         robot_current_positions = self.robot.current_positions
         agent_priorities = np.sum(np.abs(robot_current_positions - self.robot.goal_positions), axis=-1) # RVMod (N,2)->(N)
+        end_step = np.zeros(self.config.num_agents, )
         for step in range(maxstep):
             currentStep = step + 1
             self.robot.current_positions = robot_current_positions
@@ -977,14 +978,21 @@ class DecentralPlannerAgentLocalWithOnlineExpertGAT(BaseAgent):
             Time_cases_ForwardPass.append(time_ForwardPass)
             tmpTime = time.time()
             # pdb.set_trace()
-            allReachGoal, check_moveCollision, check_predictCollision, new_move = self.robot.move(actionVec_predict, currentStep, agent_priorities, robot_current_positions.copy())
+            allReachGoal, check_moveCollision, check_predictCollision, new_move, end_step = self.robot.move(actionVec_predict, currentStep, agent_priorities, robot_current_positions.copy(), end_step.copy())
             extraTime += time.time() - tmpTime
             # pdb.set_trace()
             self.robot.current_positions += new_move
+            self.robot.path_list.append(self.robot.current_positions.copy())
+
+            ## Populate robot statistics. This is moved from new_simulator.py
+            if allReachGoal or (step >= maxstep):
+                end_step[end_step == 0] = step - 1
+            self.robot.agent_action_length = end_step - self.robot.first_move + 1
+            self.robot.flowtimePredict = np.sum(self.robot.agent_action_length)
+            self.robot.makespanPredict = np.max(end_step) - np.min(self.robot.first_move) + 1
 
             if check_moveCollision:
                 check_CollisionHappenedinLoop = True
-
 
             if check_predictCollision:
                 check_CollisionPredictedinLoop = True
