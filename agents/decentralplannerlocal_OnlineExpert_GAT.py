@@ -951,6 +951,7 @@ class DecentralPlannerAgentLocalWithOnlineExpertGAT(BaseAgent):
         agent_priorities = np.sum(np.abs(robot_current_positions - self.robot.goal_positions), axis=-1) # RVMod (N,2)->(N)
         for step in range(maxstep):
             currentStep = step + 1
+            self.robot.current_positions = robot_current_positions
             currentState = self.robot.getCurrentState()
             currentStateGPU = currentState.to(self.config.device)
 
@@ -975,9 +976,11 @@ class DecentralPlannerAgentLocalWithOnlineExpertGAT(BaseAgent):
 
             Time_cases_ForwardPass.append(time_ForwardPass)
             tmpTime = time.time()
-            allReachGoal, check_moveCollision, check_predictCollision, new_move = self.robot.move(actionVec_predict, currentStep, agent_priorities)
+            # pdb.set_trace()
+            allReachGoal, check_moveCollision, check_predictCollision, new_move = self.robot.move(actionVec_predict, currentStep, agent_priorities, robot_current_positions.copy())
             extraTime += time.time() - tmpTime
-            # self.robot.current_positions += new_move
+            # pdb.set_trace()
+            self.robot.current_positions += new_move
 
             if check_moveCollision:
                 check_CollisionHappenedinLoop = True

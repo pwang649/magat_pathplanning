@@ -645,7 +645,7 @@ class multiRobotSimNew:
         # #     a = input('stop')
         return move, out_boundary == True, move_to_wall, collide_agents, collide_in_move_agents
 
-    def move(self, actionVec, currentstep, agent_priorities):
+    def move(self, actionVec, currentstep, agent_priorities, current_positions):
         # print('current step', currentstep)
         allReachGoal = (np.count_nonzero(self.reach_goal) == self.config.num_agents)
         # print('++++++++++step:', currentstep)
@@ -677,7 +677,7 @@ class multiRobotSimNew:
             if self.shieldType == "Default":
                 time_start = time.time()
                 new_move, move_to_boundary, move_to_wall_agents, collide_agents, collide_in_move_agents = self.check_collision(
-                    self.current_positions, proposed_moves)
+                    current_positions, proposed_moves)
                 time_end = time.time()
                 self.shieldTime += time_end - time_start
             elif self.shieldType == "LaCAM": ### RVMod
@@ -685,12 +685,12 @@ class multiRobotSimNew:
                 # pdb.set_trace()
                 time_start = time.time()
                 prev_new_move, move_to_boundary, move_to_wall_agents, collide_agents, collide_in_move_agents = self.check_collision(
-                    self.current_positions, proposed_moves)
+                    current_positions, proposed_moves)
                 self.naiveShieldTime += time.time() - time_start
 
                 time_start = time.time()
                 new_move, move_to_boundary, move_to_wall_agents, collide_agents, collide_in_move_agents = self.lacam_check_collision(
-                    numpyActionVec, self.current_positions, agent_priorities)
+                    numpyActionVec, current_positions, agent_priorities)
                 time_end = time.time()
                 self.shieldTime += time_end - time_start
                 # pdb.set_trace()
@@ -720,8 +720,8 @@ class multiRobotSimNew:
             #     print('move out of boundaries step {}'.format(currentstep), move_to_boundary)
 
             # Compute Next position
-            self.current_positions += new_move
-            self.path_list.append(self.current_positions.copy())
+            current_positions += new_move
+            self.path_list.append(current_positions.copy())
 
             # curLocations = set()
             # for agent_id, agent_loc  in enumerate(self.current_positions):
@@ -735,7 +735,7 @@ class multiRobotSimNew:
 
             # Check reach goals
             # print('target:', self.goal_positions)
-            current_distance = np.sum(np.abs(self.current_positions - self.goal_positions), axis=1)
+            current_distance = np.sum(np.abs(current_positions - self.goal_positions), axis=1)
             # print('distance', current_distance)
             self.reach_goal[current_distance == 0] = 1
 
@@ -746,6 +746,8 @@ class multiRobotSimNew:
             ## The self.end_step == 0 will be False so it won't be updated
             self.end_step[current_distance != 0] = 0 # Reset end_step for agents that moved out of goal
             self.end_step[(current_distance == 0) & (self.end_step == 0)] = currentstep
+        else:
+            new_move = np.zeros((self.config.num_agents, 2))
 
         if allReachGoal or (currentstep >= self.maxstep):
             # if allReachGoal:
@@ -765,7 +767,7 @@ class multiRobotSimNew:
             self.makespanPredict = np.max(self.end_step) - np.min(self.first_move) + 1
             # print(self.makespanPredict)
 
-        return allReachGoal, check_moveCollision, check_predictCollsion, 123
+        return allReachGoal, check_moveCollision, check_predictCollsion, new_move
 
     def save_success_cases(self, mode):
         '''
