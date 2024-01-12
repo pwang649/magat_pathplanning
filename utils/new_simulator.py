@@ -341,7 +341,7 @@ class multiRobotSimNew:
         self.store_attentionGSO.append(attentionGSO)
 
     # RVMod
-    def lacam_check_collision(self, actionPreds, current_positions):
+    def lacam_check_collision(self, actionPreds, current_positions, agent_priorities):
         '''
         Runs LaCAM and PIBT instead of naive collision checking
         Args:
@@ -357,10 +357,10 @@ class multiRobotSimNew:
         # agent_order = np.arange(self.config.num_agents)
         ### Recompute priorities
         # RVMod: Update self.agent_priorities if reached goal
-        current_distance = np.sum(np.abs(current_positions - self.goal_positions), axis=1)
-        self.agent_priorities = np.maximum(self.agent_priorities, current_distance) # Increase priority if further from goal
-        self.agent_priorities[current_distance == 0] = 0 # Set priority to 0 if reached goal
-        agent_order = np.argsort(-self.agent_priorities) # Sort by priority, highest first
+        # current_distance = np.sum(np.abs(current_positions - self.goal_positions), axis=1)
+        # self.agent_priorities = np.maximum(self.agent_priorities, current_distance) # Increase priority if further from goal
+        # self.agent_priorities[current_distance == 0] = 0 # Set priority to 0 if reached goal
+        agent_order = np.argsort(-agent_priorities) # Sort by priority, highest first
         moveMatrix = np.zeros((self.config.num_agents, 2))
         occupiedNodes = []
         occupiedEdges = []
@@ -645,7 +645,7 @@ class multiRobotSimNew:
         # #     a = input('stop')
         return move, out_boundary == True, move_to_wall, collide_agents, collide_in_move_agents
 
-    def move(self, actionVec, currentstep):
+    def move(self, actionVec, currentstep, agent_priorities):
         # print('current step', currentstep)
         allReachGoal = (np.count_nonzero(self.reach_goal) == self.config.num_agents)
         # print('++++++++++step:', currentstep)
@@ -690,7 +690,7 @@ class multiRobotSimNew:
 
                 time_start = time.time()
                 new_move, move_to_boundary, move_to_wall_agents, collide_agents, collide_in_move_agents = self.lacam_check_collision(
-                    numpyActionVec, self.current_positions)
+                    numpyActionVec, self.current_positions, agent_priorities)
                 time_end = time.time()
                 self.shieldTime += time_end - time_start
                 # pdb.set_trace()

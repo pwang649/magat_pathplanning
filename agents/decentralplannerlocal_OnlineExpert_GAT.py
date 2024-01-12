@@ -888,10 +888,7 @@ class DecentralPlannerAgentLocalWithOnlineExpertGAT(BaseAgent):
             self.model.addGSO(gsoGPU)
 
             actionVec_predict = self.model(currentStateGPU) # B x N X 5
-            if self.config.batch_numAgent:
-                actionVec_predict = actionVec_predict.detach().cpu()
-            else:
-                actionVec_predict = [ts.detach().cpu() for ts in actionVec_predict]
+            actionVec_predict = actionVec_predict.detach().cpu()
             return actionVec_predict
 
         currentStateGPU = self.robot.getCurrentState().to(self.config.device)
@@ -949,16 +946,24 @@ class DecentralPlannerAgentLocalWithOnlineExpertGAT(BaseAgent):
         self.robot.shieldTime = 0
         self.debugCheck = 0
         Time_cases_ForwardPass = []
+
+        robot_current_positions = self.robot.current_positions
+        agent_priorities = np.sum(np.abs(robot_current_positions - self.robot.goal_positions), axis=-1) # RVMod (N,2)->(N)
         for step in range(maxstep):
             currentStep = step + 1
             currentState = self.robot.getCurrentState()
-
             currentStateGPU = currentState.to(self.config.device)
 
             gso = self.robot.getGSO(step)
             gsoGPU = gso.to(self.config.device)
             self.model.addGSO(gsoGPU)
             # self.model.addGSO(gsoGPU.unsqueeze(0))
+
+            ## Compute agent priorities
+            robot_current_positions = self.robot.current_positions
+            current_distance = np.sum(np.abs(robot_current_positions - self.robot.goal_positions), axis=1) # (N,2)->(N)
+            agent_priorities = np.maximum(agent_priorities, current_distance) # Increase priority if further from goal
+            agent_priorities[current_distance == 0] = 0 # Set priority to 0 if reached goal
 
             step_start = time.time()
             actionVec_predict = self.model(currentStateGPU) # B x N X 5
@@ -970,7 +975,7 @@ class DecentralPlannerAgentLocalWithOnlineExpertGAT(BaseAgent):
 
             Time_cases_ForwardPass.append(time_ForwardPass)
             tmpTime = time.time()
-            allReachGoal, check_moveCollision, check_predictCollision, new_move = self.robot.move(actionVec_predict, currentStep)
+            allReachGoal, check_moveCollision, check_predictCollision, new_move = self.robot.move(actionVec_predict, currentStep, agent_priorities)
             extraTime += time.time() - tmpTime
             # self.robot.current_positions += new_move
 
