@@ -65,7 +65,8 @@ if __name__ == '__main__':
 
     # rVal = 0.01
     # folderMod = "_R{}".format(int(rVal*100))
-    folderMod = "_testLaCAM2"
+    # folderMod = "_testLaCAM2"
+    folderMod = "_test"
 
     for agent in agents:
         directory = "../Data/Results_best/AnimeDemo/dcpOEGAT{}/map32x32_rho1_{}Agent/K2_HS0/TR_M20p1_10Agent/1602191363/Project_G/exp_multinorm/commR_7".format(

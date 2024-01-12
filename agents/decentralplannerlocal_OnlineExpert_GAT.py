@@ -1081,7 +1081,7 @@ class DecentralPlannerAgentLocalWithOnlineExpertGAT(BaseAgent):
                 Time_cases_ForwardPass.append(time_ForwardPass)
                 tmpTime = time.time()
                 allReachGoal, check_moveCollision, check_predictCollision, new_move, end_step = self.robot.move(agent_priorities, 
-                                robot_current_positions, end_step, actionVec_predict, currentStep, [])
+                                robot_current_positions.copy(), end_step, actionVec_predict, currentStep, [])
                 extraTime += time.time() - tmpTime
                 robot_current_positions += new_move
                 self.robot.path_list.append(robot_current_positions.copy())
