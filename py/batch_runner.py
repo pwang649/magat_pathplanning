@@ -58,15 +58,15 @@ def visualize(agent, cases, seed):
 
 if __name__ == '__main__':
 
-    agents = range(300, 400+1, 100)
+    agents = range(200, 400+1, 50)
     num_scens = 25
     # seeds = range(1,6)
-    seeds = range(1,3)
+    seeds = range(1,2)
 
     # rVal = 0.01
     # folderMod = "_R{}".format(int(rVal*100))
-    # folderMod = "_testLaCAM2"
-    folderMod = "_test"
+    folderMod = "_testLaCAM2"
+    # folderMod = "_test"
 
     for agent in agents:
         directory = "../Data/Results_best/AnimeDemo/dcpOEGAT{}/map32x32_rho1_{}Agent/K2_HS0/TR_M20p1_10Agent/1602191363/Project_G/exp_multinorm/commR_7".format(
@@ -85,7 +85,7 @@ if __name__ == '__main__':
     --test_checkpoint --nGraphFilterTaps 2 --trained_num_agents 10 --trained_map_w 20 --commR 7 --list_map_w 32 \
     --GSO_mode dist_GSO --action_select exp_multinorm --guidance Project_G \
     --CNN_mode ResNetLarge_withMLP --batch_numAgent --test_num_processes 0 --nAttentionHeads 1 --attentionMode KeyQuery \
-    --tb_ExpName DotProduct_GAT_Resnet_3Block_distGSO_baseline_128 --log_anime --shieldType=PIBT \
+    --tb_ExpName DotProduct_GAT_Resnet_3Block_distGSO_baseline_128 --log_anime --shieldType=LaCAM \
     --list_agents={} --list_num_testset={} --seed={} --pibt_r={} --folderMod={}""".format(agent, num_scens, seed, 0, folderMod)
             tmp = [str(x) for x in command.split(" ") if x != ""]
             # pdb.set_trace()

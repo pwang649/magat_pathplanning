@@ -384,10 +384,10 @@ class multiRobotSimNew:
         occupiedEdges = []
         plannedAgents = []
 
-        curLocations = set()
+        curLocationsToAgent = dict()
         for agent_id in agent_order:
-            if tuple(current_positions[agent_id]) not in curLocations:
-                curLocations.add(tuple(current_positions[agent_id]))
+            if tuple(current_positions[agent_id]) not in curLocationsToAgent.keys():
+                curLocationsToAgent[tuple(current_positions[agent_id])] = agent_id
             else:
                 print("UH OH, MULTIPLE AGENTS AT SAME LOCATION!")
                 pdb.set_trace()
@@ -404,7 +404,7 @@ class multiRobotSimNew:
             if agent_id in plannedAgents:
                 continue
             lacamWorked = self.pibt(agent_id, actionPreds, plannedAgents, moveMatrix, occupiedNodes, occupiedEdges, 
-                                        current_positions, constrained_agents)
+                                        current_positions, curLocationsToAgent, constrained_agents)
             if lacamWorked is False and self.shieldType == "PIBT":
                 print("PIBT ERROR!")
                 raise RuntimeError('PIBT failed for agent {}. Single-step PIBT should never fail without LaCAM constraints!', agent_id)
@@ -420,7 +420,7 @@ class multiRobotSimNew:
         return moveMatrix, out_boundary, move_to_wall, collide_agents, collide_in_move_agents, lacamWorked
 
     def pibt(self, agent_id, actionPreds, plannedAgents, moveMatrix, occupiedNodes, occupiedEdges, 
-                current_positions, constrained_agents):
+                current_positions, curLocationsToAgent, constrained_agents):
         '''
         Runs PIBT for a single agent
         Args:
@@ -431,12 +431,10 @@ class multiRobotSimNew:
         '''
 
         def findAgentAtLocation(aLoc):
-            for a in range(self.config.num_agents):
-                if a == agent_id:
-                    continue
-                if tuple(current_positions[a]) == tuple(aLoc):
-                    return a
-            return -1
+            if tuple(aLoc) in curLocationsToAgent.keys():
+                return curLocationsToAgent[tuple(aLoc)]
+            else:
+                return -1
 
         # Below matches __init__ action order
         moves_ordered = np.array([self.up, self.left, self.down, self.right, self.stop])
@@ -516,10 +514,11 @@ class multiRobotSimNew:
             occupiedNodes.append(tuple(next_loc))
             occupiedEdges.append(tuple([*current_pos, *next_loc]))
             conflictingAgent = findAgentAtLocation(next_loc)
-            if conflictingAgent != -1 and conflictingAgent not in plannedAgents:
+            if conflictingAgent != -1 and conflictingAgent != agent_id and conflictingAgent not in plannedAgents:
                 # Recurse
                 isvalid = self.pibt(conflictingAgent, actionPreds, plannedAgents,
-                                    moveMatrix, occupiedNodes, occupiedEdges, current_positions, constrained_agents)
+                                    moveMatrix, occupiedNodes, occupiedEdges, current_positions,
+                                    curLocationsToAgent, constrained_agents)
                 if isvalid:
                     return True
                 else:

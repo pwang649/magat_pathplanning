@@ -1081,7 +1081,7 @@ class DecentralPlannerAgentLocalWithOnlineExpertGAT(BaseAgent):
                 Time_cases_ForwardPass.append(time_ForwardPass)
                 tmpTime = time.time()
                 allReachGoal, check_moveCollision, check_predictCollision, new_move, end_step = self.robot.move(agent_priorities, 
-                                robot_current_positions.copy(), end_step, actionVec_predict, currentStep, [])
+                                robot_current_positions.copy(), end_step.copy(), actionVec_predict, currentStep, [])
                 extraTime += time.time() - tmpTime
                 robot_current_positions += new_move
                 self.robot.path_list.append(robot_current_positions.copy())
@@ -1130,7 +1130,7 @@ class DecentralPlannerAgentLocalWithOnlineExpertGAT(BaseAgent):
                 savedSomething = True
 
         # if currentStep >= (maxstep) and not allReachGoal and check_CollisionPredictedinLoop and not check_CollisionHappenedinLoop: # RVMod Original
-        if currentStep >= (maxstep) and not allReachGoal and not check_CollisionHappenedinLoop: # RVMod
+        if not allReachGoal and not check_CollisionHappenedinLoop: # RVMod
             findOptimalSolution, compare_makespan, compare_flowtime = self.robot.checkOptimality(False)
             # print("### Case - {} -Step{} exceed maxstep({})- ReachGoal: {} due to CollsionShielding \n".format(ID_dataset,currentStep,maxstep, allReachGoal))
             noReachGoalbyCollsionShielding = True
