@@ -736,8 +736,11 @@ class multiRobotSimNew:
 
             # Check reach goals
             current_distance = np.sum(np.abs(current_positions - self.goal_positions), axis=1)
-            self.reach_goal[current_distance == 0] = 1
-            allReachGoal = (np.count_nonzero(self.reach_goal) == self.config.num_agents)
+            # self.reach_goal[current_distance == 0] = 1
+            # allReachGoalOrig = (np.count_nonzero(self.reach_goal) == self.config.num_agents)
+            allReachGoal = np.count_nonzero(current_distance) == 0
+            # if allReachGoalOrig and not allReachGoal:
+            #     pdb.set_trace()
 
             # pdb.set_trace()
             # Update end_step
@@ -746,16 +749,6 @@ class multiRobotSimNew:
             ## The self.end_step == 0 will be False so it won't be updated
             end_step[current_distance != 0] = 0 # Reset end_step for agents that moved out of goal
             end_step[(current_distance == 0) & (end_step == 0)] = currentstep
-
-        # if allReachGoal or (currentstep >= self.maxstep):
-        #     end_step[end_step == 0] = currentstep - 1
-
-        #     # Each agent's action length
-        #     self.agent_action_length = end_step - self.first_move + 1
-        #     self.flowtimePredict = np.sum(self.agent_action_length)
-
-        #     # maximum makespan
-        #     self.makespanPredict = np.max(end_step) - np.min(self.first_move) + 1
 
         return allReachGoal, check_moveCollision, check_predictCollsion, new_move, end_step
 

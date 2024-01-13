@@ -969,10 +969,7 @@ class DecentralPlannerAgentLocalWithOnlineExpertGAT(BaseAgent):
 
             step_start = time.time()
             actionVec_predict = self.model(currentStateGPU) # B x N X 5
-            if self.config.batch_numAgent:
-                actionVec_predict = actionVec_predict.detach().cpu()
-            else:
-                actionVec_predict = [ts.detach().cpu() for ts in actionVec_predict]
+            actionVec_predict = actionVec_predict.detach().cpu()
             time_ForwardPass = time.time() - step_start
 
             Time_cases_ForwardPass.append(time_ForwardPass)
@@ -1008,7 +1005,8 @@ class DecentralPlannerAgentLocalWithOnlineExpertGAT(BaseAgent):
         print("Total shield time: {}".format(self.robot.shieldTime))
         self.robot.totalTime = time.time() - Case_start
 
-        num_agents_reachgoal = self.robot.count_numAgents_ReachGoal()
+        # num_agents_reachgoal = self.robot.count_numAgents_ReachGoal()
+        num_agents_reachgoal = self.config.num_agents - np.count_nonzero(current_distance) # RVMod
         store_GSO, store_communication_radius = self.robot.count_GSO_communcationRadius(currentStep)
 
         savedSomething = False
