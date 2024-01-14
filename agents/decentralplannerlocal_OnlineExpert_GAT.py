@@ -179,6 +179,8 @@ class DecentralPlannerAgentLocalWithOnlineExpertGAT(BaseAgent):
         # dummy_input = (torch.zeros(self.config.map_w,self.config.map_w, 3),)
         # self.summary_writer.add_graph(self.model, dummy_input)
         self.shieldType = self.config.shieldType
+        self.softMax = torch.nn.Softmax(dim=1)
+        self.MOVES_ORDERED = np.array([self.robot.up, self.robot.left, self.robot.down, self.robot.right, self.robot.stop])
 
     def save_checkpoint(self, epoch, is_best=0, lastest=True):
         """
@@ -900,7 +902,7 @@ class DecentralPlannerAgentLocalWithOnlineExpertGAT(BaseAgent):
                     for i in range(0,5):
                         self.queue_of_constraints.append(curConstraint + [(curAgent+1,i)])
                 allReachGoal, _, _, new_move, end_step = self.robot.move(self.agent_priorities, 
-                            self.state, self.end_step, self.action_preferences, self.depth, curConstraint)
+                            self.state, self.end_step, None, self.depth, curConstraint, self.action_preferences)
                 # pdb.set_trace()
                 if new_move is None: # Failed with the constraints
                     return False, None, True
@@ -926,7 +928,7 @@ class DecentralPlannerAgentLocalWithOnlineExpertGAT(BaseAgent):
             tensor_currentState = tensor_currentState.unsqueeze(0)
             return tensor_currentState
         
-        def getActionPreds(curr_positions, step):
+        def getActionPrefs(curr_positions, step):
             """Note: just matters if step=0 or step > 0. Step = 1 vs 2 doesn't matter"""
             currentStateGPU = customGetCurState(curr_positions).to(self.config.device)
 
@@ -937,11 +939,12 @@ class DecentralPlannerAgentLocalWithOnlineExpertGAT(BaseAgent):
 
             actionVec_predict = self.model(currentStateGPU) # B x N X 5
             actionVec_predict = actionVec_predict.detach().cpu()
+            action_preferences = self.convertActionPredsToPriorities(actionVec_predict, curr_positions)
             # pdb.set_trace()
-            return actionVec_predict
+            return action_preferences
 
         current_state = self.robot.current_positions
-        actionPreferences = getActionPreds(current_state, 0)
+        actionPreferences = getActionPrefs(current_state, 0)
         curNode = HLNode(self.robot, current_state, actionPreferences, None)
 
         stateToHLNodes = dict()
@@ -951,7 +954,7 @@ class DecentralPlannerAgentLocalWithOnlineExpertGAT(BaseAgent):
         mainStack.appendleft(curNode)
 
         totalNodesExpanded = 0
-        MAXNODECOUNT = 500
+        MAXNODECOUNT = 1000
         while len(mainStack) > 0:
             # pdb.set_trace()
             curNode = mainStack.popleft()
@@ -978,7 +981,7 @@ class DecentralPlannerAgentLocalWithOnlineExpertGAT(BaseAgent):
                 curNode = stateToHLNodes[str(nextState)]
             else:
                 # Create new HL Node
-                curNode = HLNode(self.robot, nextState, getActionPreds(nextState, 1), curNode)
+                curNode = HLNode(self.robot, nextState, getActionPrefs(nextState, 1), curNode)
                 stateToHLNodes[str(nextState)] = curNode
 
             mainStack.appendleft(curNode)
@@ -1001,6 +1004,41 @@ class DecentralPlannerAgentLocalWithOnlineExpertGAT(BaseAgent):
         entirePath.reverse() # Reverse to get path from start to goal
         return entirePath, end_step, False
         # return None, None
+    
+    def convertActionPredsToPriorities(self, curActionPreds, current_positions):
+        """
+        Input:
+            curActionPreds: (N,5) array of action probabilities
+        Output:
+            actionPreferences: (N,5) array of action preferences
+        """
+        logits = self.softMax(curActionPreds).detach().cpu().numpy()
+        actionPreferences = np.zeros((self.config.num_agents, 5), dtype=np.int32)
+        for agent_id in range(self.config.num_agents):
+            if self.robot.pibt_r > 0: ### Incorporate BDs
+                BD_scores = []
+                for drow, dcol in self.MOVES_ORDERED:
+                    neighbor_row = int(current_positions[agent_id][0] + drow)
+                    neighbor_col = int(current_positions[agent_id][1] + dcol)
+                    if neighbor_row < 0 or neighbor_col < 0 or neighbor_row >= self.robot.size_map[0] or neighbor_col >= self.robot.size_map[1]:
+                        BD_scores.append(9999)
+                        continue
+                    neighbor_score = self.robot.BDs[agent_id, neighbor_row, neighbor_col]
+                    if neighbor_score == np.inf:
+                        BD_scores.append(9999)
+                        continue
+                    BD_scores.append(neighbor_score)
+                # assert(self.BDs[agent_id, current_positions[agent_id][0], current_positions[agent_id][1]] < 1000
+                assert(BD_scores[-1] < 1000)
+                weighted_scores = BD_scores + self.robot.pibt_r * (1 - logits) # TODO: tune this
+                # pdb.set_trace()
+                actionPreferences[agent_id] = weighted_scores.argsort()
+            else:
+                ### Randomly sort using logits
+                # actionPreferences = np.random.choice(5, size=5, replace=False, p=logits)
+                actionPreferences[agent_id] = np.random.choice(5, size=5, replace=False, p=logits[agent_id])
+        return actionPreferences
+        
 
     def mutliAgent_ActionPolicy(self, input, load_target, makespanTarget, tensor_map, ID_dataset,mode):
 
@@ -1078,10 +1116,11 @@ class DecentralPlannerAgentLocalWithOnlineExpertGAT(BaseAgent):
                 actionVec_predict = actionVec_predict.detach().cpu()
                 time_ForwardPass = time.time() - step_start
 
+                action_preferences = self.convertActionPredsToPriorities(actionVec_predict, robot_current_positions)
                 Time_cases_ForwardPass.append(time_ForwardPass)
                 tmpTime = time.time()
                 allReachGoal, check_moveCollision, check_predictCollision, new_move, end_step = self.robot.move(agent_priorities, 
-                                robot_current_positions.copy(), end_step.copy(), actionVec_predict, currentStep, [])
+                                robot_current_positions.copy(), end_step.copy(), actionVec_predict, currentStep, [], action_preferences)
                 extraTime += time.time() - tmpTime
                 robot_current_positions += new_move
                 self.robot.path_list.append(robot_current_positions.copy())

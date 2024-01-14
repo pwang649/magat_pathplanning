@@ -58,15 +58,15 @@ def visualize(agent, cases, seed):
 
 if __name__ == '__main__':
 
-    agents = range(200, 400+1, 50)
-    num_scens = 25
-    # seeds = range(1,6)
-    seeds = range(1,2)
+    agents = range(50, 400+1, 50)
+    num_scens = 5
+    seeds = range(1,6)
+    # seeds = range(1,2)
 
     # rVal = 0.01
     # folderMod = "_R{}".format(int(rVal*100))
-    folderMod = "_testLaCAM2"
-    # folderMod = "_test"
+    # folderMod = "_test_Default"
+    folderMod = "_MAGAT_UPDATE_LaCAM_1000"
 
     for agent in agents:
         directory = "../Data/Results_best/AnimeDemo/dcpOEGAT{}/map32x32_rho1_{}Agent/K2_HS0/TR_M20p1_10Agent/1602191363/Project_G/exp_multinorm/commR_7".format(

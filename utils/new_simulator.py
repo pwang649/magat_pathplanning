@@ -356,7 +356,7 @@ class multiRobotSimNew:
         self.store_attentionGSO.append(attentionGSO)
 
     # RVMod
-    def lacam_check_collision(self, actionPreds, current_positions, agent_priorities, agent_constraints):
+    def lacam_check_collision(self, actionPreferences, current_positions, agent_priorities, agent_constraints):
         '''
         Runs LaCAM and PIBT instead of naive collision checking
         Args:
@@ -403,7 +403,7 @@ class multiRobotSimNew:
         for agent_id in agent_order:
             if agent_id in plannedAgents:
                 continue
-            lacamWorked = self.pibt(agent_id, actionPreds, plannedAgents, moveMatrix, occupiedNodes, occupiedEdges, 
+            lacamWorked = self.pibt(agent_id, actionPreferences, plannedAgents, moveMatrix, occupiedNodes, occupiedEdges, 
                                         current_positions, curLocationsToAgent, constrained_agents)
             if lacamWorked is False and self.shieldType == "PIBT":
                 print("PIBT ERROR!")
@@ -419,7 +419,7 @@ class multiRobotSimNew:
         #  move, out_boundary == True, move_to_wall, collide_agents, collide_in_move_agents
         return moveMatrix, out_boundary, move_to_wall, collide_agents, collide_in_move_agents, lacamWorked
 
-    def pibt(self, agent_id, actionPreds, plannedAgents, moveMatrix, occupiedNodes, occupiedEdges, 
+    def pibt(self, agent_id, actionPreferences, plannedAgents, moveMatrix, occupiedNodes, occupiedEdges, 
                 current_positions, curLocationsToAgent, constrained_agents):
         '''
         Runs PIBT for a single agent
@@ -438,54 +438,55 @@ class multiRobotSimNew:
 
         # Below matches __init__ action order
         moves_ordered = np.array([self.up, self.left, self.down, self.right, self.stop])
-        curActionPreds = actionPreds[agent_id]
-        # actionPreferences = (-curActionPreds).argsort() # If strict ordering
-        logits = np.exp(curActionPreds)
-        logits = logits / logits.sum()
+        # curActionPreds = actionPreds[agent_id]
+        # # actionPreferences = (-curActionPreds).argsort() # If strict ordering
+        # logits = np.exp(curActionPreds)
+        # logits = logits / logits.sum()
 
-        if self.pibt_r > 0: ### Incorporate BDs
-            BD_scores = []
-            for drow, dcol in moves_ordered:
-                neighbor_row = int(current_positions[agent_id][0] + drow)
-                neighbor_col = int(current_positions[agent_id][1] + dcol)
-                if neighbor_row < 0 or neighbor_col < 0 or neighbor_row >= self.size_map[0] or neighbor_col >= self.size_map[1]:
-                    BD_scores.append(9999)
-                    continue
-                neighbor_score = self.BDs[agent_id, neighbor_row, neighbor_col]
-                if neighbor_score == np.inf:
-                    BD_scores.append(9999)
-                    continue
-                BD_scores.append(neighbor_score)
-            # assert(self.BDs[agent_id, current_positions[agent_id][0], current_positions[agent_id][1]] < 1000
-            assert(BD_scores[-1] < 1000)
-            weighted_scores = BD_scores + self.pibt_r * (1 - logits) # TODO: tune this
-            # weighted_scores = weighted_scores / weighted_scores.sum()
-            # pdb.set_trace()
-            actionPreferences = weighted_scores.argsort() # If strict ordering, sorts min to max
-        else:
-            ### Randomly sort using logits
-            actionPreferences = np.random.choice(5, size=5, replace=False, p=logits)
+        # if self.pibt_r > 0: ### Incorporate BDs
+        #     BD_scores = []
+        #     for drow, dcol in moves_ordered:
+        #         neighbor_row = int(current_positions[agent_id][0] + drow)
+        #         neighbor_col = int(current_positions[agent_id][1] + dcol)
+        #         if neighbor_row < 0 or neighbor_col < 0 or neighbor_row >= self.size_map[0] or neighbor_col >= self.size_map[1]:
+        #             BD_scores.append(9999)
+        #             continue
+        #         neighbor_score = self.BDs[agent_id, neighbor_row, neighbor_col]
+        #         if neighbor_score == np.inf:
+        #             BD_scores.append(9999)
+        #             continue
+        #         BD_scores.append(neighbor_score)
+        #     # assert(self.BDs[agent_id, current_positions[agent_id][0], current_positions[agent_id][1]] < 1000
+        #     assert(BD_scores[-1] < 1000)
+        #     weighted_scores = BD_scores + self.pibt_r * (1 - logits) # TODO: tune this
+        #     # weighted_scores = weighted_scores / weighted_scores.sum()
+        #     # pdb.set_trace()
+        #     actionPreferences = weighted_scores.argsort() # If strict ordering, sorts min to max
+        # else:
+        #     ### Randomly sort using logits
+        #     actionPreferences = np.random.choice(5, size=5, replace=False, p=logits)
 
-            ### Below is for sanity checking that PIBT with BDs works as expected (it does)
-            # BD_scores = []
-            # for drow, dcol in moves_ordered:
-            #     neighbor_row = int(current_positions[agent_id][0] + drow)
-            #     neighbor_col = int(current_positions[agent_id][1] + dcol)
-            #     if neighbor_row < 0 or neighbor_col < 0 or neighbor_row >= self.size_map[0] or neighbor_col >= self.size_map[1]:
-            #         BD_scores.append(9999)
-            #         continue
-            #     neighbor_score = self.BDs[agent_id, neighbor_row, neighbor_col]
-            #     if neighbor_score == np.inf:
-            #         BD_scores.append(9999)
-            #         continue
-            #     BD_scores.append(neighbor_score + np.random.uniform(0, 1))
-            # # assert(self.BDs[agent_id, current_positions[agent_id][0], current_positions[agent_id][1]] < 1000
-            # assert(BD_scores[-1] < 1000)
-            # # weighted_scores = BD_scores + self.pibt_r * (1 - logits) # TODO: tune this
-            # # weighted_scores = weighted_scores / weighted_scores.sum()
-            # # pdb.set_trace()
-            # actionPreferences = np.argsort(BD_scores) # If strict ordering, sorts min to max
-        moves_ordered = moves_ordered[actionPreferences]
+        #     ### Below is for sanity checking that PIBT with BDs works as expected (it does)
+        #     # BD_scores = []
+        #     # for drow, dcol in moves_ordered:
+        #     #     neighbor_row = int(current_positions[agent_id][0] + drow)
+        #     #     neighbor_col = int(current_positions[agent_id][1] + dcol)
+        #     #     if neighbor_row < 0 or neighbor_col < 0 or neighbor_row >= self.size_map[0] or neighbor_col >= self.size_map[1]:
+        #     #         BD_scores.append(9999)
+        #     #         continue
+        #     #     neighbor_score = self.BDs[agent_id, neighbor_row, neighbor_col]
+        #     #     if neighbor_score == np.inf:
+        #     #         BD_scores.append(9999)
+        #     #         continue
+        #     #     BD_scores.append(neighbor_score + np.random.uniform(0, 1))
+        #     # # assert(self.BDs[agent_id, current_positions[agent_id][0], current_positions[agent_id][1]] < 1000
+        #     # assert(BD_scores[-1] < 1000)
+        #     # # weighted_scores = BD_scores + self.pibt_r * (1 - logits) # TODO: tune this
+        #     # # weighted_scores = weighted_scores / weighted_scores.sum()
+        #     # # pdb.set_trace()
+        #     # actionPreferences = np.argsort(BD_scores) # If strict ordering, sorts min to max
+        # pdb.set_trace()
+        moves_ordered = moves_ordered[actionPreferences[agent_id]]
         if agent_id in constrained_agents.keys(): # Force agent to only pick that action if constrained
             action_index = constrained_agents[agent_id]
             moves_ordered = moves_ordered[action_index:action_index+1]
@@ -516,7 +517,7 @@ class multiRobotSimNew:
             conflictingAgent = findAgentAtLocation(next_loc)
             if conflictingAgent != -1 and conflictingAgent != agent_id and conflictingAgent not in plannedAgents:
                 # Recurse
-                isvalid = self.pibt(conflictingAgent, actionPreds, plannedAgents,
+                isvalid = self.pibt(conflictingAgent, actionPreferences, plannedAgents,
                                     moveMatrix, occupiedNodes, occupiedEdges, current_positions,
                                     curLocationsToAgent, constrained_agents)
                 if isvalid:
@@ -672,7 +673,7 @@ class multiRobotSimNew:
         return move, out_boundary == True, move_to_wall, collide_agents, collide_in_move_agents
 
     def move(self, agent_priorities, current_positions, end_step, actionVec, currentstep,
-                cur_constraints):
+                cur_constraints, actionPreferences=None):
 
         check_predictCollsion = False
         check_moveCollision = False
@@ -680,38 +681,38 @@ class multiRobotSimNew:
         # if (not allReachGoal) and (currentstep < self.maxstep):
         if True:
 
-            proposed_actions = [int(self.convectToActionKey(actionVec[id_agent]).cpu())
-                                for id_agent in range(self.config.num_agents)]
-            proposed_actions = np.array(proposed_actions)
-            # print('model_output', proposed_actions)
-            proposed_moves = np.zeros((self.config.num_agents, 2))
-
-            proposed_moves[proposed_actions == self.up_keyValue, :] = self.up
-            proposed_moves[proposed_actions == self.left_keyValue, :] = self.left
-            proposed_moves[proposed_actions == self.down_keyValue, :] = self.down
-            proposed_moves[proposed_actions == self.right_keyValue, :] = self.right
-            proposed_moves[proposed_actions == self.stop_keyValue, :] = self.stop
-
             # update first step to move for each agent
             # self.first_move[(proposed_actions != self.stop_keyValue) & (self.first_move == 0)] = currentstep
             # Check collisions, update valid moves for each agent
             if self.shieldType == "Default":
+                proposed_actions = [int(self.convectToActionKey(actionVec[id_agent]).cpu())
+                                for id_agent in range(self.config.num_agents)]
+                proposed_actions = np.array(proposed_actions)
+                # print('model_output', proposed_actions)
+                proposed_moves = np.zeros((self.config.num_agents, 2))
+
+                proposed_moves[proposed_actions == self.up_keyValue, :] = self.up
+                proposed_moves[proposed_actions == self.left_keyValue, :] = self.left
+                proposed_moves[proposed_actions == self.down_keyValue, :] = self.down
+                proposed_moves[proposed_actions == self.right_keyValue, :] = self.right
+                proposed_moves[proposed_actions == self.stop_keyValue, :] = self.stop
+
                 time_start = time.time()
                 new_move, move_to_boundary, move_to_wall_agents, collide_agents, collide_in_move_agents = self.check_collision(
                     current_positions, proposed_moves)
                 time_end = time.time()
                 self.shieldTime += time_end - time_start
             elif self.shieldType in ["PIBT", "LaCAM"]: ### RVMod
-                numpyActionVec = actionVec.detach().cpu().numpy()
+                # numpyActionVec = actionVec.detach().cpu().numpy()
                 # pdb.set_trace()
                 # time_start = time.time()
                 # prev_new_move, move_to_boundary, move_to_wall_agents, collide_agents, collide_in_move_agents = self.check_collision(
                 #     current_positions, proposed_moves)
                 # self.naiveShieldTime += time.time() - time_start
-
+                assert(actionPreferences is not None)
                 time_start = time.time()
                 new_move, move_to_boundary, move_to_wall_agents, collide_agents, collide_in_move_agents, lacam_worked = self.lacam_check_collision(
-                    numpyActionVec, current_positions, agent_priorities, cur_constraints)
+                    actionPreferences, current_positions, agent_priorities, cur_constraints)
                 time_end = time.time()
                 self.shieldTime += time_end - time_start
                 if lacam_worked is False:
