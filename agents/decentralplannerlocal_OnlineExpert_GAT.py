@@ -885,7 +885,8 @@ class DecentralPlannerAgentLocalWithOnlineExpertGAT(BaseAgent):
 
                     ## Compute agent priorities
                     current_distance = np.sum(np.abs(state - GOAL_POSITIONS), axis=1) # (N,2)->(N)
-                    self.agent_priorities = np.maximum(self.parent.agent_priorities, current_distance) # Increase priority if further from goal
+                    # self.agent_priorities = np.maximum(self.parent.agent_priorities, current_distance) # Increase priority if further from goal
+                    self.agent_priorities = self.parent.agent_priorities + 1
                     self.agent_priorities[current_distance == 0] = 0 # Set priority to 0 if reached goal
 
             def getNextState(self):
@@ -1012,10 +1013,13 @@ class DecentralPlannerAgentLocalWithOnlineExpertGAT(BaseAgent):
         Output:
             actionPreferences: (N,5) array of action preferences
         """
-        logits = self.softMax(curActionPreds).detach().cpu().numpy()
+        if curActionPreds is not None:
+            logits = self.softMax(curActionPreds).detach().cpu().numpy()
+        else:
+            logits = np.random.random_sample(size=(self.config.num_agents, 5))/5  # Use this for random tie breaks
         actionPreferences = np.zeros((self.config.num_agents, 5), dtype=np.int32)
         for agent_id in range(self.config.num_agents):
-            if self.robot.pibt_r > 0: ### Incorporate BDs
+            if self.robot.pibt_r > 0 or self.robot.pibt_r == -1: ### Incorporate BDs
                 BD_scores = []
                 for drow, dcol in self.MOVES_ORDERED:
                     neighbor_row = int(current_positions[agent_id][0] + drow)
@@ -1030,10 +1034,11 @@ class DecentralPlannerAgentLocalWithOnlineExpertGAT(BaseAgent):
                     BD_scores.append(neighbor_score)
                 # assert(self.BDs[agent_id, current_positions[agent_id][0], current_positions[agent_id][1]] < 1000
                 assert(BD_scores[-1] < 1000)
-                weighted_scores = BD_scores + self.robot.pibt_r * (1 - logits) # TODO: tune this
+                weighted_scores = BD_scores + self.robot.pibt_r * (1 - logits[agent_id]) # TODO: tune this
                 # pdb.set_trace()
                 actionPreferences[agent_id] = weighted_scores.argsort()
             else:
+                assert(self.robot.pibt_r == 0)
                 ### Randomly sort using logits
                 # actionPreferences = np.random.choice(5, size=5, replace=False, p=logits)
                 actionPreferences[agent_id] = np.random.choice(5, size=5, replace=False, p=logits[agent_id])
@@ -1097,27 +1102,35 @@ class DecentralPlannerAgentLocalWithOnlineExpertGAT(BaseAgent):
             for step in range(maxstep):
                 currentStep = step + 1
                 self.robot.current_positions = robot_current_positions.copy()
-                currentState = self.robot.getCurrentState()
-                # currentState = customGetCurState(robot_current_positions)
-                currentStateGPU = currentState.to(self.config.device)
 
                 ## Compute agent priorities
                 current_distance = np.sum(np.abs(robot_current_positions - self.robot.goal_positions), axis=1) # (N,2)->(N)
-                agent_priorities = np.maximum(agent_priorities, current_distance) # Increase priority if further from goal
+                # agent_priorities = np.maximum(agent_priorities, current_distance) # Increase priority if further from goal
                 agent_priorities[current_distance == 0] = 0 # Set priority to 0 if reached goal
+                agent_priorities[current_distance != 0] += 1 # Increase priority if have not reached goal
 
-                # gso = self.robot.getGSO(step, robot_current_positions.copy())
-                gso = self.robot.getGSO_ORIG(step)
-                gsoGPU = gso.to(self.config.device)
-                self.model.addGSO(gsoGPU)
+                if self.robot.pibt_r != -1:
+                    currentState = self.robot.getCurrentState()
+                    # currentState = customGetCurState(robot_current_positions)
+                    currentStateGPU = currentState.to(self.config.device)
+                    
+                    # gso = self.robot.getGSO(step, robot_current_positions.copy())
+                    gso = self.robot.getGSO_ORIG(step)
+                    gsoGPU = gso.to(self.config.device)
+                    self.model.addGSO(gsoGPU)
 
-                step_start = time.time()
-                actionVec_predict = self.model(currentStateGPU) # B x N X 5
-                actionVec_predict = actionVec_predict.detach().cpu()
-                time_ForwardPass = time.time() - step_start
+                    step_start = time.time()
+                    actionVec_predict = self.model(currentStateGPU) # B x N X 5
+                    actionVec_predict = actionVec_predict.detach().cpu()
+                    time_ForwardPass = time.time() - step_start
+                    Time_cases_ForwardPass.append(time_ForwardPass)
+                    action_preferences = self.convertActionPredsToPriorities(actionVec_predict, robot_current_positions)
 
-                action_preferences = self.convertActionPredsToPriorities(actionVec_predict, robot_current_positions)
-                Time_cases_ForwardPass.append(time_ForwardPass)
+                else:
+                    Time_cases_ForwardPass.append(0)
+                    actionVec_predict = None
+                    action_preferences = self.convertActionPredsToPriorities(None, robot_current_positions)
+
                 tmpTime = time.time()
                 allReachGoal, check_moveCollision, check_predictCollision, new_move, end_step = self.robot.move(agent_priorities, 
                                 robot_current_positions.copy(), end_step.copy(), actionVec_predict, currentStep, [], action_preferences)
