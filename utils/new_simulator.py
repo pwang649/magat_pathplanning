@@ -753,7 +753,8 @@ class multiRobotSimNew:
 
             # # Check reach goals
             # # print('target:', self.goal_positions)
-            current_distance = np.sum(np.abs(current_positions - self.goal_positions), axis=1)
+            next_positions = current_positions + new_move
+            current_distance = np.sum(np.abs(next_positions - self.goal_positions), axis=1)
             # # print('distance', current_distance)
             reach_goal = np.zeros(self.config.num_agents, )
             reach_goal[current_distance == 0] = 1
