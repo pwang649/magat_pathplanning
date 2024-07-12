@@ -16,7 +16,7 @@ def creat_output_csv(agent_num, scens, folderMod):
     # Write the values to the CSV file
     with open(csv_file_path, 'a', newline='') as csv_file:
         csv_writer = csv.writer(csv_file)
-        csv_writer.writerow(['magatCost', 'magatMakespan', 'magatSucceed', 'pibtShieldTime', 'naiveShieldTime', 'totalTime', 'ECBSCost', 'ECBSMakespan'])
+        csv_writer.writerow(['magatCost', 'magatMakespan', 'magatSucceed', 'pibtShieldTime', 'naiveShieldTime', 'numLacamNodes', 'totalTime', 'ECBSCost', 'ECBSMakespan'])
 
         for case in cases:
             with open(directory + '/predict/predict_map32x32_IDMap00000_IDCase{:05d}.yaml'.format(case), 'r') as file:
@@ -33,12 +33,13 @@ def creat_output_csv(agent_num, scens, folderMod):
             pibtShieldTime = magat_statistics.get('lacamShieldTime', None)
             naiveShieldTime = magat_statistics.get('naiveShieldTime', None)
             totalTime = magat_statistics.get('totalTime', None)
+            numLacamNodes = magat_statistics.get('numLacamNodes', None)
 
             ECBS_statistics = target.get('statistics', {})
             ECBS_cost = ECBS_statistics.get('cost', None)
             ECBS_makespan = ECBS_statistics.get('makespan', None)
 
-            csv_writer.writerow([magat_cost, magat_makespan, succeed, pibtShieldTime, naiveShieldTime, totalTime, ECBS_cost, ECBS_makespan])
+            csv_writer.writerow([magat_cost, magat_makespan, succeed, pibtShieldTime, naiveShieldTime, numLacamNodes, totalTime, ECBS_cost, ECBS_makespan])
 
 def visualize(agent, cases, seed):
     print("Starting visualization!")
@@ -63,10 +64,11 @@ if __name__ == '__main__':
     seeds = range(1,6)
     # seeds = range(1,2)
 
-    rVal = -1
+    rVal = 150
     # folderMod = "_R{}".format(int(rVal*100))
-    folderMod = "_MAGAT_PIBT_BD"
-    # folderMod = "_MAGAT_UPDATE_PIBT_R{}".format((int(rVal*100)))
+    # folderMod = "_MAGAT_UPDATE2_LaCAM_Tiebreak"
+    folderMod = "_MAGAT_UPDATE2_PIBT_R{}".format((int(rVal*100)))
+    # folderMod = "_MAGAT_UPDATE2_CS_PIBT_NoRandom"
 
     for agent in agents:
         directory = "../Data/Results_best/AnimeDemo/dcpOEGAT{}/map32x32_rho1_{}Agent/K2_HS0/TR_M20p1_10Agent/1602191363/Project_G/exp_multinorm/commR_7".format(
@@ -75,7 +77,7 @@ if __name__ == '__main__':
         # Create a CSV file
         csv_file_path = directory + '/output.csv'
         file_exists = os.path.exists(csv_file_path)
-        os.makedirs(os.path.dirname(csv_file_path), exist_ok=True)
+        os.makedirs(os.path.dirname(csv_file_path), exist_ok=True) 
         with open(csv_file_path, 'w', newline='') as csv_file:
             csv_writer = csv.writer(csv_file)
             # csv_writer.writerow(['magatCost', 'magatMakespan', 'magatSucceed', 'ECBSCost', 'ECBSMakespan'])

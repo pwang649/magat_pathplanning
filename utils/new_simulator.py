@@ -116,6 +116,7 @@ class multiRobotSimNew:
         self.shieldTime = 0
         self.naiveShieldTime = 0
         self.totalTime = 0
+        self.numLacamNodes = 0
         assert(self.shieldType in ["Default", "PIBT", "LaCAM"])
 
     def setup(self, loadInput, loadTarget, case_config, tensor_map, ID_dataset, mode):
@@ -765,8 +766,9 @@ class multiRobotSimNew:
             # self.end_step[(current_distance == 0) & (self.end_step == 0)] = currentstep
             ## I think above has a bug when an agent reaches its goal (setting end_step) but then moves out
             ## The self.end_step == 0 will be False so it won't be updated
-            end_step[current_distance != 0] = 0 # Reset end_step for agents that moved out of goal
-            end_step[(current_distance == 0) & (end_step == 0)] = currentstep
+            next_end_step = end_step.copy()
+            next_end_step[current_distance != 0] = 0 # Reset end_step for agents that moved out of goal
+            next_end_step[(current_distance == 0) & (next_end_step == 0)] = currentstep
 
         # if allReachGoal or (currentstep >= self.maxstep):
         #     # if allReachGoal:
@@ -786,7 +788,7 @@ class multiRobotSimNew:
         #     self.makespanPredict = np.max(self.end_step) - np.min(self.first_move) + 1
         #     # print(self.makespanPredict)
 
-        return allReachGoal, check_moveCollision, check_predictCollsion, new_move, end_step
+        return allReachGoal, check_moveCollision, check_predictCollsion, new_move, next_end_step
 
     def save_success_cases(self, mode):
         '''
@@ -860,6 +862,7 @@ class multiRobotSimNew:
         f_sol.write("    lacamShieldTime: {}\n".format(self.shieldTime))
         f_sol.write("    naiveShieldTime: {}\n".format(self.naiveShieldTime))
         f_sol.write("    totalTime: {}\n".format(self.totalTime))
+        f_sol.write("    numLacamNodes: {}\n".format(self.numLacamNodes))
         f_sol.write("schedule:\n")
 
         for id_agent in range(self.config.num_agents):

@@ -866,9 +866,10 @@ class DecentralPlannerAgentLocalWithOnlineExpertGAT(BaseAgent):
         NUM_AGENTS = self.config.num_agents
 
         class HLNode:
-            def __init__(self, robot, state, action_preferences, parent):
+            def __init__(self, robot, state, end_step, action_preferences, parent):
                 self.robot = robot
                 self.state = state
+                self.end_step = end_step
                 self.action_preferences = action_preferences
                 self.parent = parent
                 self.queue_of_constraints = deque()
@@ -877,11 +878,11 @@ class DecentralPlannerAgentLocalWithOnlineExpertGAT(BaseAgent):
 
                 if parent is None:
                     self.depth = 0
-                    self.end_step = np.zeros(NUM_AGENTS, )
+                    # self.end_step = np.zeros(NUM_AGENTS, )
                     self.agent_priorities = np.sum(np.abs(state - GOAL_POSITIONS), axis=1)
                 else:
                     self.depth = self.parent.depth + 1
-                    self.end_step = self.parent.end_step
+                    # self.end_step = self.parent.end_step
 
                     ## Compute agent priorities
                     current_distance = np.sum(np.abs(state - GOAL_POSITIONS), axis=1) # (N,2)->(N)
@@ -891,7 +892,7 @@ class DecentralPlannerAgentLocalWithOnlineExpertGAT(BaseAgent):
 
             def getNextState(self):
                 if len(self.queue_of_constraints) == 0:
-                    return False, None, True
+                    return False, None, None, True
                 curConstraint = self.queue_of_constraints.popleft()
                 # curConstraint is a list of tuples (agentId, actionIndex)
                 # agentId of K correponds to agent with K highest priority (?)
@@ -902,13 +903,13 @@ class DecentralPlannerAgentLocalWithOnlineExpertGAT(BaseAgent):
                     curAgent = curConstraint[-1][0]
                     for i in range(0,5):
                         self.queue_of_constraints.append(curConstraint + [(curAgent+1,i)])
-                allReachGoal, _, _, new_move, end_step = self.robot.move(self.agent_priorities, 
-                            self.state, self.end_step, None, self.depth, curConstraint, self.action_preferences)
+                allReachGoal, _, _, new_move, end_step = self.robot.move(self.agent_priorities.copy(), 
+                            self.state.copy(), self.end_step, None, self.depth+1, curConstraint, self.action_preferences)
                 # pdb.set_trace()
                 if new_move is None: # Failed with the constraints
-                    return False, None, True
+                    return False, None, None, True
                 new_state = self.state + new_move
-                return allReachGoal, new_state, False
+                return allReachGoal, new_state, end_step, False
 
         # Get current state
         # If not seen before
@@ -945,8 +946,9 @@ class DecentralPlannerAgentLocalWithOnlineExpertGAT(BaseAgent):
             return action_preferences
 
         current_state = self.robot.current_positions
+        initial_end_step = np.zeros(NUM_AGENTS, )
         actionPreferences = getActionPrefs(current_state, 0)
-        curNode = HLNode(self.robot, current_state, actionPreferences, None)
+        curNode = HLNode(self.robot, current_state, initial_end_step, actionPreferences, None)
 
         stateToHLNodes = dict()
         stateToHLNodes[str(current_state)] = curNode
@@ -963,18 +965,21 @@ class DecentralPlannerAgentLocalWithOnlineExpertGAT(BaseAgent):
                 mainStack.appendleft(curNode)
             totalNodesExpanded += 1
 
+            # print(curNode.end_step.sum())
+            # pdb.set_trace()
             # Check goal condition will be done in the getNextState function
             
-            isGoal, nextState, notValid = curNode.getNextState()
+            isGoal, nextState, end_step, notValid = curNode.getNextState()
             if isGoal:
                 # Get path via backtracking
-                end_step = curNode.end_step
-                entirePath = []
+                # end_step = curNode.end_step
+                entirePath = [nextState]
                 while curNode is not None:
                     entirePath.append(curNode.state)
                     curNode = curNode.parent
                 entirePath.reverse() # Reverse to get path from start to goal
                 print("-----LaCAM took {} totalNodesExpanded-----".format(totalNodesExpanded))
+                self.robot.numLacamNodes = totalNodesExpanded
                 return entirePath, end_step, True
             if notValid: # We have completed all the children of this node
                 continue # This naturally backtracks
@@ -982,7 +987,7 @@ class DecentralPlannerAgentLocalWithOnlineExpertGAT(BaseAgent):
                 curNode = stateToHLNodes[str(nextState)]
             else:
                 # Create new HL Node
-                curNode = HLNode(self.robot, nextState, getActionPrefs(nextState, 1), curNode)
+                curNode = HLNode(self.robot, nextState, end_step, getActionPrefs(nextState, 1), curNode)
                 stateToHLNodes[str(nextState)] = curNode
 
             mainStack.appendleft(curNode)
@@ -993,6 +998,7 @@ class DecentralPlannerAgentLocalWithOnlineExpertGAT(BaseAgent):
         if (totalNodesExpanded <= MAXNODECOUNT):
             print("----------------LaCAM didn't find a solution?!?!?!---------------")
             # pdb.set_trace()
+        self.robot.numLacamNodes = totalNodesExpanded
 
         ### Return the best path?
         end_step = curNode.end_step
@@ -1042,6 +1048,7 @@ class DecentralPlannerAgentLocalWithOnlineExpertGAT(BaseAgent):
                 ### Randomly sort using logits
                 # actionPreferences = np.random.choice(5, size=5, replace=False, p=logits)
                 actionPreferences[agent_id] = np.random.choice(5, size=5, replace=False, p=logits[agent_id])
+                # actionPreferences[agent_id] = (-logits[agent_id]).argsort() # Not random tie breaking
         return actionPreferences
         
 
@@ -1079,13 +1086,6 @@ class DecentralPlannerAgentLocalWithOnlineExpertGAT(BaseAgent):
         GOAL_POSITIONS = self.robot.goal_positions
         TENSOR_GOAL_POSITIONS = torch.FloatTensor(GOAL_POSITIONS)
         self.robot.initCommunicationRadius()
-
-        def customGetCurState(current_positions):
-            store_goalAgents = torch.FloatTensor(self.robot.goal_positions)
-            store_stateAgents = torch.FloatTensor(current_positions)
-            tensor_currentState = self.robot.AgentState.toInputTensor(store_goalAgents, store_stateAgents)
-            tensor_currentState = tensor_currentState.unsqueeze(0)
-            return tensor_currentState
 
         ### RVMOD
         if self.shieldType == "LaCAM":
@@ -1161,7 +1161,7 @@ class DecentralPlannerAgentLocalWithOnlineExpertGAT(BaseAgent):
                     break
             print("Per step shield time: {}".format(self.robot.shieldTime/currentStep))
             print("Total shield time: {}".format(self.robot.shieldTime))
-            self.robot.totalTime = time.time() - Case_start
+        self.robot.totalTime = time.time() - Case_start
 
         num_agents_reachgoal = self.robot.count_numAgents_ReachGoal()
         # store_GSO, store_communication_radius = self.robot.count_GSO_communcationRadius(currentStep)
